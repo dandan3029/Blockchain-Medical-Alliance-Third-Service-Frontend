@@ -1,0 +1,89 @@
+@import "../../ModuleConfig/Bootstrap/Bootstrap";
+@import "../../Constant/RESIZE";
+
+.PersonalCenter {
+    width: (1433rem/$RESIZE_FACTOR);
+    margin: 0 auto;
+    padding: (70rem/$RESIZE_FACTOR) 0;
+
+    .contentWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .leftPart {
+            .certificateWrapper {
+                height: (831rem/$RESIZE_FACTOR);
+                width: (640rem/$RESIZE_FACTOR);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .certificate {
+                    width: 98%;
+                    height: 98%;
+                    background-repeat: no-repeat !important;
+                    background-size: contain !important;
+                    background-position: center !important;
+                }
+            }
+        }
+
+        .rightPart {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .logoWrapper {
+                width: (541rem/$RESIZE_FACTOR);
+                height: (404rem/$RESIZE_FACTOR);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: #D2D0D0 (10rem/$RESIZE_FACTOR) (10rem/$RESIZE_FACTOR) (30rem/$RESIZE_FACTOR);
+
+                .logo {
+                    width: (390rem/$RESIZE_FACTOR);
+                    height: (280rem/$RESIZE_FACTOR);
+                    background-repeat: no-repeat !important;
+                    background-size: contain !important;
+                    background-position: center !important;
+                }
+            }
+
+            .companyInfoWrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: (388rem/4*3/$RESIZE_FACTOR);
+
+                .infoWrapper {
+                    font-size: (28rem/$RESIZE_FACTOR);
+                    padding: (14rem/$RESIZE_FACTOR) (52rem/$RESIZE_FACTOR);
+                    vertical-align: middle;
+                    box-shadow: #D2D0D0 (5rem/$RESIZE_FACTOR) (0rem/$RESIZE_FACTOR) (20rem/$RESIZE_FACTOR);
+
+                    .label {
+                        display: inline-block;
+                        width: 5em;
+                    }
+
+                    .info {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    .modifyButtonWrapper {
+        text-align: center;
+        margin-top: (32rem/$RESIZE_FACTOR);
+
+        .modifyButton {
+            @extend .btn, .btn-primary;
+            width: (180rem/$RESIZE_FACTOR);
+            height: (60rem/$RESIZE_FACTOR);
+            font-size: (20rem/$RESIZE_FACTOR);
+        }
+    }
+}

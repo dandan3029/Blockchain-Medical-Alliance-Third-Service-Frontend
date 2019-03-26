@@ -1,0 +1,26 @@
+@import "../../Constant/RESIZE";
+
+.InsurancePurchasingDetail {
+    width: (1576rem/$RESIZE_FACTOR);
+    margin: (150rem/$RESIZE_FACTOR) auto;
+
+    .stageProgressIndicatorWrapper {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: (48rem/$RESIZE_FACTOR);
+        text-align: center;
+        margin: (110rem/$RESIZE_FACTOR);
+    }
+
+    .stageTextIndicatorWrapper {
+
+    }
+
+    .stageProcessorWrapper {
+        margin-top: (75rem/$RESIZE_FACTOR);
+    }
+}

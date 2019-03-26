@@ -1,0 +1,47 @@
+@import "../../Constant/RESIZE";
+
+.AccountPageCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: (90rem/$RESIZE_FACTOR) (285rem/$RESIZE_FACTOR);
+
+    .background {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: 0;
+        background: url("../../Static/Account/background.png") no-repeat center;
+        background-size: cover;
+    }
+
+    .contentWrapper {
+        z-index: 1;
+        border: (1rem/$RESIZE_FACTOR) solid #BBB;
+        width: (1350rem/$RESIZE_FACTOR);
+        height: (810rem/$RESIZE_FACTOR);
+        padding: (30rem/$RESIZE_FACTOR) (45rem/$RESIZE_FACTOR);
+        display: flex;
+        justify-content: space-between;
+
+        .imageWrapper {
+            width: (570rem/$RESIZE_FACTOR);
+
+            .image {
+                margin-top: (160rem/$RESIZE_FACTOR);
+                height: (590rem/$RESIZE_FACTOR);
+                background: url("../../Static/Account/sideImage.png") no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .childrenWrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: (690rem/$RESIZE_FACTOR);
+        }
+    }
+}

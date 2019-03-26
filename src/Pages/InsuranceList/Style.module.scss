@@ -1,0 +1,34 @@
+@import "../../Constant/RESIZE";
+
+.InsuranceList {
+
+    .carousel {
+        height: (660rem/$RESIZE_FACTOR);
+    }
+
+    .contentWrapper {
+        padding: (90rem/$RESIZE_FACTOR) (81rem/$RESIZE_FACTOR);
+        max-width: 1920px;
+        margin: 0 auto;
+
+        .listWrapper {
+            margin: (-48rem/$RESIZE_FACTOR) (-45rem/$RESIZE_FACTOR);
+            margin-top: (38rem/$RESIZE_FACTOR - 48rem/$RESIZE_FACTOR);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .insuranceWrapper {
+                margin: (48rem/$RESIZE_FACTOR) (45rem/$RESIZE_FACTOR);
+                width: (409rem/$RESIZE_FACTOR);
+                box-sizing: content-box;
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+            }
+        }
+    }
+}

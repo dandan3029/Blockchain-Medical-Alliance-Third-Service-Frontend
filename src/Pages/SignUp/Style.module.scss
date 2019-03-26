@@ -1,0 +1,108 @@
+@import "../../Constant/RESIZE";
+@import "../../ModuleConfig/Bootstrap/Bootstrap";
+@import "../../Constant/COLOR";
+
+.SignUp {
+    width: (473rem/$RESIZE_FACTOR);
+
+    .title {
+        font-size: (48rem/$RESIZE_FACTOR);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .signUpPart {
+        .signUpForm {
+            margin-top: (9rem/$RESIZE_FACTOR);
+
+            .inputWrapper {
+
+                input:not(.verificationCodeInput) {
+                    @extend .form-control;
+                    font-size: (20rem/$RESIZE_FACTOR);
+                    margin: (14rem/$RESIZE_FACTOR) 0;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    &:invalid {
+                        @extend .is-invalid;
+                    }
+                }
+
+                .verificationCodeInputWrapper {
+                    margin: (14rem/$RESIZE_FACTOR) 0;
+
+                    .verificationCodeInput, .verificationCodeInputLabel {
+                        font-size: (20rem/$RESIZE_FACTOR);
+                    }
+
+                    .verificationCodeInputLabelWrapper {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .linkWrapper {
+                margin-top: (17rem/$RESIZE_FACTOR);
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                font-size: (28rem/$RESIZE_FACTOR);
+
+
+                a {
+                    color: $BLUE;
+                }
+            }
+
+            .buttonWrapper {
+                display: flex;
+                justify-content: center;
+                margin-top: (19rem/$RESIZE_FACTOR);
+
+                .submitButton {
+                    @extend .btn;
+                    color: $WHITE;
+                    width: (254rem/$RESIZE_FACTOR);
+                    height: (80rem/$RESIZE_FACTOR);
+                    border-radius: (40rem/$RESIZE_FACTOR);
+                    font-size: (36rem/$RESIZE_FACTOR);
+                    background-color: $BLUE;
+
+                    &:hover {
+                        color: $WHITE;
+                    }
+                }
+            }
+        }
+    }
+
+    .signUpSuccessPart {
+
+        .buttonWrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: (19rem/$RESIZE_FACTOR);
+
+            .toLoginButton {
+                @extend .btn;
+                color: $WHITE;
+                width: (254rem/$RESIZE_FACTOR);
+                height: (80rem/$RESIZE_FACTOR);
+                border-radius: (40rem/$RESIZE_FACTOR);
+                font-size: (36rem/$RESIZE_FACTOR);
+                background-color: $BLUE;
+
+                &:hover {
+                    color: $WHITE;
+                }
+            }
+        }
+    }
+}

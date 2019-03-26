@@ -1,0 +1,13 @@
+@import "./Constant/FONT";
+@import "./Constant/COLOR";
+@import "./Constant/RESIZE";
+
+html {
+    font-size: $FONT_SIZE_NUMBER*1px;
+    font-family: $SANS_SERIF;
+}
+
+html, body, #root {
+    height: 100%;
+    color: $BLACK;
+}

@@ -1,0 +1,69 @@
+@import "../../ModuleConfig/Bootstrap/Bootstrap";
+@import "../../Constant/RESIZE";
+
+.InsurancePublication {
+
+    padding: (82rem/$RESIZE_FACTOR) (329rem/$RESIZE_FACTOR);
+
+    .contentWrapper {
+        padding: (58rem/$RESIZE_FACTOR) (119rem/$RESIZE_FACTOR);
+        margin: 0 auto;
+
+        .formWrapper {
+            margin-top: (64rem/$RESIZE_FACTOR);
+
+            .inputWrapper {
+                width: 100%;
+                margin: (28rem/$RESIZE_FACTOR) 0;
+
+                .label {
+                    font-size: (28rem/$RESIZE_FACTOR);
+                    margin-bottom: (19rem/$RESIZE_FACTOR);
+                    display: inline-block;
+                }
+
+                input, textarea {
+                    @extend .form-control;
+                    display: block;
+                    height: (57rem/$RESIZE_FACTOR);
+                    font-size: (25rem/$RESIZE_FACTOR);
+
+                    &, &:focus {
+                        background-color: #ECF0F7;
+                    }
+                }
+
+                .insuranceDetailTextArea {
+                    height: (200rem/$RESIZE_FACTOR);
+                    resize: none;
+                }
+            }
+        }
+    }
+
+    .contentWrapper, .buttonGroup {
+        width: (1223rem/$RESIZE_FACTOR);
+        box-sizing: border-box;
+    }
+
+    .buttonGroup {
+        display: block;
+        margin: 0 auto;
+        @extend .btn-group;
+
+        .cancelButton, .publishButton {
+            width: 50%;
+            height: (87rem/$RESIZE_FACTOR);
+            font-size: (28rem/$RESIZE_FACTOR);
+            line-height: 1em;
+        }
+
+        .cancelButton {
+            @extend .btn, .btn-secondary;
+        }
+
+        .publishButton {
+            @extend .btn, .btn-primary;
+        }
+    }
+}

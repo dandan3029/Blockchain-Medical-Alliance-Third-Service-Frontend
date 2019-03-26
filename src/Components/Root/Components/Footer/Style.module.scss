@@ -1,0 +1,25 @@
+@import "../../../../Constant/COLOR";
+@import "../../../../Constant/ROOT";
+@import "../../../../Constant/RESIZE";
+
+.Footer {
+    height: $FOOTER_HEIGHT;
+    background-color: #A5C4D9;
+    color: $WHITE;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .infoWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: (480rem/$RESIZE_FACTOR);
+        font-size: (20rem/$RESIZE_FACTOR);
+
+        .info {
+            line-height: (50rem/$RESIZE_FACTOR);
+        }
+    }
+}

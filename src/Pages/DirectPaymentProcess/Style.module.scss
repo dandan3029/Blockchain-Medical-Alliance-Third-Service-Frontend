@@ -1,0 +1,24 @@
+@import "../../ModuleConfig/Bootstrap/Bootstrap";
+@import "../../Constant/RESIZE";
+
+.DirectPaymentProcess {
+    padding: (41rem/$RESIZE_FACTOR) (58rem/$RESIZE_FACTOR);
+    width: (2000rem/$RESIZE_FACTOR);
+    margin: 0 auto;
+
+    .tableWrapper {
+        margin: (51rem/$RESIZE_FACTOR) 0;
+        background-color: #FFF;
+
+        .processTable {
+            @extend .table, .table-hover, .table-striped;
+            font-size: (28rem/$RESIZE_FACTOR);
+            text-align: center;
+
+            td, th {
+                padding: (29rem/$RESIZE_FACTOR) (28rem/$RESIZE_FACTOR);
+                vertical-align: middle;
+            }
+        }
+    }
+}

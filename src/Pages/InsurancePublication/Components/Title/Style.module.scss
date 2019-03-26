@@ -1,0 +1,8 @@
+@import "../../../../Constant/COLOR";
+@import "../../../../Constant/RESIZE";
+
+.Title {
+    text-align: center;
+    font-size: (36rem/$RESIZE_FACTOR);
+    color: $BLUE;
+}

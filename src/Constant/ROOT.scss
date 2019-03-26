@@ -1,0 +1,5 @@
+@import "./COLOR";
+@import "./RESIZE";
+
+$SHADOW: 0 0 (4rem/$RESIZE_FACTOR) $BLACK;
+$FOOTER_HEIGHT: (170rem/$RESIZE_FACTOR);

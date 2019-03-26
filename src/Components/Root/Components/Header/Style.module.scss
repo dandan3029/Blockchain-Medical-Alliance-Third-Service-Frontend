@@ -1,0 +1,62 @@
+@import "../../../../Constant/COLOR";
+@import "../../../../Constant/ROOT";
+@import "../../../../Constant/RESIZE";
+
+.Header {
+    width: 100%;
+    height: (80rem/$RESIZE_FACTOR);
+    background-color: $WHITE;
+    color: $BLACK;
+    font-size: (28rem/$RESIZE_FACTOR);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 (160rem/$RESIZE_FACTOR);
+
+    a {
+        color: $BLACK;
+        text-decoration: none;
+
+        &:hover {
+            color: $BLUE;
+            text-decoration: none;
+        }
+    }
+
+    .logoWrapper {
+
+        .logo {
+            width: (56rem/$RESIZE_FACTOR);
+        }
+    }
+
+    .rightWrapper {
+        display: flex;
+        justify-content: space-between;
+        width: (743rem/$RESIZE_FACTOR);
+
+
+        .navWrapper {
+            width: (516rem/$RESIZE_FACTOR);
+            display: flex;
+            justify-content: space-between;
+
+            .navItem {
+
+            }
+        }
+
+        .authControllerWrapper {
+            width: (140rem/$RESIZE_FACTOR);
+            text-align: center;
+
+            .link {
+
+            }
+        }
+
+        .active {
+            color: $BLUE;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+@import "../../Constant/COLOR";
+@import "../../Constant/RESIZE";
+
+.Selector {
+    font-size: (28rem/$RESIZE_FACTOR);
+    width: 100%;
+
+    .series {
+        margin-bottom: (38rem/$RESIZE_FACTOR);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .caption {
+            display: inline-block;
+            font-weight: bold;
+            margin-right: (122rem/$RESIZE_FACTOR);
+        }
+
+        .itemWrapper {
+            display: inline-block;
+
+            .item {
+                display: inline-block;
+                width: (192rem/$RESIZE_FACTOR);
+                cursor: pointer;
+
+                &.active, &:hover {
+                    color: $BLUE;
+                }
+            }
+        }
+    }
+}

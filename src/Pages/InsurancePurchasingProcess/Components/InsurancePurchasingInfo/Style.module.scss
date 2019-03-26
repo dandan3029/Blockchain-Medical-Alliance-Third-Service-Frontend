@@ -1,0 +1,21 @@
+@import "../../../../Constant/RESIZE";
+
+.InsuranceInfo {
+    cursor: pointer;
+    user-select: none;
+
+
+    .publicKey {
+        max-width: (192rem/$RESIZE_FACTOR);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-family: monospace;
+        text-decoration: underline dotted;
+    }
+
+    &.active, &.active:hover {
+        background-color: #F00 !important;
+        color: #FFF !important;
+    }
+}

@@ -1,0 +1,34 @@
+@import "../../Constant/COLOR";
+@import "../../Constant/RESIZE";
+
+.Insurance {
+    background-color: $WHITE;
+    width: (409rem/$RESIZE_FACTOR);
+    height: (470rem/$RESIZE_FACTOR);
+    padding: 0;
+    border: (1rem/$RESIZE_FACTOR) solid #BBB;
+
+    .image {
+        width: 100%;
+        height: (295rem/$RESIZE_FACTOR);
+        background: url('../../Static/InsuranceList/insurance.jpg') no-repeat center;
+        background-size: cover;
+    }
+
+    .infoWrapper {
+        height: (175rem/$RESIZE_FACTOR);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: (25rem/$RESIZE_FACTOR) (26rem/$RESIZE_FACTOR);
+
+        .info {
+            font-size: (28rem/$RESIZE_FACTOR);
+            line-height: 1em;
+
+            .infoValue {
+
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@import "../../Constant/RESIZE";
+
+.StageTextIndicator {
+    width: 100%;
+    height: (70rem/$RESIZE_FACTOR);
+    font-size: (36rem/$RESIZE_FACTOR);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #BBB;
+
+    .active {
+        color: #005BE7;
+    }
+}
