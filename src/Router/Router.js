@@ -12,14 +12,14 @@ const Routes = () => (
             <IndexRedirect to={PAGE_ID_TO_ROUTE[NOT_REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_LOGIN]} />
             {
                 Object.values(NOT_REQUIRE_LOGIN_PAGE_ID).map(PAGE_ID => <Route path={PAGE_ID_TO_ROUTE[PAGE_ID]}
-                                                                               component={PAGE_ID_TO_COMPONENT[PAGE_ID]}
-                                                                               key={PAGE_ID_TO_ROUTE[PAGE_ID]} />)
+                                                                                component={PAGE_ID_TO_COMPONENT[PAGE_ID]}
+                                                                                key={PAGE_ID_TO_ROUTE[PAGE_ID]} />)
             }
             {
                 Object.values(REQUIRE_LOGIN_PAGE_ID).map(PAGE_ID => <Route path={PAGE_ID_TO_ROUTE[PAGE_ID]}
-                                                                           component={PAGE_ID_TO_COMPONENT[PAGE_ID]}
-                                                                           key={PAGE_ID_TO_ROUTE[PAGE_ID]}
-                                                                           onEnter={AuthProcessorFunction.requireLogin} />)
+                                                                            component={PAGE_ID_TO_COMPONENT[PAGE_ID]}
+                                                                            key={PAGE_ID_TO_ROUTE[PAGE_ID]}
+                                                                            onEnter={AuthProcessorFunction.requireLogin} />)
             }
         </Route>
     </Router>
