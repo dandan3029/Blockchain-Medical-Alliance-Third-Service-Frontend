@@ -18,7 +18,7 @@ const initValues = {
         stageId: INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES,  // 筛选器阶段
     },
     AuthProcessor: {
-        hasLoggedIn: true,
+        hasLoggedIn: false,
     },
     InsurancePurchasingDetail: {
         insurancePurchasingInfo: {
