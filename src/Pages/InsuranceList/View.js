@@ -52,7 +52,7 @@ class InsuranceList extends React.Component
                                 return (
                                     <div className={Style.insuranceWrapper} key={i}>
                                         <Link onlyActiveOnIndex={false}
-                                              to={`${PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_INSURANCE_DETAIL]}?insuranceId=${insuranceId}`}>
+                                                to={`${PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_INSURANCE_DETAIL]}?insuranceId=${insuranceId}`}>
                                             <Insurance {...{
                                                 insuranceSource,
                                                 insuranceDuration,
