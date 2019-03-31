@@ -21,9 +21,9 @@ class Radio extends Component
         return (
             <div className={`custom-control custom-radio ${Style.Radio}`} onClick={onClick}>
                 <input type="radio"
-                       id={id}
-                       className={`custom-control-input ${className}`}
-                       ref={radioRef} />
+                        id={id}
+                        className={`custom-control-input ${className}`}
+                        ref={radioRef} />
                 <label className="custom-control-label" htmlFor={id}>{label}</label>
             </div>
         );
