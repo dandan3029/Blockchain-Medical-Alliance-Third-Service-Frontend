@@ -9,7 +9,7 @@ import {Function as AuthProcessorFunction} from '../Components/AuthProcessor';
 const Routes = () => (
     <Router history={browserHistory}>
         <Route path='/' component={RootContainer}>
-            <IndexRedirect to={PAGE_ID_TO_ROUTE[NOT_REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_LOGIN]} />
+            <IndexRedirect to={PAGE_ID_TO_ROUTE[NOT_REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_LOGIN]} />
             {
                 Object.values(NOT_REQUIRE_LOGIN_PAGE_ID).map(PAGE_ID => <Route path={PAGE_ID_TO_ROUTE[PAGE_ID]}
                                                                                 component={PAGE_ID_TO_COMPONENT[PAGE_ID]}

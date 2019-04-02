@@ -9,7 +9,7 @@ class InsurancePublication extends React.Component
 {
     onCancelButtonClick = () =>
     {
-        browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_INSURANCE_LIST]);
+        browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST]);
     };
 
     //TODO：项目未确定，后台待补充
