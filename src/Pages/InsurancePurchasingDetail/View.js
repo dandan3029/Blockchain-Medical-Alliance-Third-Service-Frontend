@@ -18,7 +18,7 @@ class InsurancePurchasingDetail extends React.Component
         const {insurancePurchasingInfoId} = this.props.location.query;
         if (insurancePurchasingInfoId === undefined)
         {
-            browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_INSURANCE_PURCHASING_PROCESS]);
+            browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PURCHASING_PROCESS]);
         }
         else
         {
@@ -40,7 +40,7 @@ class InsurancePurchasingDetail extends React.Component
             <div className={Style.InsurancePurchasingDetail}>
                 <div className={Style.stageProgressIndicatorWrapper}>
                     <HorizontalStageProgressIndicator currentStageNumber={stageNumber}
-                                                      maxStageNumber={stageTextArray.length - 1} />
+                                                        maxStageNumber={stageTextArray.length - 1} />
                 </div>
                 <div className={Style.title}>进度详情</div>
                 <div className={Style.stageTextIndicatorWrapper}>
