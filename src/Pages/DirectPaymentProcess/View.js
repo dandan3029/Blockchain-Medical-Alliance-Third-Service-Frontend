@@ -134,17 +134,17 @@ class DirectPaymentProcess extends React.Component
                                 if (age >= minAge && age <= maxAge && (directPaymentStage === stageId || stageId === DIRECT_PAYMENT_STAGE_ID.ALL_STAGES))
                                 {
                                     return <DirectPaymentInfo directPaymentInfoId={directPaymentInfoId}
-                                                              name={name}
-                                                              age={age}
-                                                              isMale={isMale}
-                                                              healthState={healthState}
-                                                              publicKey={publicKey}
-                                                              directPaymentMoneyAmount={directPaymentMoneyAmount}
-                                                              insurancePurchasingInfoId={insurancePurchasingInfoId}
-                                                              directPaymentStage={directPaymentStage}
-                                                              key={directPaymentInfoId}
-                                                              onDiagnosticResultButtonClick={this.onDiagnosticResultButtonClick(diagnosticResult)}
-                                                              onMedicalDescriptionButtonClick={this.onMedicalDescriptionButtonClick(medicalDescription)} />;
+                                                                name={name}
+                                                                age={age}
+                                                                isMale={isMale}
+                                                                healthState={healthState}
+                                                                publicKey={publicKey}
+                                                                directPaymentMoneyAmount={directPaymentMoneyAmount}
+                                                                insurancePurchasingInfoId={insurancePurchasingInfoId}
+                                                                directPaymentStage={directPaymentStage}
+                                                                key={directPaymentInfoId}
+                                                                onDiagnosticResultButtonClick={this.onDiagnosticResultButtonClick(diagnosticResult)}
+                                                                onMedicalDescriptionButtonClick={this.onMedicalDescriptionButtonClick(medicalDescription)} />;
                                 }
                                 else
                                 {
