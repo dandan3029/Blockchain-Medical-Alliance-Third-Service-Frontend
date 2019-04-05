@@ -8,10 +8,10 @@ export function changeFilterAgeRangeAction(minAge = Number.MIN_VALUE, maxAge = N
     };
 }
 
-export function changeFilterInsurancePurchasingStageAction(stageId)
+export function changeFilterDirectPaymentStageAction(stageId)
 {
     return {
-        type: ACTION_TYPE.CHANGE_FILTER_INSURANCE_PURCHASING_STAGE,
+        type: ACTION_TYPE.CHANGE_FILTER_DIRECT_PAYMENT_STAGE,
         stageId,
     };
 }

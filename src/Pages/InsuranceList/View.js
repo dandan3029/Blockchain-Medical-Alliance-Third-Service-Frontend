@@ -22,8 +22,17 @@ class InsuranceList extends React.Component
 
     componentDidMount()
     {
-
-        Api.sendGetInsuranceListRequestAsync()
+        const insuranceList = [];
+        for( let i = 0; i < 6; i ++ ){
+            insuranceList.push({
+                insuranceId: i + 1,
+                insuranceSource: "中国人寿",
+                insuranceDuration:"3年",
+                insurancePrice:1500
+            })
+        }
+        this.setState({insuranceList});
+        /*Api.sendGetInsuranceListRequestAsync()
             .then(insuranceListWrapper =>
             {
                 if (insuranceListWrapper)
@@ -33,7 +42,7 @@ class InsuranceList extends React.Component
                         insuranceList,
                     });
                 }
-            });
+            });*/
     }
 
     render()

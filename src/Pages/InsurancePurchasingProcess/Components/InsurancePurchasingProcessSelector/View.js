@@ -35,36 +35,14 @@ class InsurancePurchasingProcessSelector extends React.Component
                     changeFilterAgeRange(81);
                 }, minAge === 81 && maxAge === Number.MAX_VALUE),
             ]),
-            new Series('状态', /*[
-                new Item('全部', () =>
-                {
-                    changeFilterInsurancePurchasingStage();
-                }, stageId === INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES),
-                new Item('申请', () =>
-                {
-                    changeFilterInsurancePurchasingStage(INSURANCE_PURCHASING_STAGE_ID.APPLICATION);
-                }, stageId === INSURANCE_PURCHASING_STAGE_ID.APPLICATION),
-                new Item('审核', () =>
-                {
-                    changeFilterInsurancePurchasingStage(INSURANCE_PURCHASING_STAGE_ID.INSURANCE_COMPANY_VERIFY);
-                }, stageId === INSURANCE_PURCHASING_STAGE_ID.INSURANCE_COMPANY_VERIFY),
-                new Item('缴费', () =>
-                {
-                    changeFilterInsurancePurchasingStage(INSURANCE_PURCHASING_STAGE_ID.PAY);
-                }, stageId === INSURANCE_PURCHASING_STAGE_ID.PAY),
-                new Item('完成', () =>
-                {
-                    changeFilterInsurancePurchasingStage(INSURANCE_PURCHASING_STAGE_ID.COMPLETE);
-                }, stageId === INSURANCE_PURCHASING_STAGE_ID.COMPLETE),
-            ]*/
-                Object.values(INSURANCE_PURCHASING_STAGE_ID).map(stageId => new Item(INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[stageId],
+            new Series('状态', Object.values(INSURANCE_PURCHASING_STAGE_ID).map(stageId => new Item(INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[stageId],
                     () =>
                     {
                         changeFilterInsurancePurchasingStage(stageId);
                     }, currentActiveStageId === stageId),
                 )),
         ];
-        return <Selector className={Style.InsurancePurchasingProcessSelector} seriesArray={seriesArray} />;
+        return (<Selector className={Style.InsurancePurchasingProcessSelector} seriesArray={seriesArray} />);
     }
 }
 

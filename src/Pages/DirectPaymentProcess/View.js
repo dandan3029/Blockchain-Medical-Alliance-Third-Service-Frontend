@@ -2,7 +2,7 @@ import React from 'react';
 import Style from './Style.module.scss';
 import {View as DirectPaymentProcessSelector} from './Components/DirectPaymentProcessSelector';
 import DirectPaymentInfo from './Components/DirectPaymentInfo/View';
-// import Function from '../../Function';
+import Function from '../../Function';
 import {connect} from 'react-redux';
 import NAMESPACE from '../../NAMESPACE';
 import {DIRECT_PAYMENT_STAGE_ID, MODAL_ID} from '../../Constant';
@@ -25,7 +25,7 @@ class DirectPaymentProcess extends React.Component
 
     componentDidMount()
     {
-        /*const directPaymentInfoList = [];
+        const directPaymentInfoList = [];
         for (let i = 0; i < 30; i++)
         {
             directPaymentInfoList.push({
@@ -34,10 +34,10 @@ class DirectPaymentProcess extends React.Component
                 age: Math.round(Math.random() * 80 + 1),
                 isMale: 0,
                 healthState: '健康',
-                publicKey: Function.randomString(52),
+                publicKey: Function.randomString(),
                 directPaymentMoneyAmount: Math.round(Math.random() * 20000 + 1000),
-                diagnosticResult: Function.randomString(20),
-                medicalDescription: Function.randomString(20),
+                diagnosticResult: Function.randomString(),
+                medicalDescription: Function.randomString(),
                 insuranceType: '少年英才保险',
                 insurancePurchasingTime: '2019年03月17日',
                 insurancePeriod: `${Math.round(Math.random() * 10 + 1)} 年`,
@@ -51,9 +51,9 @@ class DirectPaymentProcess extends React.Component
 
         this.setState({
             directPaymentInfoList,
-        });*/
+        });
 
-        Api.sendGetDirectPaymentInfoListRequestAsync()
+        /*Api.sendGetDirectPaymentInfoListRequestAsync()
             .then(directPaymentInfoListWrapper =>
             {
                 if (directPaymentInfoListWrapper)
@@ -62,7 +62,7 @@ class DirectPaymentProcess extends React.Component
                         directPaymentInfoList: directPaymentInfoListWrapper[NAMESPACE.DIRECT_PAYMENT_PROCESS.LIST.DIRECT_PAYMENT_INFO],
                     });
                 }
-            });
+            });*/
     }
 
     onDiagnosticResultButtonClick = (diagnosticResult) =>

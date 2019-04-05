@@ -3,14 +3,14 @@ import Style from './Style.module.scss';
 import {Object as SelectorObject, View as Selector} from '../../../../Components/Selector';
 import {DIRECT_PAYMENT_STAGE_ID, DIRECT_PAYMENT_STAGE_ID_TO_TEXT} from '../../../../Constant';
 import {connect} from 'react-redux';
-import {changeFilterAgeRangeAction, changeFilterInsurancePurchasingStageAction} from '../../Actions/Actions';
+import {changeFilterAgeRangeAction, changeFilterDirectPaymentStageAction} from '../../Actions/Actions';
 
 class DirectPaymentProcessSelector extends React.Component
 {
     render()
     {
         const {Series, Item} = SelectorObject;
-        const {ageRange: [minAge, maxAge], stageId: currentSelectedStageId, changeFilterAgeRange, changeFilterInsurancePurchasingStage} = this.props;
+        const {ageRange: [minAge, maxAge], stageId: currentSelectedStageId, changeFilterAgeRange, changeFilterDirectPaymentStage} = this.props;
         const seriesArray = [
             new Series('年龄', [
                 new Item('全部', () =>
@@ -37,7 +37,7 @@ class DirectPaymentProcessSelector extends React.Component
             new Series('状态', Object.values(DIRECT_PAYMENT_STAGE_ID).map(stageId => new Item(DIRECT_PAYMENT_STAGE_ID_TO_TEXT[stageId],
                 () =>
                 {
-                    changeFilterInsurancePurchasingStage(stageId);
+                    changeFilterDirectPaymentStage(stageId);
                 }, currentSelectedStageId === stageId))),
         ];
         return (<Selector seriesArray={seriesArray} className={Style.DirectPaymentProcessSelector} />);
@@ -55,7 +55,7 @@ const mapStateToProps = state =>
 
 const mapDispatchToProps = {
     changeFilterAgeRange: changeFilterAgeRangeAction,
-    changeFilterInsurancePurchasingStage: changeFilterInsurancePurchasingStageAction,
+    changeFilterDirectPaymentStage: changeFilterDirectPaymentStageAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DirectPaymentProcessSelector);

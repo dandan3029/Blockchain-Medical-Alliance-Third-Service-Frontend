@@ -2,7 +2,7 @@ import React from 'react';
 import Style from './Style.module.scss';
 import {View as InsurancePurchasingProcessSelector} from './Components/InsurancePurchasingProcessSelector';
 import {View as InsurancePurchasingInfo} from './Components/InsurancePurchasingInfo';
-// import Function from '../../Function';
+import Function from '../../Function';
 import {connect} from 'react-redux';
 import {INSURANCE_PURCHASING_STAGE_ID} from '../../Constant';
 import NAMESPACE from '../../NAMESPACE';
@@ -20,7 +20,7 @@ class InsurancePurchasingProcess extends React.Component
 
     componentDidMount()
     {
-        /*const insurancePurchasingInfoList = [];
+        const insurancePurchasingInfoList = [];
         for (let i = 0; i < 30; i++)
         {
             insurancePurchasingInfoList.push({
@@ -29,7 +29,7 @@ class InsurancePurchasingProcess extends React.Component
                 age: Math.round(Math.random() * 80 + 1),
                 isMale: 0,
                 healthState: '健康',
-                publicKey: Function.randomString(52),
+                publicKey: Function.randomString(),
                 insuranceType: '少年英才保险',
                 insurancePurchasingTime: '2019年03月17日',
                 insurancePeriod: `${Math.round(Math.random() * 10 + 1)} 年`,
@@ -42,9 +42,9 @@ class InsurancePurchasingProcess extends React.Component
 
         this.setState({
             insurancePurchasingInfoList,
-        });*/
+        });
 
-        Api.sendGetInsurancePurchasingInfoListRequest()
+        /*Api.sendGetInsurancePurchasingInfoListRequest()
             .then(insurancePurchasingInfoListWrapper =>
             {
                 if (insurancePurchasingInfoListWrapper)
@@ -54,7 +54,7 @@ class InsurancePurchasingProcess extends React.Component
                         insurancePurchasingInfoList,
                     });
                 }
-            });
+            });*/
     }
 
 

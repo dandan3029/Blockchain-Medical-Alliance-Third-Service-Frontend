@@ -13,7 +13,7 @@ export default (state = {}, action) =>
                 ageRange,
             };
         }
-        case ACTION_TYPE.CHANGE_FILTER_INSURANCE_PURCHASING_STAGE:
+        case ACTION_TYPE.CHANGE_FILTER_DIRECT_PAYMENT_STAGE:
         {
             const {stageId} = action;
             return {
