@@ -5,7 +5,7 @@ import {Reducer as InsurancePurchasingProcessReducer} from './Pages/InsurancePur
 import {Reducer as DirectPaymentProcessReducer} from './Pages/DirectPaymentProcess';
 import {Reducer as AuthProcessorReducer} from './Components/AuthProcessor';
 import {Reducer as InsurancePurchasingDetailReducer} from './Pages/InsurancePurchasingDetail';
-import {INSURANCE_PURCHASING_STAGE_ID} from './Constant';
+import {INSURANCE_PURCHASING_STAGE_ID, DIRECT_PAYMENT_STAGE_ID} from './Constant';
 
 // Store 中的初始值，根据开发需要进行改变
 const initValues = {
@@ -15,7 +15,7 @@ const initValues = {
     },
     DirectPaymentProcess: {
         ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
-        stageId: INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES,  // 筛选器阶段
+        stageId: DIRECT_PAYMENT_STAGE_ID.ALL_STAGES,  // 筛选器阶段
     },
     AuthProcessor: {
         hasLoggedIn: true,
