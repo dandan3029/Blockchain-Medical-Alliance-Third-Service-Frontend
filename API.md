@@ -34,33 +34,11 @@
 
 ## 各个请求的详细信息 (所有请求前缀均为 `/server`)
 
-### 保险列表部分（请求前缀为 `/insuranceList`)
-
-#### `/getInsuranceList`
-
-- 功能说明：获取保险公司可供发布的保险列表
-- 请求方法：GET
-- 请求体：无
-- 响应体：
-```js
-{
-    insuranceList: [                    // 数组，内含多个保险
-        {
-            insuranceId: String,        // 保险唯一标识 ID
-            insuranceSource: String,    // 保险来源，如 "人寿保险"
-            insuranceDuration: String,  // 保期，如 "2 年"
-            insurancePrice: Number,     // 保金，单位是人民币元
-        },
-    ]
-}
-```
-- 其他说明：无
-
 ### 投保信息列表部分（请求前缀为 `/insurancePurchasingProcess`）
 
 #### `/getInsurancePurchasingInfoList`
 
-- 功能说明：获取保险公司投保信息列表
+- 功能说明：获取个人投保信息列表
 - 请求方法：GET
 - 请求体：无
 - 响应体：
@@ -69,15 +47,12 @@
     insurancePurchasingInfoList: [                  // 数组，内含多条投保信息
         {
             insurancePurchasingInfoId: String,      // 这条信息的唯一识别 ID
-            name: String,                           // 投保人姓名
-            age: Number,                            // 投保人年龄
-            isMale: Number,                         // 投保人是不是男性，0为女，1为男
-            healthState: String,                    // 投保人健康状况
-            publicKey: String,                      // 投保人公钥
             insuranceType: String,                  // 保险类型
+            insuranceCompany:String,                // 投保该保险所在保险公司
             insurancePurchasingTime: String,        // 投保时间
             insurancePeriod: String,                // 保险时长
             insurancePrice: Number,                 // 保金，单位人民币元
+            publicKey: String,                      // 投保人公钥
             insurancePurchasingStage: ENUM_NUMBER,  // 投保阶段，枚举值
             responsiblePersonId: Number,            // 负责人 ID，用于获取负责人信息
             responsiblePersonName: String,          // 负责人姓名
@@ -112,10 +87,8 @@
     directPaymentInfoList: [        // 数组，内含多条直付信息
         {
             directPaymentInfoId: String,            // 这条直付信息的唯一识别 ID
-            name: String,                           // 投保人姓名
-            age: Number,                            // 投保人年龄
-            isMale: Number,                         // 投保人是不是男性，0为女，1为男
-            healthState: String,                    // 投保人健康状况
+            insuranceCompany: String,               // 投保所在保险公司
+            hospital: String,                       // 需要直付的医院
             publicKey: String,                      // 投保人公钥
             directPaymentMoneyAmount: Number,       // 直付金额，单位是人民币元
             diagnosticResult: String,               // 诊断结果
@@ -215,81 +188,15 @@
 ```js
 {
     insurancePurchasingInfoId: String,      // 这条信息的唯一识别 ID
-    name: String,                           // 投保人姓名
-    age: Number,                            // 投保人年龄
-    isMale: Number,                         // 投保人是不是男性，0为女，1为男
-    healthState: String,                    // 投保人健康状况
-    publicKey: String,                      // 投保人公钥
     insuranceType: String,                  // 保险类型
+    insuranceCompany:String,                // 投保该保险所在保险公司
     insurancePurchasingTime: String,        // 投保时间
     insurancePeriod: String,                // 保险时长
     insurancePrice: Number,                 // 保金，单位人民币元
+    publicKey: String,                      // 投保人公钥
     insurancePurchasingStage: ENUM_NUMBER,  // 投保阶段，枚举值
     responsiblePersonId: Number,            // 负责人 ID，用于获取负责人信息
     responsiblePersonName: String,          // 负责人姓名
 }
 ```
-- 其他说明：无
-
-#### `/getElectronicInsurancePolicy`
-
-- 功能说明：获取电子保单
-- 请求方法：GET
-- 请求体：
-```js
-{
-    insurancePurchasingInfoId: String,
-}
-```
-- 响应体：
-```js
-{
-    electronicInsurancePolicy: String,  // 电子保单内容
-}
-```
-- 其他说明：无
-
-#### `/getMedicalRecord`
-
-- 功能说明：获取病历
-- 请求方法：GET
-- 请求体：
-```js
-{
-    insurancePurchasingInfoId: String,
-}
-```
-- 响应体：
-```js
-{
-    medicalRecord: String,  // 病历内容
-}
-```
-- 其他说明：无
-
-#### `/submitInsuranceCompanyVerifyResult`
-
-- 功能说明：提交保险公司审核结果
-- 请求方法：POST
-- 请求体：
-```js
-{
-    insurancePurchasingInfoId: String,  // 被审核投保信息
-    verifyResult: Boolean,  // 是否审核通过
-}
-```
-- 响应体：无
-- 其他说明：无
-
-#### `/submitPayConfirmation`
-
-- 功能说明：提交确认投保人已缴费信息
-- 请求方法：POST
-- 请求体：
-```js
-{
-    insurancePurchasingInfoId: String,
-}
-```
-- 响应体：无
 - 其他说明：无
