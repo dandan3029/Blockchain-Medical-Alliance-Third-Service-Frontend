@@ -37,15 +37,12 @@ class InsurancePurchasingInfo extends React.Component
     render()
     {
         const {
-            name,
-            age,
-            isMale,
-            healthState,
-            publicKey,
             insuranceType,
+            insuranceCompany,
             insurancePurchasingTime,
             insurancePeriod,
             insurancePrice,
+            publicKey,
             insurancePurchasingStage,
             responsiblePersonName,
         } = this.props;
@@ -53,10 +50,11 @@ class InsurancePurchasingInfo extends React.Component
             <tr className={`${Style.InsuranceInfo}`}
                 onClick={this.onInsuranceInfoClick}
                 ref={this.rowRef}>
-                <th scope="row">{name}</th>
-                <td>{age} 岁</td>
-                <td>{isMale ? '男' : '女'}</td>
-                <td>{healthState}</td>
+                <th scope="row">{insuranceType}</th>
+                <td>{insuranceCompany}</td>
+                <td>{insurancePurchasingTime}</td>
+                <td>{insurancePeriod}</td>
+                <td>{insurancePrice} 元</td>
                 <td>
                     <ClickCopy copyText={publicKey} onCopySuccess={
                         () =>
@@ -72,10 +70,6 @@ class InsurancePurchasingInfo extends React.Component
                         </ToolTip>
                     </ClickCopy>
                 </td>
-                <td>{insuranceType}</td>
-                <td>{insurancePurchasingTime}</td>
-                <td>{insurancePeriod}</td>
-                <td>{insurancePrice} 元</td>
                 <td>{INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[insurancePurchasingStage]}</td>
                 <td>{responsiblePersonName}</td>
             </tr>
@@ -85,15 +79,12 @@ class InsurancePurchasingInfo extends React.Component
 
 InsurancePurchasingInfo.propTypes = {
     insurancePurchasingInfoId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    name: PropTypes.string.isRequired,
-    age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    isMale: PropTypes.oneOf([0, 1]).isRequired,
-    healthState: PropTypes.string.isRequired,
-    publicKey: PropTypes.string.isRequired,
     insuranceType: PropTypes.string.isRequired,
+    insuranceCompany: PropTypes.string.isRequired,
     insurancePurchasingTime: PropTypes.string.isRequired,
     insurancePeriod: PropTypes.string.isRequired,
     insurancePrice: PropTypes.number.isRequired,
+    publicKey: PropTypes.string.isRequired,
     insurancePurchasingStage: PropTypes.oneOf(Object.values(INSURANCE_PURCHASING_STAGE_ID)).isRequired,
     responsiblePersonId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     responsiblePersonName: PropTypes.string.isRequired,
