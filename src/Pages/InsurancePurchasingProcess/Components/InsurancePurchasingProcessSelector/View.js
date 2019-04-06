@@ -1,40 +1,24 @@
 import React from 'react';
 import Style from './Style.module.scss';
 import {Object as SelectorObject, View as Selector} from '../../../../Components/Selector';
-import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT} from '../../../../Constant';
+import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT,INSURANCE_COMPANY} from '../../../../Constant';
 import {connect} from 'react-redux';
-import {changeFilterAgeRangeAction, changeFilterInsurancePurchasingStageAction} from '../../Actions/Actions';
+import {changeFilterInsuranceCompanyAction, changeFilterInsurancePurchasingStageAction} from '../../Actions/Actions';
+import { CONNREFUSED } from 'dns';
 
 class InsurancePurchasingProcessSelector extends React.Component
 {
-
     render()
     {
-        const {ageRange: [minAge, maxAge], stageId: currentActiveStageId, changeFilterAgeRange, changeFilterInsurancePurchasingStage} = this.props;
+        const {companyName: currentActiveInsuranceCompany, stageId: currentActiveStageId, changeFilterInsuranceCompany, changeFilterInsurancePurchasingStage} = this.props;
         const {Series, Item} = SelectorObject;
         const seriesArray = [
-            new Series('年龄', [
-                new Item('全部', () =>
+            new Series('公司',Object.values(INSURANCE_COMPANY).map(companyName => new Item(companyName,
+                () => 
                 {
-                    changeFilterAgeRange();
-                }, minAge === Number.MIN_VALUE && maxAge === Number.MAX_VALUE),
-                new Item('1-20 岁', () =>
-                {
-                    changeFilterAgeRange(1, 20);
-                }, minAge === 1 && maxAge === 20),
-                new Item('21-50 岁', () =>
-                {
-                    changeFilterAgeRange(21, 50);
-                }, minAge === 21 && maxAge === 50),
-                new Item('51-80 岁', () =>
-                {
-                    changeFilterAgeRange(51, 80);
-                }, minAge === 51 && maxAge === 80),
-                new Item('81 岁及以上', () =>
-                {
-                    changeFilterAgeRange(81);
-                }, minAge === 81 && maxAge === Number.MAX_VALUE),
-            ]),
+                    changeFilterInsuranceCompany(companyName);
+                }, currentActiveInsuranceCompany === companyName), 
+            )),
             new Series('状态', Object.values(INSURANCE_PURCHASING_STAGE_ID).map(stageId => new Item(INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[stageId],
                     () =>
                     {
@@ -48,15 +32,15 @@ class InsurancePurchasingProcessSelector extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {InsurancePurchasingProcess: {ageRange, stageId}} = state;
+    const {InsurancePurchasingProcess: {companyName, stageId}} = state;
     return {
-        ageRange,
+        companyName,
         stageId,
     };
 };
 
 const mapDispatchToProps = {
-    changeFilterAgeRange: changeFilterAgeRangeAction,
+    changeFilterInsuranceCompany: changeFilterInsuranceCompanyAction,
     changeFilterInsurancePurchasingStage: changeFilterInsurancePurchasingStageAction,
 };
 
