@@ -43,7 +43,7 @@ class InsurancePurchasingInfo extends React.Component
             insurancePeriod,
             insurancePrice,
             publicKey,
-            insurancePurchasingStage,
+            // insurancePurchasingStage,
             responsiblePersonName,
         } = this.props;
         return (
@@ -70,7 +70,7 @@ class InsurancePurchasingInfo extends React.Component
                         </ToolTip>
                     </ClickCopy>
                 </td>
-                <td>{INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[insurancePurchasingStage]}</td>
+                {/* <td>{INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[insurancePurchasingStage]}</td> */}
                 <td>{responsiblePersonName}</td>
             </tr>
         );

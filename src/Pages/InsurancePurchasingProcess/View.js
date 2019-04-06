@@ -72,7 +72,7 @@ class InsurancePurchasingProcess extends React.Component
                             <th scope="col">保期</th>
                             <th scope="col">投保金额</th>
                             <th scope="col">公钥</th>
-                            <th scope="col">投保阶段</th>
+                            {/* <th scope="col">投保阶段</th> */}
                             <th scope="col">负责人</th>
                         </tr>
                         </thead>
