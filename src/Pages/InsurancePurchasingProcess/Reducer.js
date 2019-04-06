@@ -5,12 +5,12 @@ export default (state = {}, action) =>
     const {type} = action;
     switch (type)
     {
-        case ACTION_TYPE.CHANGE_FILTER_AGE_RANGE:
+        case ACTION_TYPE.CHANGE_FILTER_INSURANCE_COMPANY:
         {
-            const {ageRange} = action;
+            const {companyName} = action;
             return {
                 ...state,
-                ageRange,
+                companyName,
             };
         }
         case ACTION_TYPE.CHANGE_FILTER_INSURANCE_PURCHASING_STAGE:

@@ -4,7 +4,7 @@ import {View as InsurancePurchasingProcessSelector} from './Components/Insurance
 import {View as InsurancePurchasingInfo} from './Components/InsurancePurchasingInfo';
 import Function from '../../Function';
 import {connect} from 'react-redux';
-import {INSURANCE_PURCHASING_STAGE_ID} from '../../Constant';
+import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_COMPANY} from '../../Constant';
 import NAMESPACE from '../../NAMESPACE';
 import Api from '../../Api';
 
@@ -58,7 +58,7 @@ class InsurancePurchasingProcess extends React.Component
     render()
     {
         const {insurancePurchasingInfoList} = this.state;
-        const {ageRange: [minAge, maxAge], stageId} = this.props;
+        const {companyName, stageId} = this.props;
         return (
             <div className={Style.InsurancePurchasingProcess}>
                 <InsurancePurchasingProcessSelector />
@@ -93,7 +93,8 @@ class InsurancePurchasingProcess extends React.Component
                                     [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.RESPONSIBLE_PERSON_NAME]: responsiblePersonName,
                                 } = insurancePurchasingInfo;
                                 //age >= minAge && age <= maxAge &&
-                                if ( (insurancePurchasingStage === stageId || stageId === INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES))
+                                if ( (insuranceCompany === companyName || companyName === INSURANCE_COMPANY.ALL_INSURANCE_COMPANY ) &&
+                                (insurancePurchasingStage === stageId || stageId === INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES))
                                 {
                                     return <InsurancePurchasingInfo insurancePurchasingInfoId={insurancePurchasingInfoId}
                                                                     insuranceType={insuranceType}
@@ -122,9 +123,9 @@ class InsurancePurchasingProcess extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {InsurancePurchasingProcess: {ageRange, stageId}} = state;
+    const {InsurancePurchasingProcess: {companyName, stageId}} = state;
     return {
-        ageRange,
+        companyName,
         stageId,
     };
 };
