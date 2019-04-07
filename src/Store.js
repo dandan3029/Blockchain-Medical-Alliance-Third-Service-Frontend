@@ -5,19 +5,20 @@ import {Reducer as InsurancePurchasingProcessReducer} from './Pages/InsurancePur
 import {Reducer as DirectPaymentProcessReducer} from './Pages/DirectPaymentProcess';
 import {Reducer as AuthProcessorReducer} from './Components/AuthProcessor';
 import {Reducer as InsurancePurchasingDetailReducer} from './Pages/InsurancePurchasingDetail';
+import {Reducer as DirectPaymentDetailReducer} from './Pages/DirectPaymentDetail';
 import {INSURANCE_PURCHASING_STAGE_ID, DIRECT_PAYMENT_STAGE_ID, INSURANCE_COMPANY} from './Constant';
 
 // Store 中的初始值，根据开发需要进行改变
 const initValues = {
     InsurancePurchasingProcess: {
         companyName: INSURANCE_COMPANY.ALL_INSURANCE_COMPANY,     // 筛选器保险公司
-        ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
+        // ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
         insurancePeriodRange: [Number.MIN_VALUE, Number.MAX_VALUE], // 筛选器保期范围
-        stageId: INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES,        // 筛选器阶段
+        // stageId: INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES,        // 筛选器阶段
     },
     DirectPaymentProcess: {
-        companyName: INSURANCE_COMPANY.ALL_INSURANCE_COMPANY,     // 筛选器保险公司
-        ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
+        // companyName: INSURANCE_COMPANY.ALL_INSURANCE_COMPANY,     // 筛选器保险公司
+        // ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
         directPaymentMoneyAmountRange: [Number.MIN_VALUE, Number.MAX_VALUE], // 筛选器直付金额范围
         stageId: DIRECT_PAYMENT_STAGE_ID.ALL_STAGES,              // 筛选器阶段
     },
@@ -41,6 +42,11 @@ const initValues = {
             responsiblePersonName: 'String',          // 负责人姓名*/
         },
     },
+    DirectPaymentDetail:{
+        directPaymentInfo:{
+
+        }
+    }
 };
 
 // 所有中间件放在此处
@@ -56,6 +62,7 @@ const Reducer = combineReducers({
     DirectPaymentProcess: DirectPaymentProcessReducer,
     AuthProcessor: AuthProcessorReducer,
     InsurancePurchasingDetail: InsurancePurchasingDetailReducer,
+    DirectPaymentDetail: DirectPaymentDetailReducer,
 });
 
 export default createStore(Reducer, initValues, storeEnhancers);

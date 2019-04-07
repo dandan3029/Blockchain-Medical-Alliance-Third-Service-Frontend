@@ -32,13 +32,13 @@ class DirectPaymentInfo extends React.Component
     {
         this.stopPropagation(e);
         const {insurancePurchasingInfoId} = this.props;
-        browserHistory.push(`${PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_INSURANCE_PURCHASING_PROCESS]}?insurancePurchasingInfoId=${insurancePurchasingInfoId}`);
+        browserHistory.push(`${PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PURCHASING_PROCESS]}?insurancePurchasingInfoId=${insurancePurchasingInfoId}`);
     };
 
     onDirectPaymentInfoClick = () =>
     {
         const {directPaymentInfoId} = this.props;
-        browserHistory.push(`${PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_DIRECT_PAYMENT_DETAIL]}?directPaymentInfoId=${directPaymentInfoId}`);
+        browserHistory.push(`${PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_DIRECT_PAYMENT_DETAIL]}?directPaymentInfoId=${directPaymentInfoId}`);
     };
 
     render()
@@ -53,6 +53,8 @@ class DirectPaymentInfo extends React.Component
             publicKey,
             directPaymentMoneyAmount,
             directPaymentStage,
+            directPaymentInfoId,
+            insurancePurchasingInfoId,
         } = this.props;
         return (
             <tr className={`${Style.DirectPaymentInfo}`}

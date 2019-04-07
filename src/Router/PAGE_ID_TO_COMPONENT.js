@@ -9,13 +9,14 @@ import {View as DirectPaymentProcess} from '../Pages/DirectPaymentProcess';
 import {View as Login} from '../Pages/Login';
 import {View as SignUp} from '../Pages/SignUp';
 import {View as InsurancePurchasingDetail} from '../Pages/InsurancePurchasingDetail';
+import {View as DirectPaymentDetail} from '../Pages/DirectPaymentDetail';
 
 // 页面对应的组件
 export default {
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST]: InsuranceList,
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PUBLICATION]: InsurancePublication,
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_DIRECT_PAYMENT_PROCESS]: DirectPaymentProcess,
-    [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_DIRECT_PAYMENT_DETAIL]: null,
+    [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_DIRECT_PAYMENT_DETAIL]: DirectPaymentDetail,
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PURCHASING_PROCESS]: InsurancePurchasingProcess,
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PURCHASING_DETAIL]: InsurancePurchasingDetail,
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_PERSONAL_CENTER]: PersonalCenter,
