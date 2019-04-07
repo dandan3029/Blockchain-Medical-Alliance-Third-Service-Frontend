@@ -8,10 +8,18 @@ export function changeFilterInsuranceCompanyAction(companyName)
     };
 }
 
-export function changeFilterInsurancePurchasingStageAction(stageId)
+// export function changeFilterInsurancePurchasingStageAction(stageId)
+// {
+//     return {
+//         type: ACTION_TYPE.CHANGE_FILTER_INSURANCE_PURCHASING_STAGE,
+//         stageId,
+//     };
+// }
+
+export function changeFilterInsurancePeriodRangeAction(minPeriod = Number.MIN_VALUE, maxPeriod = Number.MAX_VALUE)
 {
     return {
-        type: ACTION_TYPE.CHANGE_FILTER_INSURANCE_PURCHASING_STAGE,
-        stageId,
-    };
+        type: ACTION_TYPE.CHANGE_FILTER_INSURANCE_PERIOD_RANGE,
+        insurancePeriodRange:[minPeriod, maxPeriod],
+    }
 }

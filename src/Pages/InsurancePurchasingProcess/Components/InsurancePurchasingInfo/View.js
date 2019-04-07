@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './Style.module.scss';
 import PropTypes from 'prop-types';
-import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT} from '../../../../Constant';
+// import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT} from '../../../../Constant';
 import {browserHistory, withRouter} from 'react-router';
 import {PAGE_ID_TO_ROUTE, REQUIRE_LOGIN_PAGE_ID} from '../../../../Config';
 import {TOOLTIP_POSITION, View as ToolTip} from '../../../../Components/Tooltip';
@@ -43,7 +43,7 @@ class InsurancePurchasingInfo extends React.Component
             insurancePeriod,
             insurancePrice,
             publicKey,
-            insurancePurchasingStage,
+            // insurancePurchasingStage,
             responsiblePersonName,
         } = this.props;
         return (
@@ -53,7 +53,7 @@ class InsurancePurchasingInfo extends React.Component
                 <th scope="row">{insuranceType}</th>
                 <td>{insuranceCompany}</td>
                 <td>{insurancePurchasingTime}</td>
-                <td>{insurancePeriod}</td>
+                <td>{insurancePeriod} 年</td>
                 <td>{insurancePrice} 元</td>
                 <td>
                     <ClickCopy copyText={publicKey} onCopySuccess={
@@ -70,7 +70,7 @@ class InsurancePurchasingInfo extends React.Component
                         </ToolTip>
                     </ClickCopy>
                 </td>
-                <td>{INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[insurancePurchasingStage]}</td>
+                {/* <td>{INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[insurancePurchasingStage]}</td> */}
                 <td>{responsiblePersonName}</td>
             </tr>
         );
@@ -82,10 +82,10 @@ InsurancePurchasingInfo.propTypes = {
     insuranceType: PropTypes.string.isRequired,
     insuranceCompany: PropTypes.string.isRequired,
     insurancePurchasingTime: PropTypes.string.isRequired,
-    insurancePeriod: PropTypes.string.isRequired,
+    insurancePeriod: PropTypes.number.isRequired,
     insurancePrice: PropTypes.number.isRequired,
     publicKey: PropTypes.string.isRequired,
-    insurancePurchasingStage: PropTypes.oneOf(Object.values(INSURANCE_PURCHASING_STAGE_ID)).isRequired,
+    // insurancePurchasingStage: PropTypes.oneOf(Object.values(INSURANCE_PURCHASING_STAGE_ID)).isRequired,
     responsiblePersonId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     responsiblePersonName: PropTypes.string.isRequired,
 };

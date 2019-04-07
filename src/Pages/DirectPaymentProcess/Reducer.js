@@ -5,13 +5,21 @@ export default (state = {}, action) =>
     const {type} = action;
     switch (type)
     {
-        case ACTION_TYPE.CHANGE_FILTER_AGE_RANGE:
+        // case ACTION_TYPE.CHANGE_FILTER_AGE_RANGE:
+        // {
+        //     const {ageRange} = action;
+        //     return {
+        //         ...state,
+        //         ageRange,
+        //     };
+        // }
+        case ACTION_TYPE.CHANGE_FILTER_DIRECT_PAYMENT_MONEY_AMOUNT_RANGE:
         {
-            const {ageRange} = action;
+            const {directPaymentMoneyAmountRange} = action;
             return {
                 ...state,
-                ageRange,
-            };
+                directPaymentMoneyAmountRange,
+            }
         }
         case ACTION_TYPE.CHANGE_FILTER_DIRECT_PAYMENT_STAGE:
         {
