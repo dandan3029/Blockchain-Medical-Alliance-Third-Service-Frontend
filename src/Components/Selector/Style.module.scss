@@ -23,7 +23,7 @@
 
             .item {
                 display: inline-block;
-                width: (192rem/$RESIZE_FACTOR);
+                width: (220rem/$RESIZE_FACTOR);
                 cursor: pointer;
 
                 &.active, &:hover {

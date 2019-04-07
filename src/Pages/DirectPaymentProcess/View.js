@@ -94,7 +94,7 @@ class DirectPaymentProcess extends React.Component
     render()
     {
         const {directPaymentInfoList, currentActiveDiagnosticResultInModal, currentActiveMedicalDescriptionInModal} = this.state;
-        const {ageRange: [minAge, maxAge], stageId} = this.props;
+        const {ageRange: [minAge, maxAge], directPaymentMoneyAmountRange: [minMoneyAmount,maxMoneyAmount],stageId} = this.props;
         return (
             <div className={Style.DirectPaymentProcess}>
                 <DirectPaymentProcessSelector />
@@ -131,9 +131,10 @@ class DirectPaymentProcess extends React.Component
                                     [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.DIRECT_PAYMENT_STAGE]: directPaymentStage,
                                     [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.INSURANCE_PURCHASING_INFO_ID]: insurancePurchasingInfoId,
                                 } = directPaymentInfo;
-                                if (age >= minAge && age <= maxAge && (directPaymentStage === stageId || stageId === DIRECT_PAYMENT_STAGE_ID.ALL_STAGES))
+                                
+                                if ((directPaymentMoneyAmount>= minMoneyAmount && directPaymentMoneyAmount <= maxMoneyAmount ) && (age >= minAge && age <= maxAge) && (directPaymentStage === stageId || stageId === DIRECT_PAYMENT_STAGE_ID.ALL_STAGES))
                                 {
-                                    return <DirectPaymentInfo directPaymentInfoId={directPaymentInfoId}
+                                    return <DirectPaymentInfo   directPaymentInfoId={directPaymentInfoId}
                                                                 name={name}
                                                                 age={age}
                                                                 isMale={isMale}
@@ -164,9 +165,10 @@ class DirectPaymentProcess extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {DirectPaymentProcess: {ageRange, stageId}} = state;
+    const {DirectPaymentProcess: {ageRange, directPaymentMoneyAmountRange,stageId}} = state;
     return {
         ageRange,
+        directPaymentMoneyAmountRange,
         stageId,
     };
 };

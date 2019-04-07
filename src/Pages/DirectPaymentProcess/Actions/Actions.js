@@ -15,3 +15,11 @@ export function changeFilterDirectPaymentStageAction(stageId)
         stageId,
     };
 }
+
+export function changeFilterDirectPaymentMoneyAmountRangeAction(minMoneyAmount = Number.MIN_VALUE, maxMoneyAmount = Number.MAX_VALUE)
+{
+    return {
+        type: ACTION_TYPE.CHANGE_FILTER_DIRECT_PAYMENT_MONEY_AMOUNT_RANGE,
+        directPaymentMoneyAmountRange: [minMoneyAmount, maxMoneyAmount],
+    }
+}

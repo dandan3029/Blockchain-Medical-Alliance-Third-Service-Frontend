@@ -13,6 +13,14 @@ export default (state = {}, action) =>
                 ageRange,
             };
         }
+        case ACTION_TYPE.CHANGE_FILTER_DIRECT_PAYMENT_MONEY_AMOUNT_RANGE:
+        {
+            const {directPaymentMoneyAmountRange} = action;
+            return {
+                ...state,
+                directPaymentMoneyAmountRange,
+            }
+        }
         case ACTION_TYPE.CHANGE_FILTER_DIRECT_PAYMENT_STAGE:
         {
             const {stageId} = action;

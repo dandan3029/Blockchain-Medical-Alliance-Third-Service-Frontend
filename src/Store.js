@@ -12,11 +12,13 @@ const initValues = {
     InsurancePurchasingProcess: {
         companyName: INSURANCE_COMPANY.ALL_INSURANCE_COMPANY,     // 筛选器保险公司
         ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
+        insurancePeriodRange: [Number.MIN_VALUE, Number.MAX_VALUE], // 筛选器保期范围
         stageId: INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES,        // 筛选器阶段
     },
     DirectPaymentProcess: {
         companyName: INSURANCE_COMPANY.ALL_INSURANCE_COMPANY,     // 筛选器保险公司
         ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
+        directPaymentMoneyAmountRange: [Number.MIN_VALUE, Number.MAX_VALUE], // 筛选器直付金额范围
         stageId: DIRECT_PAYMENT_STAGE_ID.ALL_STAGES,              // 筛选器阶段
     },
     AuthProcessor: {
