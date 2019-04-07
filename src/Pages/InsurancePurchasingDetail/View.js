@@ -1,89 +1,119 @@
 import React from 'react';
 import Style from './Style.module.scss';
-import {View as HorizontalStageProgressIndicator} from '../../Components/HorizontalStageProgressIndicator';
-import {View as StageTextIndicator} from '../../Components/StageTextIndicator';
-import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT} from '../../Constant';
-import {browserHistory, withRouter} from 'react-router';
-import {PAGE_ID_TO_ROUTE, REQUIRE_LOGIN_PAGE_ID} from '../../Config';
-import {View as InsuranceCompanyVerifyProcessor} from './Components/InsuranceCompanyVerifyProcessor';
-import {getInsurancePurchasingInfoAction} from './Actions/Actions';
-import {connect} from 'react-redux';
-import NAMESPACE from '../../NAMESPACE';
-import {View as PayConfirmProcessor} from './Components/PayConfirmProcessor';
+import PropTypes from 'prop-types';
+import {View as Card} from '../../Components/Card';
+import Icon from 'antd/lib/icon';
+import Radio from 'antd/lib/radio';
+import Skeleton from 'antd/lib/skeleton';
 
-class InsurancePurchasingDetail extends React.Component
+function InsurancePurchasingDetail(props)
 {
-    componentDidMount()
-    {
-        const {insurancePurchasingInfoId} = this.props.location.query;
-        if (insurancePurchasingInfoId === undefined)
-        {
-            browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PURCHASING_PROCESS]);
-        }
-        else
-        {
-            const {getInsurancePurchasingInfo} = this.props;
-            getInsurancePurchasingInfo(insurancePurchasingInfoId);
-        }
-    }
-
-
-    render()
-    {
-        const stageTextArray = [...INSURANCE_PURCHASING_STAGE_ID_TO_TEXT];
-        const {insurancePurchasingInfo} = this.props;
-        const {
-            [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PURCHASING_INFO_ID]: insurancePurchasingInfoId,
-            [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PURCHASING_STAGE]: stageNumber,
-        } = insurancePurchasingInfo;
-        return (
-            <div className={Style.InsurancePurchasingDetail}>
-                <div className={Style.stageProgressIndicatorWrapper}>
-                    <HorizontalStageProgressIndicator currentStageNumber={stageNumber}
-                                                        maxStageNumber={stageTextArray.length - 1} />
+    const {
+        hasGotInfo,
+        insuranceImageSrc,
+        insuranceName,
+        isSpecialMedicalCare,
+        hasSocialSecurity,
+        insuranceAmount,
+        insurancePeriod,
+        insuranceDiseaseType,
+        coveringAge,
+        salesArea,
+        insurancePrice,
+        eletronicInsurancePolicy,
+    } = props;
+    return (
+        <div className={Style.InsuranceDetail}>
+            <Card className={Style.insuranceDetailContainer}>
+                <div className={Style.imageWrapper}>
+                    <img src={insuranceImageSrc} alt="insuranceImage" className={Style.image} />
                 </div>
-                <div className={Style.title}>进度详情</div>
-                <div className={Style.stageTextIndicatorWrapper}>
-                    <StageTextIndicator currentStageNumber={stageNumber}
-                                        stageTextArray={stageTextArray} />
+                <div className={Style.infoWrapper}>
+                    <Skeleton active={true} loading={!hasGotInfo}>
+                        <div className={Style.info}>
+                            <div className={Style.insuranceNameWrapper}>
+                                <div className={Style.insuranceName}>
+                                <span className={Style.icon}>
+                                    <Icon type="heart" theme="twoTone" twoToneColor={'#F00'} />
+                                </span>
+                                    {insuranceName}
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>特需医疗</div>
+                                <div className={Style.itemContent}>
+                                    <Radio.Group defaultValue={!!isSpecialMedicalCare} disabled={true}>
+                                        <Radio value={true}>包含</Radio>
+                                        <Radio value={false}>不包含</Radio>
+                                    </Radio.Group>
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>有无社保</div>
+                                <div className={Style.itemContent}>
+                                    <Radio.Group defaultValue={!!hasSocialSecurity} disabled={true}>
+                                        <Radio value={true}>有</Radio>
+                                        <Radio value={false}>无</Radio>
+                                    </Radio.Group>
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>保额</div>
+                                <div className={Style.itemContent}>
+                                    {insuranceAmount} 元
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>保障期限</div>
+                                <div className={Style.itemContent}>
+                                    {insurancePeriod}
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>保险病种</div>
+                                <div className={Style.itemContent}>
+                                    {insuranceDiseaseType}
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>承保年龄</div>
+                                <div className={Style.itemContent}>
+                                    {coveringAge}
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>销售区域</div>
+                                <div className={Style.itemContent}>
+                                    {salesArea}
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>保费价格</div>
+                                <div className={Style.itemContent}>
+                                    <span className={Style.insurancePrice}>{insurancePrice}</span>
+                                </div>
+                            </div>
+                            <div className={Style.buttonWrapper} />
+                        </div>
+                    </Skeleton>
                 </div>
-                <div className={Style.stageProcessorWrapper}>
-                    {
-                        (() =>
-                        {
-                            switch (stageNumber)
-                            {
-                                case INSURANCE_PURCHASING_STAGE_ID.INSURANCE_COMPANY_VERIFY:
-                                {
-                                    return <InsuranceCompanyVerifyProcessor insurancePurchasingInfoId={insurancePurchasingInfoId} />;
-                                }
-                                case INSURANCE_PURCHASING_STAGE_ID.PAY:
-                                {
-                                    return <PayConfirmProcessor insurancePurchasingInfo={insurancePurchasingInfo} />;
-                                }
-                                default:
-                                {
-                                    return null;
-                                }
-                            }
-                        })()
-                    }
-                </div>
-            </div>
-        );
-    }
+            </Card>
+        </div>
+    );
 }
 
-const mapStateToProps = state =>
-{
-    const {InsurancePurchasingDetail: {insurancePurchasingInfo}} = state;
-    return {
-        insurancePurchasingInfo,
-    };
+InsurancePurchasingDetail.propTypes = {
+    hasGotInfo: PropTypes.bool.isRequired,
+    insuranceImageSrc: PropTypes.string.isRequired,
+    insuranceName: PropTypes.string.isRequired,
+    isSpecialMedicalCare: PropTypes.number.isRequired,   // 是否是特殊医疗，0 或 1
+    hasSocialSecurity: PropTypes.number.isRequired,      // 有无社保，0 或 1
+    insuranceAmount: PropTypes.number.isRequired,        // 保额，单位是人民币元
+    insurancePeriod: PropTypes.string.isRequired,        // 保险期限
+    insuranceDiseaseType: PropTypes.string.isRequired,   // 保险病种
+    coveringAge: PropTypes.string.isRequired,            // 承保年龄
+    // salesArea: PropTypes.string.isRequired,              // 销售区域
+    insurancePrice: PropTypes.number.isRequired,         // 保费价格，单位是人民币元
 };
 
-const mapDispatchToProps = {
-    getInsurancePurchasingInfo: getInsurancePurchasingInfoAction,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(InsurancePurchasingDetail));
+export default InsurancePurchasingDetail;

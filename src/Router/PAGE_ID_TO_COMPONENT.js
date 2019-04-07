@@ -8,7 +8,8 @@ import {View as InsurancePurchasingProcess} from '../Pages/InsurancePurchasingPr
 import {View as DirectPaymentProcess} from '../Pages/DirectPaymentProcess';
 import {View as Login} from '../Pages/Login';
 import {View as SignUp} from '../Pages/SignUp';
-import {View as InsurancePurchasingDetail} from '../Pages/InsurancePurchasingDetail';
+// import {View as InsurancePurchasingDetail} from '../Pages/InsurancePurchasingDetail';
+import InsurancePurchasingDetail from '../Pages/InsurancePurchasingDetail';
 import {View as DirectPaymentDetail} from '../Pages/DirectPaymentDetail';
 
 // 页面对应的组件

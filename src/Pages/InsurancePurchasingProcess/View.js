@@ -34,6 +34,7 @@ class InsurancePurchasingProcess extends React.Component
                 insurancePurchasingStage: Math.round(Math.random() * 3),
                 responsiblePersonId: 1,
                 responsiblePersonName: '王子贤',
+                insuranceId: i*i,
             });
         }
 
