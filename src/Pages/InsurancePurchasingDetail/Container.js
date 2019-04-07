@@ -50,7 +50,7 @@ class InsurancePurchasingDetailContainer extends React.Component
                 insuranceName: '少儿英才保险',              // 保险名称
                 isSpecialMedicalCare: 0,        // 是否特殊医疗
                 hasSocialSecurity: 0,           // 有无社保
-                insuranceAmount: 0,             // 保额
+                insuranceAmount: Math.round(Math.random()*2000),             // 保额
                 insurancePeriod: '3年',            // 保险期限
                 insuranceDiseaseType: '肺结核，狂犬病',       // 保险病种
                 coveringAge: '20岁以下',                // 承保年龄
