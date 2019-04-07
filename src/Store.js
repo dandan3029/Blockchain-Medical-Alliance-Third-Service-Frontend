@@ -25,7 +25,7 @@ const initValues = {
     AuthProcessor: {
         hasLoggedIn: true,
     },
-    InsurancePurchasingDetail: {
+    /*InsurancePurchasingDetail: {
         insurancePurchasingInfo: {
             /*insurancePurchasingInfoId: 'aaaa',      // 这条信息的唯一识别 ID
             name: '啊啊啊',                           // 投保人姓名
@@ -39,9 +39,9 @@ const initValues = {
             insurancePrice: 'Number',                 // 保金，单位人民币元
             insurancePurchasingStage: INSURANCE_PURCHASING_STAGE_ID.INSURANCE_COMPANY_VERIFY,  // 投保阶段，枚举值
             responsiblePersonId: 1,            // 负责人 ID，用于获取负责人信息
-            responsiblePersonName: 'String',          // 负责人姓名*/
+            responsiblePersonName: 'String',          // 负责人姓名
         },
-    },
+    },*/
     DirectPaymentDetail:{
         directPaymentInfo:{
 

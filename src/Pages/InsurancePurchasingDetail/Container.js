@@ -27,8 +27,8 @@ class InsurancePurchasingDetailContainer extends React.Component
 
     componentDidMount()
     {
-        const {insurancePurchasingId} = this.props.location.query;
-        if (insurancePurchasingId === undefined)
+        const {insurancePurchasingInfoId} = this.props.location.query;
+        if (insurancePurchasingInfoId === undefined)
         {
             browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PURCHASING_PROCESS]);
         }

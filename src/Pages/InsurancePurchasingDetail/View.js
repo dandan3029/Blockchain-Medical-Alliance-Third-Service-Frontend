@@ -20,7 +20,7 @@ function InsurancePurchasingDetail(props)
         coveringAge,
         salesArea,
         insurancePrice,
-        eletronicInsurancePolicy,
+        electronicInsurancePolicy,
     } = props;
     return (
         <div className={Style.InsuranceDetail}>
@@ -82,15 +82,15 @@ function InsurancePurchasingDetail(props)
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>销售区域</div>
+                                <div className={Style.label}>保费价格</div>
                                 <div className={Style.itemContent}>
-                                    {salesArea}
+                                    {insurancePrice}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>保费价格</div>
+                                <div className={Style.label}>电子保单</div>
                                 <div className={Style.itemContent}>
-                                    <span className={Style.insurancePrice}>{insurancePrice}</span>
+                                    {electronicInsurancePolicy}
                                 </div>
                             </div>
                             <div className={Style.buttonWrapper} />
