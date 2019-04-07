@@ -3,7 +3,7 @@ import Style from './Style.module.scss';
 import {Object as SelectorObject, View as Selector} from '../../../../Components/Selector';
 import {DIRECT_PAYMENT_STAGE_ID, DIRECT_PAYMENT_STAGE_ID_TO_TEXT} from '../../../../Constant';
 import {connect} from 'react-redux';
-import {changeFilterAgeRangeAction, changeFilterDirectPaymentStageAction, changeFilterDirectPaymentMoneyAmountRangeAction} from '../../Actions/Actions';
+import {changeFilterDirectPaymentStageAction, changeFilterDirectPaymentMoneyAmountRangeAction} from '../../Actions/Actions';
 
 class DirectPaymentProcessSelector extends React.Component
 {
@@ -11,10 +11,8 @@ class DirectPaymentProcessSelector extends React.Component
     {
         const {Series, Item} = SelectorObject;
         const {
-            ageRange: [minAge, maxAge], 
             directPaymentMoneyAmountRange:[minMoneyAmount,maxMoneyAmount], 
             stageId: currentSelectedStageId, 
-            changeFilterAgeRange,
             changeFilterDirectPaymentMoneyAmountRange, 
             changeFilterDirectPaymentStage
         } = this.props;
@@ -85,7 +83,7 @@ const mapStateToProps = state =>
 };
 
 const mapDispatchToProps = {
-    changeFilterAgeRange: changeFilterAgeRangeAction,
+    // changeFilterAgeRange: changeFilterAgeRangeAction,
     changeFilterDirectPaymentStage: changeFilterDirectPaymentStageAction,
     changeFilterDirectPaymentMoneyAmountRange: changeFilterDirectPaymentMoneyAmountRangeAction,
 };

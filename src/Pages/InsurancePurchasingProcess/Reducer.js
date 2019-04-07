@@ -13,14 +13,14 @@ export default (state = {}, action) =>
                 companyName,
             };
         }
-        case ACTION_TYPE.CHANGE_FILTER_INSURANCE_PURCHASING_STAGE:
-        {
-            const {stageId} = action;
-            return {
-                ...state,
-                stageId,
-            };
-        }
+        // case ACTION_TYPE.CHANGE_FILTER_INSURANCE_PURCHASING_STAGE:
+        // {
+        //     const {stageId} = action;
+        //     return {
+        //         ...state,
+        //         stageId,
+        //     };
+        // }
         case ACTION_TYPE.CHANGE_FILTER_INSURANCE_PERIOD_RANGE:
         {
             const {insurancePeriodRange} = action;

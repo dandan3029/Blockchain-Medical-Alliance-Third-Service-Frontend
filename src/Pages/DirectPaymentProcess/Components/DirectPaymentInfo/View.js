@@ -44,21 +44,21 @@ class DirectPaymentInfo extends React.Component
     render()
     {
         const {
-            name,
-            age,
-            isMale,
-            healthState,
-            directPaymentMoneyAmount,
+            // name,
+            // age,
+            // isMale,
+            // healthState,
+            insuranceCompany,
+            hospital,
             publicKey,
+            directPaymentMoneyAmount,
             directPaymentStage,
         } = this.props;
         return (
             <tr className={`${Style.DirectPaymentInfo}`}
                 onClick={this.onDirectPaymentInfoClick}>
-                <th scope="row">{name}</th>
-                <td>{age} 岁</td>
-                <td>{isMale ? '男' : '女'}</td>
-                <td>{healthState}</td>
+                <th scope="row">{insuranceCompany}</th>
+                <td>{hospital}</td>
                 <td>
                     <ClickCopy copyText={publicKey} onCopySuccess={
                         () =>
@@ -92,10 +92,12 @@ class DirectPaymentInfo extends React.Component
 
 DirectPaymentInfo.propTypes = {
     directPaymentInfoId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    name: PropTypes.string.isRequired,
-    age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    isMale: PropTypes.oneOf([0, 1]).isRequired,
-    healthState: PropTypes.string.isRequired,
+    // name: PropTypes.string.isRequired,
+    // age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    // isMale: PropTypes.oneOf([0, 1]).isRequired,
+    // healthState: PropTypes.string.isRequired,
+    insuranceCompany: PropTypes.string.isRequired,
+    hospital: PropTypes.string.isRequired,
     publicKey: PropTypes.string.isRequired,
     directPaymentMoneyAmount: PropTypes.number.isRequired,
     insurancePurchasingInfoId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,

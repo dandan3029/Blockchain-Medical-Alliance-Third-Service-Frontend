@@ -4,7 +4,7 @@ import {View as InsurancePurchasingProcessSelector} from './Components/Insurance
 import {View as InsurancePurchasingInfo} from './Components/InsurancePurchasingInfo';
 import Function from '../../Function';
 import {connect} from 'react-redux';
-import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_COMPANY} from '../../Constant';
+import {INSURANCE_COMPANY} from '../../Constant';
 import NAMESPACE from '../../NAMESPACE';
 import Api from '../../Api';
 
@@ -58,7 +58,7 @@ class InsurancePurchasingProcess extends React.Component
     render()
     {
         const {insurancePurchasingInfoList} = this.state;
-        const {companyName, insurancePeriodRange: [minPeriod, maxPeriod], stageId} = this.props;
+        const {companyName, insurancePeriodRange: [minPeriod, maxPeriod]} = this.props; //, stageId
         return (
             <div className={Style.InsurancePurchasingProcess}>
                 <InsurancePurchasingProcessSelector />
@@ -88,22 +88,23 @@ class InsurancePurchasingProcess extends React.Component
                                     [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PERIOD]: insurancePeriod,
                                     [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PRICE]: insurancePrice,
                                     [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.PUBLIC_KEY]: publicKey,
-                                    [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PURCHASING_STAGE]: insurancePurchasingStage,
+                                    // [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PURCHASING_STAGE]: insurancePurchasingStage,
                                     [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.RESPONSIBLE_PERSON_ID]: responsiblePersonId,
                                     [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.RESPONSIBLE_PERSON_NAME]: responsiblePersonName,
                                 } = insurancePurchasingInfo;
                                 //age >= minAge && age <= maxAge &&
-                                if ( (insurancePeriod >= minPeriod && insurancePeriod <= maxPeriod )&& (insuranceCompany === companyName || companyName === INSURANCE_COMPANY.ALL_INSURANCE_COMPANY ) &&
-                                (insurancePurchasingStage === stageId || stageId === INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES))
+                                if ( (insurancePeriod >= minPeriod && insurancePeriod <= maxPeriod )&& (insuranceCompany === companyName || companyName === INSURANCE_COMPANY.ALL_INSURANCE_COMPANY ) )
+                                // && (insurancePurchasingStage === stageId || stageId === INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES)
                                 {
                                     return <InsurancePurchasingInfo insurancePurchasingInfoId={insurancePurchasingInfoId}
+                                                                    key = {insurancePurchasingInfoId}
                                                                     insuranceType={insuranceType}
                                                                     insuranceCompany={insuranceCompany}
                                                                     insurancePurchasingTime={insurancePurchasingTime}
                                                                     insurancePeriod={insurancePeriod}
                                                                     insurancePrice={insurancePrice}
                                                                     publicKey={publicKey}
-                                                                    insurancePurchasingStage={insurancePurchasingStage}
+                                                                    // insurancePurchasingStage={insurancePurchasingStage}
                                                                     responsiblePersonName={responsiblePersonName}
                                                                     responsiblePersonId={responsiblePersonId} />;
                                 }
@@ -123,11 +124,11 @@ class InsurancePurchasingProcess extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {InsurancePurchasingProcess: {companyName, insurancePeriodRange, stageId}} = state;
+    const {InsurancePurchasingProcess: {companyName, insurancePeriodRange}} = state; //, stageId
     return {
         companyName,
         insurancePeriodRange,
-        stageId,
+        // stageId,
     };
 };
 

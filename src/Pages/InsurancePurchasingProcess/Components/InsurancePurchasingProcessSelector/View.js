@@ -1,9 +1,9 @@
 import React from 'react';
 import Style from './Style.module.scss';
 import {Object as SelectorObject, View as Selector} from '../../../../Components/Selector';
-import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT,INSURANCE_COMPANY} from '../../../../Constant';
+import {INSURANCE_COMPANY} from '../../../../Constant'; //INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT,
 import {connect} from 'react-redux';
-import {changeFilterInsuranceCompanyAction, changeFilterInsurancePurchasingStageAction, changeFilterInsurancePeriodRangeAction} from '../../Actions/Actions';
+import {changeFilterInsuranceCompanyAction, changeFilterInsurancePeriodRangeAction} from '../../Actions/Actions'; //changeFilterInsurancePurchasingStageAction, 
 import { CONNREFUSED } from 'dns';
 
 class InsurancePurchasingProcessSelector extends React.Component
@@ -13,9 +13,9 @@ class InsurancePurchasingProcessSelector extends React.Component
         const {
             companyName: currentActiveInsuranceCompany, 
             insurancePeriodRange:[minPeriod, maxPeriod],
-            stageId: currentActiveStageId, 
+            // stageId: currentActiveStageId, 
             changeFilterInsuranceCompany, 
-            changeFilterInsurancePurchasingStage,
+            // changeFilterInsurancePurchasingStage,
             changeFilterInsurancePeriodRange,
         } = this.props;
         const {Series, Item} = SelectorObject;
@@ -60,17 +60,17 @@ class InsurancePurchasingProcessSelector extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {InsurancePurchasingProcess: {companyName, insurancePeriodRange,stageId}} = state;
+    const {InsurancePurchasingProcess: {companyName, insurancePeriodRange}} = state; //,stageId
     return {
         companyName,
         insurancePeriodRange,
-        stageId,
+        // stageId,
     };
 };
 
 const mapDispatchToProps = {
     changeFilterInsuranceCompany: changeFilterInsuranceCompanyAction,
-    changeFilterInsurancePurchasingStage: changeFilterInsurancePurchasingStageAction,
+    // changeFilterInsurancePurchasingStage: changeFilterInsurancePurchasingStageAction,
     changeFilterInsurancePeriodRange: changeFilterInsurancePeriodRangeAction,
 };
 

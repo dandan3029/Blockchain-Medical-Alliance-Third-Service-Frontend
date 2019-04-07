@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './Style.module.scss';
 import PropTypes from 'prop-types';
-import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT} from '../../../../Constant';
+// import {INSURANCE_PURCHASING_STAGE_ID, INSURANCE_PURCHASING_STAGE_ID_TO_TEXT} from '../../../../Constant';
 import {browserHistory, withRouter} from 'react-router';
 import {PAGE_ID_TO_ROUTE, REQUIRE_LOGIN_PAGE_ID} from '../../../../Config';
 import {TOOLTIP_POSITION, View as ToolTip} from '../../../../Components/Tooltip';
@@ -85,7 +85,7 @@ InsurancePurchasingInfo.propTypes = {
     insurancePeriod: PropTypes.number.isRequired,
     insurancePrice: PropTypes.number.isRequired,
     publicKey: PropTypes.string.isRequired,
-    insurancePurchasingStage: PropTypes.oneOf(Object.values(INSURANCE_PURCHASING_STAGE_ID)).isRequired,
+    // insurancePurchasingStage: PropTypes.oneOf(Object.values(INSURANCE_PURCHASING_STAGE_ID)).isRequired,
     responsiblePersonId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     responsiblePersonName: PropTypes.string.isRequired,
 };

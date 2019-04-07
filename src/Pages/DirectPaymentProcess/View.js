@@ -29,23 +29,25 @@ class DirectPaymentProcess extends React.Component
         for (let i = 0; i < 30; i++)
         {
             directPaymentInfoList.push({
+                // name: '罗小黑',
+                // age: Math.round(Math.random() * 80 + 1),
+                // isMale: 0,
+                // healthState: '健康',
                 directPaymentInfoId: i + 1,
-                name: '罗小黑',
-                age: Math.round(Math.random() * 80 + 1),
-                isMale: 0,
-                healthState: '健康',
+                insuranceCompany: '中国人寿',
+                hospital: '北京协和医院',
                 publicKey: Function.randomString(),
                 directPaymentMoneyAmount: Math.round(Math.random() * 20000 + 1000),
                 diagnosticResult: Function.randomString(),
                 medicalDescription: Function.randomString(),
-                insuranceType: '少年英才保险',
-                insurancePurchasingTime: '2019年03月17日',
-                insurancePeriod: `${Math.round(Math.random() * 10 + 1)} 年`,
-                insurancePrice: Math.round(Math.random() * 20000 + 1000),
-                directPaymentStage: Math.round(Math.random() * 4),
-                responsiblePersonId: 1,
-                responsiblePersonName: '王子贤',
                 insurancePurchasingInfoId: i + 1,
+                directPaymentStage: Math.round(Math.random() * 4),
+                // insuranceType: '少年英才保险',
+                // insurancePurchasingTime: '2019年03月17日',
+                // insurancePeriod: `${Math.round(Math.random() * 10 + 1)} 年`,
+                // insurancePrice: Math.round(Math.random() * 20000 + 1000),
+                // responsiblePersonId: 1,
+                // responsiblePersonName: '王子贤',
             });
         }
 
@@ -94,7 +96,7 @@ class DirectPaymentProcess extends React.Component
     render()
     {
         const {directPaymentInfoList, currentActiveDiagnosticResultInModal, currentActiveMedicalDescriptionInModal} = this.state;
-        const {ageRange: [minAge, maxAge], directPaymentMoneyAmountRange: [minMoneyAmount,maxMoneyAmount],stageId} = this.props;
+        const {directPaymentMoneyAmountRange: [minMoneyAmount,maxMoneyAmount],stageId} = this.props;
         return (
             <div className={Style.DirectPaymentProcess}>
                 <DirectPaymentProcessSelector />
@@ -102,11 +104,9 @@ class DirectPaymentProcess extends React.Component
                     <table className={`${Style.processTable}`}>
                         <thead>
                         <tr>
-                            <th scope="col">姓名</th>
-                            <th scope="col">年龄</th>
-                            <th scope="col">性别</th>
-                            <th scope="col">健康状况</th>
-                            <th scope="col">公钥</th>
+                            <th scope="col">保险公司</th>
+                            <th scope="col">直付医院</th>
+                            <th scope="col">患者公钥</th>
                             <th scope="col">直付金额</th>
                             <th scope="col">诊断结果</th>
                             <th scope="col">医疗说明</th>
@@ -120,10 +120,12 @@ class DirectPaymentProcess extends React.Component
                             {
                                 const {
                                     [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.DIRECT_PAYMENT_INFO_ID]: directPaymentInfoId,
-                                    [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.NAME]: name,
-                                    [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.AGE]: age,
-                                    [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.IS_MALE]: isMale,
-                                    [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.HEALTH_STATE]: healthState,
+                                    // [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.NAME]: name,
+                                    // [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.AGE]: age,
+                                    // [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.IS_MALE]: isMale,
+                                    // [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.HEALTH_STATE]: healthState,
+                                    [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.INSURANCE_COMPANY]: insuranceCompany,
+                                    [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.HOSPITAL]: hospital,
                                     [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.PUBLIC_KEY]: publicKey,
                                     [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.DIRECT_PAYMENT_MONEY_AMOUNT]: directPaymentMoneyAmount,
                                     [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.DIAGNOSTIC_RESULT]: diagnosticResult,
@@ -132,13 +134,15 @@ class DirectPaymentProcess extends React.Component
                                     [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.INSURANCE_PURCHASING_INFO_ID]: insurancePurchasingInfoId,
                                 } = directPaymentInfo;
                                 
-                                if ((directPaymentMoneyAmount>= minMoneyAmount && directPaymentMoneyAmount <= maxMoneyAmount ) && (age >= minAge && age <= maxAge) && (directPaymentStage === stageId || stageId === DIRECT_PAYMENT_STAGE_ID.ALL_STAGES))
+                                if ((directPaymentMoneyAmount>= minMoneyAmount && directPaymentMoneyAmount <= maxMoneyAmount ) && (directPaymentStage === stageId || stageId === DIRECT_PAYMENT_STAGE_ID.ALL_STAGES))
                                 {
                                     return <DirectPaymentInfo   directPaymentInfoId={directPaymentInfoId}
-                                                                name={name}
-                                                                age={age}
-                                                                isMale={isMale}
-                                                                healthState={healthState}
+                                                                // name={name}
+                                                                // age={age}
+                                                                // isMale={isMale}
+                                                                // healthState={healthState}
+                                                                insuranceCompany={insuranceCompany}
+                                                                hospital={hospital}
                                                                 publicKey={publicKey}
                                                                 directPaymentMoneyAmount={directPaymentMoneyAmount}
                                                                 insurancePurchasingInfoId={insurancePurchasingInfoId}
