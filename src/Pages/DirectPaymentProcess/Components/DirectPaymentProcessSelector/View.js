@@ -73,7 +73,6 @@ class DirectPaymentProcessSelector extends React.Component
 
 const mapStateToProps = state =>
 {
-    console.log(state);
     const {DirectPaymentProcess: {ageRange, directPaymentMoneyAmountRange, stageId}} = state;
     return {
         ageRange,
