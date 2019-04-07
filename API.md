@@ -56,6 +56,7 @@
             insurancePurchasingStage: ENUM_NUMBER,  // 投保阶段，枚举值
             responsiblePersonId: Number,            // 负责人 ID，用于获取负责人信息
             responsiblePersonName: String,          // 负责人姓名
+            insuranceId: String,                    // 所购买保险的 保险ID
         },
     ]
 }
