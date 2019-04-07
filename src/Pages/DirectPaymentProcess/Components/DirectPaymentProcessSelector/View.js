@@ -18,7 +18,6 @@ class DirectPaymentProcessSelector extends React.Component
             changeFilterDirectPaymentMoneyAmountRange, 
             changeFilterDirectPaymentStage
         } = this.props;
-        console.log(this.props);
         const seriesArray = [
             // new Series('年龄', [
             //     new Item('全部', () =>

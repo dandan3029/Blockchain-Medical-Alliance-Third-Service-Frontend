@@ -28,7 +28,7 @@ class InsurancePurchasingProcess extends React.Component
                 insuranceType: '少年英才保险',
                 insuranceCompany: '中国人寿',
                 insurancePurchasingTime: '2019年03月17日',
-                insurancePeriod: `${Math.round(Math.random() * 10 + 1)} 年`,
+                insurancePeriod: Math.round(Math.random() * 10 + 1) ,
                 insurancePrice: Math.round(Math.random() * 20000 + 1000),
                 publicKey: Function.randomString(),
                 insurancePurchasingStage: Math.round(Math.random() * 3),
@@ -58,7 +58,7 @@ class InsurancePurchasingProcess extends React.Component
     render()
     {
         const {insurancePurchasingInfoList} = this.state;
-        const {companyName, stageId} = this.props;
+        const {companyName, insurancePeriodRange: [minPeriod, maxPeriod], stageId} = this.props;
         return (
             <div className={Style.InsurancePurchasingProcess}>
                 <InsurancePurchasingProcessSelector />
@@ -93,7 +93,7 @@ class InsurancePurchasingProcess extends React.Component
                                     [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.RESPONSIBLE_PERSON_NAME]: responsiblePersonName,
                                 } = insurancePurchasingInfo;
                                 //age >= minAge && age <= maxAge &&
-                                if ( (insuranceCompany === companyName || companyName === INSURANCE_COMPANY.ALL_INSURANCE_COMPANY ) &&
+                                if ( (insurancePeriod >= minPeriod && insurancePeriod <= maxPeriod )&& (insuranceCompany === companyName || companyName === INSURANCE_COMPANY.ALL_INSURANCE_COMPANY ) &&
                                 (insurancePurchasingStage === stageId || stageId === INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES))
                                 {
                                     return <InsurancePurchasingInfo insurancePurchasingInfoId={insurancePurchasingInfoId}
@@ -123,9 +123,10 @@ class InsurancePurchasingProcess extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {InsurancePurchasingProcess: {companyName, stageId}} = state;
+    const {InsurancePurchasingProcess: {companyName, insurancePeriodRange, stageId}} = state;
     return {
         companyName,
+        insurancePeriodRange,
         stageId,
     };
 };

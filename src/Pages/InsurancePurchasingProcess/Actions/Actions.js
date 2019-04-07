@@ -15,3 +15,11 @@ export function changeFilterInsurancePurchasingStageAction(stageId)
         stageId,
     };
 }
+
+export function changeFilterInsurancePeriodRangeAction(minPeriod = Number.MIN_VALUE, maxPeriod = Number.MAX_VALUE)
+{
+    return {
+        type: ACTION_TYPE.CHANGE_FILTER_INSURANCE_PERIOD_RANGE,
+        insurancePeriodRange:[minPeriod, maxPeriod],
+    }
+}

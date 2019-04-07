@@ -21,6 +21,14 @@ export default (state = {}, action) =>
                 stageId,
             };
         }
+        case ACTION_TYPE.CHANGE_FILTER_INSURANCE_PERIOD_RANGE:
+        {
+            const {insurancePeriodRange} = action;
+            return {
+                ...state,
+                insurancePeriodRange,
+            }
+        }
         default:
         {
             return state;

@@ -53,7 +53,7 @@ class InsurancePurchasingInfo extends React.Component
                 <th scope="row">{insuranceType}</th>
                 <td>{insuranceCompany}</td>
                 <td>{insurancePurchasingTime}</td>
-                <td>{insurancePeriod}</td>
+                <td>{insurancePeriod} 年</td>
                 <td>{insurancePrice} 元</td>
                 <td>
                     <ClickCopy copyText={publicKey} onCopySuccess={
@@ -82,7 +82,7 @@ InsurancePurchasingInfo.propTypes = {
     insuranceType: PropTypes.string.isRequired,
     insuranceCompany: PropTypes.string.isRequired,
     insurancePurchasingTime: PropTypes.string.isRequired,
-    insurancePeriod: PropTypes.string.isRequired,
+    insurancePeriod: PropTypes.number.isRequired,
     insurancePrice: PropTypes.number.isRequired,
     publicKey: PropTypes.string.isRequired,
     insurancePurchasingStage: PropTypes.oneOf(Object.values(INSURANCE_PURCHASING_STAGE_ID)).isRequired,
