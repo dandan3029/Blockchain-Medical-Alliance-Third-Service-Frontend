@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {Reducer as InsurancePurchasingProcessReducer} from './Pages/InsurancePurchasingProcess';
 import {Reducer as DirectPaymentProcessReducer} from './Pages/DirectPaymentProcess';
 import {Reducer as AuthProcessorReducer} from './Components/AuthProcessor';
-import {Reducer as InsurancePurchasingDetailReducer} from './Pages/InsurancePurchasingDetail';
+// import {Reducer as InsurancePurchasingDetailReducer} from './Pages/InsurancePurchasingDetail';
 import {Reducer as DirectPaymentDetailReducer} from './Pages/DirectPaymentDetail';
 import {INSURANCE_PURCHASING_STAGE_ID, DIRECT_PAYMENT_STAGE_ID, INSURANCE_COMPANY} from './Constant';
 
@@ -12,20 +12,20 @@ import {INSURANCE_PURCHASING_STAGE_ID, DIRECT_PAYMENT_STAGE_ID, INSURANCE_COMPAN
 const initValues = {
     InsurancePurchasingProcess: {
         companyName: INSURANCE_COMPANY.ALL_INSURANCE_COMPANY,     // 筛选器保险公司
-        // ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
         insurancePeriodRange: [Number.MIN_VALUE, Number.MAX_VALUE], // 筛选器保期范围
+        // ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
         // stageId: INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES,        // 筛选器阶段
     },
     DirectPaymentProcess: {
-        // companyName: INSURANCE_COMPANY.ALL_INSURANCE_COMPANY,     // 筛选器保险公司
-        // ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
         directPaymentMoneyAmountRange: [Number.MIN_VALUE, Number.MAX_VALUE], // 筛选器直付金额范围
         stageId: DIRECT_PAYMENT_STAGE_ID.ALL_STAGES,              // 筛选器阶段
+        // companyName: INSURANCE_COMPANY.ALL_INSURANCE_COMPANY,     // 筛选器保险公司
+        // ageRange: [Number.MIN_VALUE, Number.MAX_VALUE],     // 筛选器年龄范围
     },
     AuthProcessor: {
         hasLoggedIn: true,
     },
-    InsurancePurchasingDetail: {
+    /*InsurancePurchasingDetail: {
         insurancePurchasingInfo: {
             /*insurancePurchasingInfoId: 'aaaa',      // 这条信息的唯一识别 ID
             name: '啊啊啊',                           // 投保人姓名
@@ -39,9 +39,9 @@ const initValues = {
             insurancePrice: 'Number',                 // 保金，单位人民币元
             insurancePurchasingStage: INSURANCE_PURCHASING_STAGE_ID.INSURANCE_COMPANY_VERIFY,  // 投保阶段，枚举值
             responsiblePersonId: 1,            // 负责人 ID，用于获取负责人信息
-            responsiblePersonName: 'String',          // 负责人姓名*/
+            responsiblePersonName: 'String',          // 负责人姓名
         },
-    },
+    },*/
     DirectPaymentDetail:{
         directPaymentInfo:{
 
@@ -61,7 +61,7 @@ const Reducer = combineReducers({
     InsurancePurchasingProcess: InsurancePurchasingProcessReducer,
     DirectPaymentProcess: DirectPaymentProcessReducer,
     AuthProcessor: AuthProcessorReducer,
-    InsurancePurchasingDetail: InsurancePurchasingDetailReducer,
+    // InsurancePurchasingDetail: InsurancePurchasingDetailReducer,
     DirectPaymentDetail: DirectPaymentDetailReducer,
 });
 
