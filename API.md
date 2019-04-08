@@ -115,6 +115,66 @@
 
 --- 
 
+### 投保详情部分（请求前缀为 `/insurancePurchasingDetail`）
+
+#### `/getInsurancePurchasingDetailInfo`
+
+- 功能说明：获取投保详情信息
+- 请求方法：GET
+- 请求体：
+```js
+{
+    insurancePurchasingInfoId: String,      // 投保信息ID
+}
+```
+- 响应体：
+```js
+{
+    insurancePurchasingInfoId: String,      // 这条信息的唯一识别 ID
+    electronicInsurancePolicy: String,      // 电子保单
+    insuranceId: String,                    // 保险的 ID
+    insuranceName: String,                  // 保险的名字
+    isSpecialMedicalCare: Number,           // 是否是特殊医疗，0 或 1
+    hasSocialSecurity: Number,              // 有无社保，0 或 1
+    insuranceAmount: Number,                // 保额，单位是人民币元
+    insurancePeriod: String,                // 保险期限
+    insuranceDiseaseType: String,           // 保险病种
+    coveringAge: String,                    // 承保年龄
+    insurancePrice: Number,                 // 保费价格，单位是人民币元
+}
+```
+- 其他说明：无
+
+---
+
+### 直付详情部分（请求前缀为`/directPaymentDetail`）
+
+#### `/getDirectPaymentInfo`
+
+- 功能说明：获取直付详细信息
+- 请求方法：GET
+- 请求体：
+```js
+{
+    directPaymentInfoId: String,   // 直付信息 ID
+}
+```
+- 响应体
+```js
+{
+    directPaymentInfoId: String,            // 这条直付信息的唯一识别 ID
+    insuranceCompany: String,               // 投保所在保险公司
+    hospital: String,                       // 需要直付的医院
+    publicKey: String,                      // 投保人公钥
+    directPaymentMoneyAmount: Number,       // 直付金额，单位是人民币元
+    diagnosticResult: String,               // 诊断结果
+    medicalDescription: String,             // 医疗说明
+    insurancePurchasingInfoId: String,      // 对应保险投保信息的 ID
+    directPaymentStage: ENUM_NUMBER,        // 枚举值，直付阶段
+}
+```
+
+
 ### 帐号相关部分（请求前缀为 `/account`）
 
 #### `/login`
@@ -172,32 +232,3 @@
 ```
 - 响应体：无
 - 其他说明：验证码错误返回 403，用户名重复返回 409
-
-### 投保详情部分（请求前缀为 `/insurancePurchasingDetail`
-
-#### `/getInsurancePurchasingInfo`
-
-- 功能说明：获取投保详细信息
-- 请求方法：GET
-- 请求体：
-```js
-{
-    insurancePurchasingInfoId: String,  // 投保信息 ID
-}
-```
-- 响应体：
-```js
-{
-    insurancePurchasingInfoId: String,      // 这条信息的唯一识别 ID
-    insuranceType: String,                  // 保险类型
-    insuranceCompany:String,                // 投保该保险所在保险公司
-    insurancePurchasingTime: String,        // 投保时间
-    insurancePeriod: String,                // 保险时长
-    insurancePrice: Number,                 // 保金，单位人民币元
-    publicKey: String,                      // 投保人公钥
-    insurancePurchasingStage: ENUM_NUMBER,  // 投保阶段，枚举值
-    responsiblePersonId: Number,            // 负责人 ID，用于获取负责人信息
-    responsiblePersonName: String,          // 负责人姓名
-}
-```
-- 其他说明：无
