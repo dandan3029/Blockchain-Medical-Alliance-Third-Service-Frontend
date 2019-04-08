@@ -11,6 +11,7 @@ class InsurancePurchasingDetailContainer extends React.Component
     {
         super(props);
         this.state = {
+            insuranceId: 0,                 // 保险 ID
             insuranceImageSrc: leftImage,   // 保险图片
             insuranceName: '',              // 保险名称
             isSpecialMedicalCare: 0,        // 是否特殊医疗
@@ -46,16 +47,16 @@ class InsurancePurchasingDetailContainer extends React.Component
                     }
                 });*/
             const insurancePurchasingDetailInfo = {
-                insuranceImageSrc: leftImage,   // 保险图片
-                insuranceName: '少儿英才保险',              // 保险名称
-                isSpecialMedicalCare: 0,        // 是否特殊医疗
-                hasSocialSecurity: 0,           // 有无社保
-                insuranceAmount: Math.round(Math.random()*2000),             // 保额
-                insurancePeriod: '3年',            // 保险期限
-                insuranceDiseaseType: '肺结核，狂犬病',       // 保险病种
-                coveringAge: '20岁以下',                // 承保年龄
-                insurancePrice: Math.round(Math.random()*2000+1000),              // 保费价格
-                electronicInsurancePolicy: '这是一份电子保单',  // 电子保单
+                insuranceImageSrc: leftImage,                               // 保险图片
+                insuranceName: '少儿英才保险',                               // 保险名称
+                isSpecialMedicalCare: 0,                                    // 是否特殊医疗
+                hasSocialSecurity: 0,                                       // 有无社保
+                insuranceAmount: Math.round(Math.random()*2000),            // 保额
+                insurancePeriod: '3年',                                     // 保险期限
+                insuranceDiseaseType: '肺结核，狂犬病',                      // 保险病种
+                coveringAge: '20岁以下',                                    // 承保年龄
+                insurancePrice: Math.round(Math.random()*2000+1000),        // 保费价格
+                electronicInsurancePolicy: '这是一份电子保单',               // 电子保单
             }
             this.setState({
                 hasGotInfo: true,
