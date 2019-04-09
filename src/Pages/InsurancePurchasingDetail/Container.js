@@ -35,7 +35,7 @@ class InsurancePurchasingDetailContainer extends React.Component
         }
         else
         {
-            /*Api.sendGetInsuranceDetailRequestAsync(insuranceId)
+            /*Api.sendGetInsuranceDetailRequestAsync(insurancePurchasingInfoId)
                 .then(insuranceDetail =>
                 {
                     if (insuranceDetail)
