@@ -1,0 +1,31 @@
+@import "../../Constant/RESIZE";
+.HomePage{
+
+    .carousel {
+        height: (660rem/$RESIZE_FACTOR);
+    }
+
+    .contentWrapper{
+        padding: (90rem/$RESIZE_FACTOR) (81rem/$RESIZE_FACTOR);
+        max-width: 1920px;
+        margin: 0 auto;
+
+        .introductionCardListWrapper{
+            width:100%;
+            margin: (-48rem/$RESIZE_FACTOR) (-45rem/$RESIZE_FACTOR);
+            margin-top: (38rem/$RESIZE_FACTOR - 48rem/$RESIZE_FACTOR);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .introductionCardWrapper{
+                margin: (48rem/$RESIZE_FACTOR) (45rem/$RESIZE_FACTOR);
+                width: (409rem/$RESIZE_FACTOR);
+                box-sizing: content-box;
+            }
+        }
+    
+    }
+    
+}

@@ -1,0 +1,33 @@
+@import "../../../../Constant/COLOR";
+@import "../../../../Constant/RESIZE";
+
+.IntroductionCard{
+    background-color: $BLUE; 
+    width: (528rem/$RESIZE_FACTOR);
+    height: (540rem/$RESIZE_FACTOR);
+    padding: 40rem/$RESIZE_FACTOR;
+    border-radius: 10rem/$RESIZE_FACTOR;
+    cursor: pointer;
+    -webkit-transition: width 0.8s, height 0.8s, -webkit-transform 0.8s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.8s, height 0.8s, transform 0.8s;
+    
+    .icon{
+        width:(60rem/$RESIZE_FACTOR);
+        height:(60rem/$RESIZE_FACTOR);
+        border-radius: 50%;
+        margin:0 auto;
+        transform: translate(0,20rem/$RESIZE_FACTOR);
+        display: block;
+    }
+    .title{
+        text-align: center;
+        display: block;
+        margin:30rem/$RESIZE_FACTOR auto 24rem/$RESIZE_FACTOR;
+    }
+    .content{
+        font-size: (24rem/$RESIZE_FACTOR);
+    }
+}
+.IntroductionCard:hover{
+    transform: (scale(1.1));
+}
