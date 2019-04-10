@@ -32,7 +32,7 @@ class Header extends Component
                     <nav className={Style.navWrapper}>
                         <Link onlyActiveOnIndex={false}
                               className={`${Style.navItem} ${insuranceLinkIsActive ? Style.active : null}`}
-                              to={insuranceUrl}>保险</Link>
+                              to={insuranceUrl}>首页</Link>
                         <Link onlyActiveOnIndex={false}
                               className={`${Style.navItem} ${insurancePurchasingLinkIsActive ? Style.active : null}`}
                               to={insurancePurchasingUrl}>投保</Link>
