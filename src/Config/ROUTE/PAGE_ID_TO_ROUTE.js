@@ -3,6 +3,7 @@ import NOT_REQUIRE_LOGIN_PAGE_ID from './NOT_REQUIRE_LOGIN_PAGE_ID';
 
 // 页面的路由，用于在 React-Router 中使用
 export default {
+    [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_HOME_PAGE]: '/homePage',
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST]: '/insuranceList',
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PUBLICATION]: '/insurancePublication',
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_DIRECT_PAYMENT_PROCESS]: '/directPaymentProcess',

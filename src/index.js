@@ -6,12 +6,10 @@ import Store from './Store';
 import Router from './Router';
 import './ModuleConfig';
 import * as serviceWorker from './serviceWorker';
-import HomePage from './Pages/HomePage/View';
 
 ReactDOM.render(
     <Provider store={Store}>
-        {/* <Router /> */}
-        <HomePage />
+        <Router />
     </Provider>,
     document.getElementById('root'));
 

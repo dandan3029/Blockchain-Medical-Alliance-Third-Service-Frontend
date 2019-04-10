@@ -1,6 +1,7 @@
 import REQUIRE_LOGIN_PAGE_ID from '../Config/ROUTE/REQUIRE_LOGIN_PAGE_ID';
 import NOT_REQUIRE_LOGIN_PAGE_ID from '../Config/ROUTE/NOT_REQUIRE_LOGIN_PAGE_ID';
 // 页面 View 从此导入
+import {View as HomePage} from '../Pages/HomePage';
 import {View as InsuranceList} from '../Pages/InsuranceList';
 import {View as InsurancePublication} from '../Pages/InsurancePublication';
 import {View as PersonalCenter} from '../Pages/PersonalCenter';
@@ -8,12 +9,12 @@ import {View as InsurancePurchasingProcess} from '../Pages/InsurancePurchasingPr
 import {View as DirectPaymentProcess} from '../Pages/DirectPaymentProcess';
 import {View as Login} from '../Pages/Login';
 import {View as SignUp} from '../Pages/SignUp';
-// import {View as InsurancePurchasingDetail} from '../Pages/InsurancePurchasingDetail';
 import InsurancePurchasingDetail from '../Pages/InsurancePurchasingDetail';
 import {View as DirectPaymentDetail} from '../Pages/DirectPaymentDetail';
 
 // 页面对应的组件
 export default {
+    [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_HOME_PAGE]: HomePage,
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST]: InsuranceList,
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PUBLICATION]: InsurancePublication,
     [REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_DIRECT_PAYMENT_PROCESS]: DirectPaymentProcess,

@@ -23,7 +23,7 @@ class Login extends React.Component
         const {hasLoggedIn} = this.props;
         if (hasLoggedIn)
         {
-            browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST]);
+            browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_HOME_PAGE]);
         }
     }
 
@@ -47,7 +47,7 @@ class Login extends React.Component
             if (requestIsSuccessful)
             {
                 setLoggedIn();
-                browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST]);
+                browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_HOME_PAGE]);
             }
         }
     };

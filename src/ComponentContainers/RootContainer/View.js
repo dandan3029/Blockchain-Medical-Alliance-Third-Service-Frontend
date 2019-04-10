@@ -8,7 +8,8 @@ class RootContainer extends React.Component
     shouldInsuranceLinkBeActive = pageId =>
     {
         return (
-            pageId === REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST ||
+            // pageId === REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST ||
+            pageId === REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_HOME_PAGE||
             pageId === REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PUBLICATION ||
             pageId === REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_DETAIL
         );
@@ -43,7 +44,7 @@ class RootContainer extends React.Component
         const currentPageId = ROUTE_TO_PAGE_ID[this.props.location.pathname];
         return (
             <Root hasLoggedIn={hasLoggedIn}
-                    insuranceUrl={PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_LIST]}
+                    insuranceUrl={PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_HOME_PAGE]}
                     directPaymentUrl={PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_DIRECT_PAYMENT_PROCESS]}
                     insurancePurchasingUrl={PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PURCHASING_PROCESS]}
                     loginUrl={PAGE_ID_TO_ROUTE[NOT_REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_LOGIN]}
