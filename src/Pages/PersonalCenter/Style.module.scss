@@ -11,16 +11,19 @@
         justify-content: space-between;
 
         .leftPart {
-            .certificateWrapper {
-                height: (831rem/$RESIZE_FACTOR);
-                width: (640rem/$RESIZE_FACTOR);
+            .identificationWrapper {
+                height: (340rem/$RESIZE_FACTOR);
+                width: (500rem/$RESIZE_FACTOR);
+                margin: (30rem/$RESIZE_FACTOR);
+                padding:0;
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                flex-wrap: wrap;
+                box-shadow: #D2D0D0 (5rem/$RESIZE_FACTOR) (0rem/$RESIZE_FACTOR) (20rem/$RESIZE_FACTOR);
 
-                .certificate {
-                    width: 98%;
-                    height: 98%;
+                .identification {
+                    width: 96%;
+                    height: auto;
+                    margin: 0 2%;
                     background-repeat: no-repeat !important;
                     background-size: contain !important;
                     background-position: center !important;
@@ -33,24 +36,7 @@
             flex-direction: column;
             justify-content: space-between;
 
-            .logoWrapper {
-                width: (541rem/$RESIZE_FACTOR);
-                height: (404rem/$RESIZE_FACTOR);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                box-shadow: #D2D0D0 (10rem/$RESIZE_FACTOR) (10rem/$RESIZE_FACTOR) (30rem/$RESIZE_FACTOR);
-
-                .logo {
-                    width: (390rem/$RESIZE_FACTOR);
-                    height: (280rem/$RESIZE_FACTOR);
-                    background-repeat: no-repeat !important;
-                    background-size: contain !important;
-                    background-position: center !important;
-                }
-            }
-
-            .companyInfoWrapper {
+            .personalInfoWrapper {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -61,6 +47,7 @@
                     padding: (14rem/$RESIZE_FACTOR) (52rem/$RESIZE_FACTOR);
                     vertical-align: middle;
                     box-shadow: #D2D0D0 (5rem/$RESIZE_FACTOR) (0rem/$RESIZE_FACTOR) (20rem/$RESIZE_FACTOR);
+                    margin: (30rem/$RESIZE_FACTOR);
 
                     .label {
                         display: inline-block;
@@ -86,4 +73,36 @@
             font-size: (20rem/$RESIZE_FACTOR);
         }
     }
+
+    .tableTitleWrapper {
+        background-color: #007bff;
+        width: (200rem/$RESIZE_FACTOR);
+        height: (60rem/$RESIZE_FACTOR);
+        margin-top: (200rem/$RESIZE_FACTOR);
+        cursor: point;
+        display: flex;
+
+        .tableTitle {
+            margin:auto;
+            color: #FFF;
+            text-decoration: none;
+        }
+    }
+
+    .tableWrapper {
+        margin: (51rem/$RESIZE_FACTOR) 0;
+        background-color: #FFF;
+
+        .medicalRecordTable {
+            @extend .table, .table-hover, .table-striped;
+            font-size: (28rem/$RESIZE_FACTOR);
+            text-align: center;
+
+            td, th {
+                padding: (29rem/$RESIZE_FACTOR) (28rem/$RESIZE_FACTOR);
+                vertical-align: middle;
+            }
+        }
+    }
+
 }

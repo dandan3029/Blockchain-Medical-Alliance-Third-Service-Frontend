@@ -46,7 +46,6 @@ class HomePage extends React.Component
         this.setState({insuranceList, introductionCardInfoList});
     }
     render(){
-        console.log(this.state)
         const {insuranceList} = this.state;
         const {introductionCardInfoList} = this.state;
         return (

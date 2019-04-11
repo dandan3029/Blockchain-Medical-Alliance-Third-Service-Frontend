@@ -1,0 +1,16 @@
+@import "../../../../ModuleConfig/Bootstrap/Bootstrap";
+@import "../../../../Constant/RESIZE";
+
+.AuthorizationModal{
+
+    .inputWrapper {
+
+        input {
+            @extend .form-control;
+            font-size: (28rem/$RESIZE_FACTOR);
+            margin: (40rem/$RESIZE_FACTOR) 0;
+        }
+
+    }
+
+}

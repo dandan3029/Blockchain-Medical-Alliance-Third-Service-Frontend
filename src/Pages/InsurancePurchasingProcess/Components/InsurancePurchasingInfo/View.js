@@ -31,7 +31,6 @@ class InsurancePurchasingInfo extends React.Component
     onInsuranceInfoClick = () =>
     {
         const {insurancePurchasingInfoId} = this.props;
-        console.log(insurancePurchasingInfoId);
         browserHistory.push(`${PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_INSURANCE_PURCHASING_DETAIL]}?insurancePurchasingInfoId=${insurancePurchasingInfoId}`);
     };
 
