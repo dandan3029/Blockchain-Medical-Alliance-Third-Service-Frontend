@@ -232,3 +232,68 @@
 ```
 - 响应体：无
 - 其他说明：验证码错误返回 403，用户名重复返回 409
+
+---
+
+### 个人中心部分（请求前缀为`/personalCenter`）
+
+#### `/getPersonalInfo`
+
+- 功能说明：获取个人基本信息
+- 请求方法：GET
+- 请求体：
+```js
+{
+    email: String,  //个人邮箱
+}
+```
+- 响应体
+```js
+{
+    name: String,          // 姓名
+    age: Number,           // 年龄
+    location: String,      // 住址
+    email: String,         // 邮箱
+    publicKey: String,     // 公钥
+    privateKey: String,    // 私钥
+}
+```
+- 其他说明： 无
+
+#### `/getMedicalRecordInfoList`
+- 功能说明： 获取个人病历列表
+- 请求方法：GET
+- 请求体： 
+```js
+{
+    email: String,     // 邮箱
+}
+```
+- 响应体：
+```js
+{
+    medicalRecordInfoList:[
+        {
+            medicalRecordInfoId: String,   // 病历 ID
+            treatmentDate: String,         // 接受治疗时间
+            treatmentHospital: String,     // 接收治疗所在医院
+            medicalRecordContent: String,  // 病例内容
+        },
+    ]
+}
+```
+- 其他说明： 无
+
+`/authorizationMedicalRecord`
+- 功能说明： 提交病例授权信息
+- 请求方法： POST
+- 请求体：
+```js
+{
+    publicKey: String,   // 用户公钥
+}
+```
+- 响应体：无
+- 其他说明： 无
+
+--- 
