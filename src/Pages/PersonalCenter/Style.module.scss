@@ -74,6 +74,21 @@
         }
     }
 
+    .tableTitleWrapper {
+        background-color: #007bff;
+        width: (200rem/$RESIZE_FACTOR);
+        height: (60rem/$RESIZE_FACTOR);
+        margin-top: (200rem/$RESIZE_FACTOR);
+        cursor: point;
+        display: flex;
+
+        .tableTitle {
+            margin:auto;
+            color: #FFF;
+            text-decoration: none;
+        }
+    }
+
     .tableWrapper {
         margin: (51rem/$RESIZE_FACTOR) 0;
         background-color: #FFF;

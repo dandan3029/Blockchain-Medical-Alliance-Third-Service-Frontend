@@ -45,7 +45,7 @@ class MedicalRecordInfo extends React.Component
 }
 
 MedicalRecordInfo.propTypes = {
-    medicalRecordInfoId: PropTypes.string.isRequired,
+    medicalRecordInfoId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     treatmentDate: PropTypes.string.isRequired,
     treatmentHospital: PropTypes.string.isRequired,
     onMedicalRecordButtonClick: PropTypes.func.isRequired,

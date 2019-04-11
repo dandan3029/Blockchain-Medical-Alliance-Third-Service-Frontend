@@ -1,6 +1,6 @@
 module.exports = {
     MEDICAL_RECORD_INFO: {
-        MECICAL_RECORD_INFO_ID: 'medicalRecordInfoId',
+        MEDICAL_RECORD_INFO_ID: 'medicalRecordInfoId',
         TREATMENT_DATE: 'treatmentDate',
         TREATMENT_HOSPITAL: 'treatmentHospital',
         MEDICAL_RECORD_CONTENT: 'medicalRecordContent',

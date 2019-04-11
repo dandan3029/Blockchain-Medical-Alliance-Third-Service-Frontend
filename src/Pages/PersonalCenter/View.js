@@ -62,21 +62,22 @@ class PersonalCenter extends React.Component
         };
     }
 
-    // onAuthorizationButtonClick = () =>
-    // {
-    //     return () =>
-    //     {
-    //         this.setState({
-    //             currentActiveAuthorizationInModal
-    //         }, () => 
-    //         {
-    //             ModalFunction.showModal(MODAL_ID.AUTHORIZATION_MODAL);
-    //         })
-    //     }
-    // }
+    onAuthorizationButtonClick = (privateKey) =>
+    {
+        return () =>
+        {
+            this.setState({
+                currentActiveAuthorizationInModal: privateKey,
+            }, () => 
+            {
+                ModalFunction.showModal(MODAL_ID.AUTHORIZATION_MODAL);
+            })
+        }
+    }
 
     render()
     {
+        const {currentActiveMedicalRecordInModal, currentActiveAuthorizationInModal} = this.state;
         const {personalInfo, medicalRecordInfoList}= this.state;
         return (
             <div className={Style.PersonalCenter}>
@@ -122,6 +123,9 @@ class PersonalCenter extends React.Component
                     <button className={Style.modifyButton}>编辑</button>
                 </div>
 
+                <div className={Style.tableTitleWrapper} id="tableTitleWrapper">
+                    <a className={Style.tableTitle} href="#tableTitleWrapper">我的病例</a>
+                </div>
                 <div className={Style.tableWrapper}>
                     <table className={`${Style.medicalRecordTable}`}>
                         <thead>
@@ -147,14 +151,14 @@ class PersonalCenter extends React.Component
                                                             treatmentDate={treatmentDate}
                                                             treatmentHospital={treatmentHospital}
                                                             onMedicalRecordButtonClick={this.onMedicalRecordButtonClick(medicalRecordContent)}
-                                                            onAuthorizationButtonClick={this.onAuthorizationButtonClick} />
+                                                            onAuthorizationButtonClick={this.onAuthorizationButtonClick(personalInfo.privateKey)} />
                             })
                         }
                         </tbody>
                     </table>
                 </div>
-                {/* <MedicalRecordModal medicalRecord={currentActiveMedicalRecordInModal} />
-                <AuthorizationModal medicalDescription={currentActiveAuthorizationInModal} /> */}
+                <MedicalRecordModal medicalRecordContent={currentActiveMedicalRecordInModal} />
+                <AuthorizationModal privateKey={currentActiveAuthorizationInModal} />
             </div>
         );
     }
