@@ -1,0 +1,12 @@
+@import "../../../../Constant/RESIZE";
+@import "../../../../ModuleConfig/Bootstrap/Bootstrap";
+
+.MedicalRecordInfo {
+    cursor: pointer;
+    user-select: none;
+
+    button {
+        @extend .btn, .btn-primary;
+    }
+    
+}
