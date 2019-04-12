@@ -6,6 +6,15 @@ module.exports = {
         MEDICAL_RECORD_CONTENT: 'medicalRecordContent',
     },
 
+    PERSONAL_INFO: {
+        NAME: 'name',
+        AGE: 'age',
+        LOCATION: 'location',
+        EMAIL: 'email',
+        PUBLICKEY: 'publicKey',
+        PRIVATEkEY: 'privateKey',
+    },
+    
     LIST: {
         MEDICAL_RECORD_INFO: 'medicalRecordInfoList',
     }
