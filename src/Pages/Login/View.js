@@ -13,7 +13,7 @@ class Login extends React.Component
     constructor(props)
     {
         super(props);
-        this.usernameInputRef = React.createRef();
+        this.emailInputRef = React.createRef();
         this.passwordInputRef = React.createRef();
     }
 
@@ -30,26 +30,27 @@ class Login extends React.Component
     onFormSubmit = async e =>
     {
         e.preventDefault();
-        const username = this.usernameInputRef.current.value;
+        const email = this.emailInputRef.current.value;
         const password = this.passwordInputRef.current.value;
-        if (!REGEX.USERNAME.test(username))
-        {
-            WarningAlert.pop('用户名或密码不正确');
-        }
-        else if (!REGEX.PASSWORD.test(password))
-        {
-            WarningAlert.pop('用户名或密码不正确');
-        }
-        else
-        {
+        // if (!REGEX.EMAIL.test(email))
+        // {
+        //     WarningAlert.pop('邮箱或密码不正确');
+        // }
+        // else if (!REGEX.PASSWORD.test(password))
+        // {
+        //     WarningAlert.pop('邮箱或密码不正确');
+        // }
+        // else
+        // {
             const {setLoggedIn} = this.props;
-            const requestIsSuccessful = await Api.sendPostLoginRequestAsync(username, password);
+            setLoggedIn(email);
+            const requestIsSuccessful = await Api.sendPostLoginRequestAsync(email, password);
             if (requestIsSuccessful)
             {
-                setLoggedIn();
+                setLoggedIn(email);
                 browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_HOME_PAGE]);
             }
-        }
+        // }
     };
 
     render()
@@ -60,7 +61,7 @@ class Login extends React.Component
                     <div className={Style.title}>登录</div>
                     <form className={Style.loginForm} onSubmit={this.onFormSubmit}>
                         <div className={Style.inputWrapper}>
-                            <input type="text" placeholder={'用户名'} autoFocus={true} ref={this.usernameInputRef} />
+                            <input type="text" placeholder={'邮箱'} autoFocus={true} ref={this.emailInputRef} />
                             <input type="text" placeholder={'密码'} ref={this.passwordInputRef} />
                         </div>
                         <div className={Style.linkWrapper}>
@@ -78,9 +79,10 @@ class Login extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {AuthProcessor: {hasLoggedIn}} = state;
+    const {AuthProcessor: {hasLoggedIn, email}} = state;
     return {
         hasLoggedIn,
+        email,
     };
 };
 

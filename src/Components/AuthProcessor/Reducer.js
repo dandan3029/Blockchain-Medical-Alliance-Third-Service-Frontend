@@ -7,9 +7,11 @@ export default (state = {}, action) =>
     {
         case ACTION_TYPE.SET_LOGGED_IN:
         {
+            const {email} = action;
             return {
                 ...state,
                 hasLoggedIn: true,
+                email: email,
             };
         }
         case ACTION_TYPE.SET_LOGGED_OUT:

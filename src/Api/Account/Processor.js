@@ -10,12 +10,12 @@ export default {
     sendPostSignUpRequestAsync,
 };
 
-async function sendPostLoginRequestAsync(username, password)
+async function sendPostLoginRequestAsync(email, password)
 {
     try
     {
         const {code} = await Function.postAsync(LOGIN, {
-            [NAMESPACE.ACCOUNT.ACCOUNT.USERNAME]: username,
+            [NAMESPACE.ACCOUNT.ACCOUNT.EMAIL]: email,
             [NAMESPACE.ACCOUNT.ACCOUNT.PASSWORD]: password,
         });
         switch (code)
@@ -26,7 +26,7 @@ async function sendPostLoginRequestAsync(username, password)
             }
             case STATUS_CODE.CONTENT_NOT_FOUND:
             {
-                WarningAlert.pop('用户名或密码错误');
+                WarningAlert.pop('邮箱或密码错误');
                 return null;
             }
             case STATUS_CODE.WRONG_PARAMETER:
@@ -36,7 +36,7 @@ async function sendPostLoginRequestAsync(username, password)
             }
             case STATUS_CODE.REJECTION:
             {
-                WarningAlert.pop('用户名或密码错误');
+                WarningAlert.pop('邮箱或密码错误');
                 return null;
             }
             case STATUS_CODE.INVALID_SESSION:

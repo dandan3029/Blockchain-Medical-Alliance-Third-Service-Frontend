@@ -9,6 +9,6 @@ export const REGEX = {
 };
 
 export const REGEX_TEXT = {
-    USERNAME: '5~20位的字母、数字或下划线',
+    EMAIL: '包含@字符的字母数字下划线的组合',
     PASSWORD: '10位以上的字母、数字或下划线',
 };
