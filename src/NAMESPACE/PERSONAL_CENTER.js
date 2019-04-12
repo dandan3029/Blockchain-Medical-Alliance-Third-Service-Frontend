@@ -3,6 +3,8 @@ module.exports = {
         MEDICAL_RECORD_INFO_ID: 'medicalRecordInfoId',
         TREATMENT_DATE: 'treatmentDate',
         TREATMENT_HOSPITAL: 'treatmentHospital',
+        TREATMENT_DOCTOR: 'treatmentDoctor',
+        PUBLICKEY: 'publicKey',
         MEDICAL_RECORD_CONTENT: 'medicalRecordContent',
     },
 

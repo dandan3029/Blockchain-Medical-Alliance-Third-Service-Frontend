@@ -28,11 +28,15 @@ class MedicalRecordInfo extends React.Component
             medicalRecordInfoId,
             treatmentDate,
             treatmentHospital,
+            treatmentDoctor,
+            publicKey,
         } = this.props;
         return (
             <tr className={Style.MedicalRecordInfo}>
                 <td>{treatmentDate}</td>
                 <td>{treatmentHospital}</td>
+                <td>{treatmentDoctor}</td>
+                <td>{publicKey}</td>
                 <td>
                     <button onClick={this.onMedicalRecordButtonClick}>查看</button>
                 </td>

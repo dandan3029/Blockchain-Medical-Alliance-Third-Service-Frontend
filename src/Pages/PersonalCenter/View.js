@@ -31,6 +31,8 @@ class PersonalCenter extends React.Component
                     medicalRecordInfoId: i,
                     treatmentDate: '2019年4月3日',
                     treatmentHospital: '北京协和医院',
+                    treatmentDoctor: '王艳',
+                    publicKey: 'da;flkjewp',
                     medicalRecordContent: '这是一份电子病例',
                 }
             )
@@ -132,6 +134,8 @@ class PersonalCenter extends React.Component
                         <tr>
                             <th scope="col">就诊日期</th>
                             <th scope="col">就诊医院</th>
+                            <th scope='col'>负责医生</th>
+                            <th scope='col'>公钥</th>
                             <th scope="col">病例记录</th>
                             <th scope="col">病例授权</th>
                         </tr>
@@ -144,12 +148,16 @@ class PersonalCenter extends React.Component
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.MEDICAL_RECORD_INFO_ID]: medicalRecordInfoId,
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.TREATMENT_DATE]: treatmentDate,
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.TREATMENT_HOSPITAL]: treatmentHospital,
+                                    [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.TREATMENT_DOCTOR]: treatmentDoctor,
+                                    [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.PUBLICKEY]: publicKey,
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.MEDICAL_RECORD_CONTENT]: medicalRecordContent,
                                 } = medicalRecord;
                                 return <MedicalRecordInfo   medicalRecordInfoId={medicalRecordInfoId}
                                                             key = {medicalRecordInfoId}
                                                             treatmentDate={treatmentDate}
                                                             treatmentHospital={treatmentHospital}
+                                                            treatmentDoctor={treatmentDoctor}
+                                                            publicKey={publicKey}
                                                             onMedicalRecordButtonClick={this.onMedicalRecordButtonClick(medicalRecordContent)}
                                                             onAuthorizationButtonClick={this.onAuthorizationButtonClick(personalInfo.privateKey)} />
                             })
