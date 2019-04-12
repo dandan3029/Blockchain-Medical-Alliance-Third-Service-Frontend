@@ -43,7 +43,6 @@ class Login extends React.Component
         // else
         // {
             const {setLoggedIn} = this.props;
-            setLoggedIn(email);
             const requestIsSuccessful = await Api.sendPostLoginRequestAsync(email, password);
             if (requestIsSuccessful)
             {

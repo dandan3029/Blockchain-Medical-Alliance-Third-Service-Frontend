@@ -6,7 +6,7 @@ export default {
 function requestPrefix(url)
 {
     url = removePrependSlashes(url);
-    return `/${url}`;
+    return `/third/${url}`;
 }
 
 function removePrependSlashes(str)

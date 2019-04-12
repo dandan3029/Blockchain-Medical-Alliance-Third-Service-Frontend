@@ -2,7 +2,7 @@
   "name": "blockchain-medical-alliance-third-service-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://140.143.38.123:8080/third",
+  "proxy": "http://140.143.38.123:8080",
   "dependencies": {
     "antd": "^3.16.1",
     "axios": "^0.18.0",
