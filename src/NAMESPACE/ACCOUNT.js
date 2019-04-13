@@ -1,5 +1,6 @@
 module.exports = {
     ACCOUNT: {
+        EMAIL: 'email',
         USERNAME: 'username',
         PASSWORD: 'password',
     },
