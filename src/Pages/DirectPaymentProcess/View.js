@@ -26,6 +26,8 @@ class DirectPaymentProcess extends React.Component
     componentDidMount()
     {
         const directPaymentInfoList = [];
+        const {email} = this.props;
+        console.log(email);
         for (let i = 0; i < 30; i++)
         {
             directPaymentInfoList.push({
@@ -55,7 +57,7 @@ class DirectPaymentProcess extends React.Component
             directPaymentInfoList,
         });
 
-        /*Api.sendGetDirectPaymentInfoListRequestAsync()
+        /*Api.sendGetDirectPaymentInfoListRequestAsync(email)
             .then(directPaymentInfoListWrapper =>
             {
                 if (directPaymentInfoListWrapper)
@@ -169,11 +171,12 @@ class DirectPaymentProcess extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {DirectPaymentProcess: {ageRange, directPaymentMoneyAmountRange,stageId}} = state;
+    const {DirectPaymentProcess: {ageRange, directPaymentMoneyAmountRange,stageId}, AuthProcessor: {email}} = state;
     return {
         ageRange,
         directPaymentMoneyAmountRange,
         stageId,
+        email,
     };
 };
 

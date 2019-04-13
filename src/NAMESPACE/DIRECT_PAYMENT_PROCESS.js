@@ -1,4 +1,5 @@
 module.exports = {
+    EMAIL: 'email',
     DIRECT_PAYMENT_INFO: {
         // NAME: 'name',
         // AGE: 'age',

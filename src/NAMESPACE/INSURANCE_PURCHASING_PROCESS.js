@@ -1,4 +1,5 @@
 module.exports = {
+    EMAIL: 'email', 
     INSURANCE_PURCHASING_INFO: {
         INSURANCE_PURCHASING_INFO_ID: 'insurancePurchasingInfoId',
         INSURANCE_TYPE: 'insuranceType',

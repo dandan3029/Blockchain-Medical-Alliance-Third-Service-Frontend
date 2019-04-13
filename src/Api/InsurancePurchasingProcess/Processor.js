@@ -2,16 +2,19 @@ import Function from '../../Function';
 import {STATUS_CODE} from '../../Constant';
 import {GET_INSURANCE_PURCHASING_INFO_LIST} from './ROUTE';
 import {Function as AuthProcessorFunction} from '../../Components/AuthProcessor';
+import NAMESPACE from '../../NAMESPACE';
 
 export default {
     sendGetInsurancePurchasingInfoListRequest,
 };
 
-async function sendGetInsurancePurchasingInfoListRequest()
+async function sendGetInsurancePurchasingInfoListRequest(email)
 {
     try
     {
-        const {code, data} = await Function.getAsync(GET_INSURANCE_PURCHASING_INFO_LIST, false);
+        const {code, data} = await Function.getAsync(GET_INSURANCE_PURCHASING_INFO_LIST, false, {
+            [NAMESPACE.INSURANCE_PURCHASING_PROCESS.EMAIL]: email,
+        });
 
         switch (code)
         {

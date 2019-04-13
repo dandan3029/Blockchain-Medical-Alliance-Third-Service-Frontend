@@ -2,16 +2,19 @@ import Function from '../../Function';
 import {GET_DIRECT_PAYMENT_INFO_LIST} from './ROUTE';
 import {STATUS_CODE} from '../../Constant';
 import {Function as AuthProcessorFunction} from '../../Components/AuthProcessor';
+import NAMESPACE from '../../NAMESPACE';
 
 export default {
     sendGetDirectPaymentInfoListRequestAsync,
 };
 
-async function sendGetDirectPaymentInfoListRequestAsync()
+async function sendGetDirectPaymentInfoListRequestAsync(email)
 {
     try
     {
-        const {code, data} = await Function.getAsync(GET_DIRECT_PAYMENT_INFO_LIST, false);
+        const {code, data} = await Function.getAsync(GET_DIRECT_PAYMENT_INFO_LIST, false,{
+            [NAMESPACE.DIRECT_PAYMENTP_ROCESS.EMAIL]: email,
+        });
 
         switch (code)
         {

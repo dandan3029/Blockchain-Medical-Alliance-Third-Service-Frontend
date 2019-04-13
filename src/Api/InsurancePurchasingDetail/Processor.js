@@ -24,7 +24,7 @@ async function sendGetInsurancePurchasingInfoRequestAsync(insurancePurchasingInf
     try
     {
         const {code, data} = Function.getAsync(GET_INSURANCE_PURCHASING_INFO, false, {
-            [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO_ID]: insurancePurchasingInfoId,
+            [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PURCHASING_INFO_ID]: insurancePurchasingInfoId,
         });
 
         switch (code)

@@ -21,6 +21,8 @@ class InsurancePurchasingProcess extends React.Component
     componentDidMount()
     {
         const insurancePurchasingInfoList = [];
+        const {email} = this.props;
+        console.log(email);
         for (let i = 0; i < 30; i++)
         {
             insurancePurchasingInfoList.push({
@@ -42,7 +44,7 @@ class InsurancePurchasingProcess extends React.Component
             insurancePurchasingInfoList,
         });
 
-        /*Api.sendGetInsurancePurchasingInfoListRequest()
+        /*Api.sendGetInsurancePurchasingInfoListRequest(email)
             .then(insurancePurchasingInfoListWrapper =>
             {
                 if (insurancePurchasingInfoListWrapper)
@@ -125,11 +127,11 @@ class InsurancePurchasingProcess extends React.Component
 
 const mapStateToProps = state =>
 {
-    const {InsurancePurchasingProcess: {companyName, insurancePeriodRange}} = state; //, stageId
+    const {InsurancePurchasingProcess: {companyName, insurancePeriodRange}, AuthProcessor: {email}} = state; 
     return {
         companyName,
         insurancePeriodRange,
-        // stageId,
+        email,
     };
 };
 
