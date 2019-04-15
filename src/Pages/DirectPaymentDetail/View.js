@@ -8,9 +8,17 @@ import {PAGE_ID_TO_ROUTE, REQUIRE_LOGIN_PAGE_ID} from '../../Config';
 import {getDirectPaymentInfoAction} from './Actions/Actions';
 import {connect} from 'react-redux';
 import NAMESPACE from '../../NAMESPACE';
+import Api from '../../Api';
 
 class DirectPaymentDetail extends React.Component
 {
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            directPaymentInfo: '',
+        }
+    }
     componentDidMount()
     {
         const {directPaymentInfoId} = this.props.location.query;
@@ -20,8 +28,16 @@ class DirectPaymentDetail extends React.Component
         }
         else
         {
-            const {getDirectPaymentInfo} = this.props;
-            getDirectPaymentInfo(directPaymentInfoId);
+            Api.sendGetDirectPaymentInfoRequestAsync(directPaymentInfoId)
+                .then(directPaymentInfo =>
+                {
+                    if (directPaymentInfo)
+                    {
+                        this.setState({
+                            directPaymentInfo,
+                        });
+                    }
+                });
         }
     }
 
@@ -29,7 +45,7 @@ class DirectPaymentDetail extends React.Component
     render()
     {
         const stageTextArray = [...DIRECT_PAYMENT_STAGE_ID_TO_TEXT];
-        const {directPaymentInfo} = this.props;
+        const {directPaymentInfo} = this.state;
         const {
             [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.DIRECT_PAYMENT_INFO_ID]: directPaymentInfoId,
             [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.DIRECT_PAYMENT_STAGE]: stageNumber,

@@ -229,7 +229,6 @@ class PersonalCenter extends React.Component
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.PUBKEY]: pubkey,
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.MEDICAL_RECORD_CONTENT]: medicalRecordContent,
                                 } = medicalRecord;
-                                // console.log(pubkey);
                                 return <MedicalRecordInfo   medicalRecordInfoId={medicalRecordInfoId}
                                                             key = {medicalRecordInfoId}
                                                             treatmentDate={treatmentDate}

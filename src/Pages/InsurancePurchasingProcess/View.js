@@ -60,7 +60,6 @@ class InsurancePurchasingProcess extends React.Component
     render()
     {
         const {insurancePurchasingInfoList} = this.state;
-        console.log(insurancePurchasingInfoList);
         const {companyName, insurancePeriodRange: [minPeriod, maxPeriod]} = this.props; //, stageId
         return (
             <div className={Style.InsurancePurchasingProcess}>

@@ -25,9 +25,18 @@ class DirectPaymentProcess extends React.Component
 
     componentDidMount()
     {
-        const directPaymentInfoList = [];
         const {email} = this.props;
-        console.log(email);
+        Api.sendGetDirectPaymentInfoListRequestAsync(email)
+            .then(directPaymentInfoListWrapper =>
+            {
+                if (directPaymentInfoListWrapper)
+                {
+                    this.setState({
+                        directPaymentInfoList: directPaymentInfoListWrapper[NAMESPACE.DIRECT_PAYMENT_PROCESS.LIST.DIRECT_PAYMENT_INFO],
+                    });
+                }
+            });
+        /*const directPaymentInfoList = [];
         for (let i = 0; i < 30; i++)
         {
             directPaymentInfoList.push({
@@ -55,18 +64,7 @@ class DirectPaymentProcess extends React.Component
 
         this.setState({
             directPaymentInfoList,
-        });
-
-        /*Api.sendGetDirectPaymentInfoListRequestAsync(email)
-            .then(directPaymentInfoListWrapper =>
-            {
-                if (directPaymentInfoListWrapper)
-                {
-                    this.setState({
-                        directPaymentInfoList: directPaymentInfoListWrapper[NAMESPACE.DIRECT_PAYMENT_PROCESS.LIST.DIRECT_PAYMENT_INFO],
-                    });
-                }
-            });*/
+        });*/
     }
 
     onDiagnosticResultButtonClick = (diagnosticResult) =>

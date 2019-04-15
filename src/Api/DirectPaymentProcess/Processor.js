@@ -13,7 +13,7 @@ async function sendGetDirectPaymentInfoListRequestAsync(email)
     try
     {
         const {code, data} = await Function.getAsync(GET_DIRECT_PAYMENT_INFO_LIST, false,{
-            [NAMESPACE.DIRECT_PAYMENTP_ROCESS.EMAIL]: email,
+            [NAMESPACE.DIRECT_PAYMENT_PROCESS.EMAIL]: email,
         });
 
         switch (code)

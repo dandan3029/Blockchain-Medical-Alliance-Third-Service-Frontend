@@ -3,6 +3,7 @@ import InsurancePurchasingProcess from './InsurancePurchasingProcess';
 import DirectPaymentProcess from './DirectPaymentProcess';
 import Account from './Account';
 import InsurancePurchasingDetail from './InsurancePurchasingDetail';
+import DirectPaymentDetail from './DirectPaymentDetail';
 import PersonalCenter from './PersonalCenter';
 
 export default {
@@ -12,4 +13,5 @@ export default {
     ...Account,
     ...InsurancePurchasingDetail,
     ...PersonalCenter,
+    ...DirectPaymentDetail,
 };

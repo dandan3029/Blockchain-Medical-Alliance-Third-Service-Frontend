@@ -13,8 +13,8 @@ async function sendGetDirectPaymentInfoRequestAsync(directPaymentInfoId)
 {
     try
     {
-        const {code, data} = Function.getAsync(GET_DIRECT_PAYMENT_INFO, false, {
-            [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO_ID]: directPaymentInfoId,
+        const {code, data} = await Function.getAsync(GET_DIRECT_PAYMENT_INFO, false, {
+            [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.DIRECT_PAYMENT_INFO_ID]: directPaymentInfoId,
         });
         switch (code)
         {

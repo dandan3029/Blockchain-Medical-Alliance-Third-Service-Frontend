@@ -6,9 +6,9 @@ export function getDirectPaymentInfoAction(directPaymentInfoId)
 {
     return async dispatch =>
     {
-        // const directPaymentInfo = await Api.sendGetInsurancePurchasingInfoRequestAsync(directPaymentInfoId);
+        const directPaymentInfo = Api.sendGetDirectPaymentInfoRequestAsync(directPaymentInfoId);
         // 测试用的数据
-        const directPaymentInfo = {
+        /*const directPaymentInfo = {
             directPaymentInfoId: 1,
             insuranceCompany: '中国人寿',
             hospital: '北京协和医院',
@@ -18,7 +18,7 @@ export function getDirectPaymentInfoAction(directPaymentInfoId)
             medicalDescription: Function.randomString(),
             insurancePurchasingInfoId: 1,
             directPaymentStage: Math.round(Math.random() * 5),
-        };
+        };*/
         if (directPaymentInfo)
         {
             dispatch(getDirectPaymentInfoSuccessfulAction(directPaymentInfo));

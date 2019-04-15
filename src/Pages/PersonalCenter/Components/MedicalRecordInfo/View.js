@@ -37,7 +37,6 @@ class MedicalRecordInfo extends React.Component
             doctor,
             pubkey,
         } = this.props;
-        console.log(pubkey);
         return (
             <tr className={Style.MedicalRecordInfo}>
                 <td>{treatmentDate}</td>
