@@ -50,7 +50,7 @@
             insuranceType: String,                  // 保险类型
             insuranceCompany:String,                // 投保该保险所在保险公司
             insurancePurchasingTime: String,        // 投保时间
-            insurancePeriod: String,                // 保险时长
+            insurancePeriod: Number,                // 保险时长
             insurancePrice: Number,                 // 保金，单位人民币元
             publicKey: String,                      // 投保人公钥
             insurancePurchasingStage: ENUM_NUMBER,  // 投保阶段，枚举值
