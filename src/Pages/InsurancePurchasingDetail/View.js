@@ -3,25 +3,27 @@ import Style from './Style.module.scss';
 import PropTypes from 'prop-types';
 import {View as Card} from '../../Components/Card';
 import Icon from 'antd/lib/icon';
-import Radio from 'antd/lib/radio';
 import Skeleton from 'antd/lib/skeleton';
 
 function InsurancePurchasingDetail(props)
 {
     const {
-        hasGotInfo,
+        insuranceId,
         insuranceImageSrc,
-        insuranceName,
-        isSpecialMedicalCare,
-        hasSocialSecurity,
-        insuranceAmount,
+        name,
+        isMale,
+        age,
+        healthState,
+        publicKey,
+        insuranceCompany,
+        insuranceType,
+        insurancePurchasingTime,
         insurancePeriod,
-        insuranceDiseaseType,
-        coveringAge,
-        salesArea,
         insurancePrice,
-        electronicInsurancePolicy,
+        responsiblePersonName,
+        hasGotInfo,
     } = props;
+    const gender = isMale === 1 ? '男':'女';
     return (
         <div className={Style.InsuranceDetail}>
             <Card className={Style.insuranceDetailContainer}>
@@ -36,61 +38,73 @@ function InsurancePurchasingDetail(props)
                                 <span className={Style.icon}>
                                     <Icon type="heart" theme="twoTone" twoToneColor={'#F00'} />
                                 </span>
-                                    {insuranceName}
+                                    {name}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>特需医疗</div>
+                                <div className={Style.label}>姓名</div>
                                 <div className={Style.itemContent}>
-                                    <Radio.Group defaultValue={!!isSpecialMedicalCare} disabled={true}>
-                                        <Radio value={true}>包含</Radio>
-                                        <Radio value={false}>不包含</Radio>
-                                    </Radio.Group>
+                                    {name}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>有无社保</div>
+                                <div className={Style.label}>性别</div>
                                 <div className={Style.itemContent}>
-                                    <Radio.Group defaultValue={!!hasSocialSecurity} disabled={true}>
-                                        <Radio value={true}>有</Radio>
-                                        <Radio value={false}>无</Radio>
-                                    </Radio.Group>
+                                    {gender}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>保额</div>
+                                <div className={Style.label}>年龄</div>
                                 <div className={Style.itemContent}>
-                                    {insuranceAmount} 元
+                                    {age} 岁
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>保障期限</div>
+                                <div className={Style.label}>健康状况</div>
                                 <div className={Style.itemContent}>
-                                    {insurancePeriod}
+                                    {healthState}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>保险病种</div>
-                                <div className={Style.itemContent}>
-                                    {insuranceDiseaseType}
+                                <div className={Style.label}>公钥</div>
+                                <div className={Style.key}>
+                                    {publicKey}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>承保年龄</div>
+                                <div className={Style.label}>保险公司</div>
                                 <div className={Style.itemContent}>
-                                    {coveringAge}
+                                    {insuranceCompany}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>保费价格</div>
+                                <div className={Style.label}>保险类型</div>
                                 <div className={Style.itemContent}>
-                                    {insurancePrice}
+                                    {insuranceType}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
-                                <div className={Style.label}>电子保单</div>
+                                <div className={Style.label}>投保时间</div>
                                 <div className={Style.itemContent}>
-                                    {electronicInsurancePolicy}
+                                    {insurancePurchasingTime}
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>保险期限</div>
+                                <div className={Style.itemContent}>
+                                    {insurancePeriod} 年
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>保险价格</div>
+                                <div className={Style.itemContent}>
+                                    {insurancePrice} 元
+                                </div>
+                            </div>
+                            <div className={Style.itemWrapper}>
+                                <div className={Style.label}>负责人姓名</div>
+                                <div className={Style.itemContent}>
+                                    {responsiblePersonName}
                                 </div>
                             </div>
                             <div className={Style.buttonWrapper} />

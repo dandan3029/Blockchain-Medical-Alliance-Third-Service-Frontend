@@ -13,7 +13,19 @@ class InsurancePurchasingDetailContainer extends React.Component
         this.state = {
             insuranceId: 0,                 // 保险 ID
             insuranceImageSrc: leftImage,   // 保险图片
-            insuranceName: '',              // 保险名称
+            name: '',                       // 姓名
+            isMale: '',                     // 性别
+            age: '',                        // 年龄
+            healthState: '',                // 健康状况
+            publicKey: '',                  // 公钥
+            insuranceCompany: '',           // 保险公司
+            insuranceType: '',              // 保险类型
+            insurancePurchasingTime: '',    // 投保时间
+            insurancePeriod: '',            // 保期
+            insurancePrice: '',             // 保费价格
+            responsiblePersonName: '',      // 负责人名字
+            hasGotInfo: false,
+            /*insuranceName: '',              // 保险名称
             isSpecialMedicalCare: 0,        // 是否特殊医疗
             hasSocialSecurity: 0,           // 有无社保
             insuranceAmount: 0,             // 保额
@@ -21,8 +33,7 @@ class InsurancePurchasingDetailContainer extends React.Component
             insuranceDiseaseType: '',       // 保险病种
             coveringAge: '',                // 承保年龄
             insurancePrice: 0,              // 保费价格
-            electronicInsurancePolicy: '',  // 电子保单
-            hasGotInfo: false,
+            electronicInsurancePolicy: '',  // 电子保单*/
         };
     }
 
@@ -35,7 +46,7 @@ class InsurancePurchasingDetailContainer extends React.Component
         }
         else
         {
-            /*Api.sendGetInsuranceDetailRequestAsync(insurancePurchasingInfoId)
+            Api.sendGetInsurancePurchasingDetailInfoRequestAsync(insurancePurchasingInfoId)
                 .then(insuranceDetail =>
                 {
                     if (insuranceDetail)
@@ -45,8 +56,8 @@ class InsurancePurchasingDetailContainer extends React.Component
                             ...insuranceDetail,
                         });
                     }
-                });*/
-            const insurancePurchasingDetailInfo = {
+                });
+            /*const insurancePurchasingDetailInfo = {
                 insuranceImageSrc: leftImage,                               // 保险图片
                 insuranceName: '少儿英才保险',                               // 保险名称
                 isSpecialMedicalCare: 0,                                    // 是否特殊医疗
@@ -61,7 +72,7 @@ class InsurancePurchasingDetailContainer extends React.Component
             this.setState({
                 hasGotInfo: true,
                 ...insurancePurchasingDetailInfo,
-            })
+            })*/
         }
     }
 
@@ -69,32 +80,35 @@ class InsurancePurchasingDetailContainer extends React.Component
     render()
     {
         const {
-            hasGotInfo,
+            insuranceId,
             insuranceImageSrc,
-            insuranceName,
-            isSpecialMedicalCare,
-            hasSocialSecurity,
-            insuranceAmount,
+            name,
+            isMale,
+            age,
+            healthState,
+            publicKey,
+            insuranceCompany,
+            insuranceType,
+            insurancePurchasingTime,
             insurancePeriod,
-            insuranceDiseaseType,
-            coveringAge,
-            salesArea,
             insurancePrice,
-            electronicInsurancePolicy,
+            responsiblePersonName,
+            hasGotInfo,
         } = this.state;
         return (
             <InsurancePurchasingDetail      hasGotInfo={hasGotInfo}
                                             insuranceImageSrc={insuranceImageSrc}
-                                            insuranceName={insuranceName}
-                                            isSpecialMedicalCare={isSpecialMedicalCare}
-                                            hasSocialSecurity={hasSocialSecurity}
-                                            insuranceAmount={insuranceAmount}
+                                            name={name}
+                                            isMale={isMale}
+                                            age={age}
+                                            healthState={healthState}
+                                            publicKey={publicKey}
+                                            insuranceCompany={insuranceCompany}
+                                            insuranceType={insuranceType}
+                                            insurancePurchasingTime={insurancePurchasingTime}
                                             insurancePeriod={insurancePeriod}
-                                            insuranceDiseaseType={insuranceDiseaseType}
-                                            coveringAge={coveringAge}
-                                            salesArea={salesArea}
                                             insurancePrice={insurancePrice} 
-                                            electronicInsurancePolicy={electronicInsurancePolicy}/>
+                                            responsiblePersonName={responsiblePersonName}/>
         );
     }
 }

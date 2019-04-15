@@ -1,3 +1,4 @@
+@import "../../Constant/RESIZE";
 .InsuranceDetail {
     padding: (59rem/24) (110rem/24);
     display: flex;
@@ -64,6 +65,16 @@
                             font-size: (48rem/24);
                             color: #DB4646;
                         }
+                    }
+
+                    .key {
+                        display: block;
+                        max-width: (740rem/$RESIZE_FACTOR);
+                        padding-right: (30rem/$RESIZE_FACTOR);
+                        overflow: hidden;
+                        word-break: break-all;
+                        font-family: monospace;
+                        text-decoration: underline dotted;
                     }
                 }
 
