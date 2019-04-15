@@ -5,4 +5,6 @@ export default {
     MEDICAL_RECORD_MODAL: 'medicalRecordModal',
     PAY_CONFIRM_MODAL: 'payConfirmModal',
     AUTHORIZATION_MODAL: 'authorizationModal',
+    PUBLIC_KEY_MODAL: 'publicKeyModal',
+    PRIVATE_KEY_MODAL: 'privateKeyModal',
 };

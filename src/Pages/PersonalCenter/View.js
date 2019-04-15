@@ -8,8 +8,11 @@ import {MODAL_ID} from '../../Constant';
 import {Function as ModalFunction} from '../../Components/Modal';
 import {View as MedicalRecordInfo} from './Components/MedicalRecordInfo';
 import {View as MedicalRecordModal} from './Components/MedicalRecordModal';
+import {View as PrivateKeyModal} from './Components/PrivateKeyModal';
+import {View as PublicKeyModal} from './Components/PublicKeyModal';
 import {View as AuthorizationModal} from './Components/AuthorizationModal';
 import {connect} from 'react-redux';
+
 import Api from '../../Api';
 
 class PersonalCenter extends React.Component
@@ -20,6 +23,8 @@ class PersonalCenter extends React.Component
         this.state = {
             personalInfo: '',
             medicalRecordInfoList:[],
+            currentActivePrivateKeyInModal: '',
+            currentActivePrivateKeyInModal: '',
             currentActiveMedicalRecordInModal: '',
             currentActiveAuthorizationInModal: '',
         }
@@ -31,12 +36,12 @@ class PersonalCenter extends React.Component
             {
                 if (personalInfoWrapper)
                 {
-                    //console.log(personalInfoWrapper);
-                    console.log(personalInfoWrapper[NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO]);
-                    const personalInfo = personalInfoWrapper[NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO];
-                    console.log("personalInfo",personalInfo);
+                    // //console.log(personalInfoWrapper);
+                    // console.log(personalInfoWrapper[NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO]);
+                    // const personalInfo = personalInfoWrapper[NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO];
+                    // console.log("personalInfo",personalInfo);
                     this.setState({
-                        personalInfo,
+                        personalInfo:personalInfoWrapper,
                     })
                 }
             });
@@ -81,6 +86,36 @@ class PersonalCenter extends React.Component
         });*/
     }
 
+    stopPropagation = e =>
+    {
+        e.stopPropagation();
+        e.cancelBubble = true;
+    };
+
+    onPublicKeyDivClick = (e) =>
+    {
+        this.stopPropagation(e);
+        const {personalInfo} = this.state;
+        this.setState({
+            currentActivePublicKeyInModal: personalInfo.publicKey,
+        }, () =>
+        {
+            ModalFunction.showModal(MODAL_ID.PUBLIC_KEY_MODAL);
+        });
+    }
+
+    onPrivateKeyDivClick = (e) =>
+    {
+        this.stopPropagation(e);
+        const {personalInfo} = this.state;
+        this.setState({
+            currentActivePrivateKeyInModal: personalInfo.privateKey,
+        }, () =>
+        {
+            ModalFunction.showModal(MODAL_ID.PRIVATE_KEY_MODAL);
+        })
+    }
+
     onMedicalRecordButtonClick = (medicalRecordContent) => 
     {
         return () =>
@@ -94,12 +129,12 @@ class PersonalCenter extends React.Component
         };
     }
 
-    onAuthorizationButtonClick = (privateKey) =>
+    onAuthorizationButtonClick = (publicKey) =>
     {
         return () =>
         {
             this.setState({
-                currentActiveAuthorizationInModal: privateKey,
+                currentActiveAuthorizationInModal: publicKey,
             }, () => 
             {
                 ModalFunction.showModal(MODAL_ID.AUTHORIZATION_MODAL);
@@ -109,9 +144,9 @@ class PersonalCenter extends React.Component
 
     render()
     {
-        const {currentActiveMedicalRecordInModal, currentActiveAuthorizationInModal} = this.state;
+        const {currentActiveMedicalRecordInModal, currentActiveAuthorizationInModal,
+        currentActivePrivateKeyInModal, currentActivePublicKeyInModal} = this.state;
         const {personalInfo, medicalRecordInfoList}= this.state;
-        console.log(this.state);
         return (
             <div className={Style.PersonalCenter}>
                 <div className={Style.contentWrapper}>
@@ -134,20 +169,20 @@ class PersonalCenter extends React.Component
                                 <div className={Style.info}>{personalInfo.age}岁</div>
                             </Card>
                             <Card className={Style.infoWrapper}>
-                                <div className={Style.label}>公钥：</div>
-                                <div className={Style.info}>{personalInfo.publicKey}</div>
-                            </Card>
-                            <Card className={Style.infoWrapper}>
-                                <div className={Style.label}>私钥：</div>
-                                <div className={Style.info}>{personalInfo.privateKey}</div>
-                            </Card>
-                            <Card className={Style.infoWrapper}>
                                 <div className={Style.label}>家庭住址：</div>
                                 <div className={Style.info}>{personalInfo.location}</div>
                             </Card>
                             <Card className={Style.infoWrapper}>
                                 <div className={Style.label}>联系方式：</div>
                                 <div className={Style.info}>{personalInfo.email}</div>
+                            </Card>
+                            <Card className={Style.infoWrapper}>
+                                <div className={Style.label}>公钥：</div>
+                                <div className={Style.key}  onClick={this.onPublicKeyDivClick}>{personalInfo.publicKey}</div>
+                            </Card>
+                            <Card className={Style.infoWrapper}>
+                                <div className={Style.label}>私钥：</div>
+                                <div className={Style.key}  onClick={this.onPrivateKeyDivClick}>{personalInfo.privateKey}</div>
                             </Card>
                         </div>
                     </div>
@@ -196,6 +231,8 @@ class PersonalCenter extends React.Component
                         </tbody>
                     </table>
                 </div>
+                <PublicKeyModal publicKey = {currentActivePublicKeyInModal}/>
+                <PrivateKeyModal privateKey = {currentActivePrivateKeyInModal}/>
                 <MedicalRecordModal medicalRecordContent={currentActiveMedicalRecordInModal} />
                 <AuthorizationModal privateKey={currentActiveAuthorizationInModal} />
             </div>

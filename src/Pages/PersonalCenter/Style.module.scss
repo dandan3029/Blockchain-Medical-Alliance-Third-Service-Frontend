@@ -43,11 +43,12 @@
                 height: (388rem/4*3/$RESIZE_FACTOR);
 
                 .infoWrapper {
+                    width: (500rem/$RESIZE_FACTOR);
                     font-size: (28rem/$RESIZE_FACTOR);
                     padding: (14rem/$RESIZE_FACTOR) (52rem/$RESIZE_FACTOR);
                     vertical-align: middle;
                     box-shadow: #D2D0D0 (5rem/$RESIZE_FACTOR) (0rem/$RESIZE_FACTOR) (20rem/$RESIZE_FACTOR);
-                    margin: (30rem/$RESIZE_FACTOR);
+                    margin: (28rem/$RESIZE_FACTOR);
 
                     .label {
                         display: inline-block;
@@ -56,6 +57,16 @@
 
                     .info {
                         display: inline-block;
+                    }
+                    .key {
+                        display: inline-block;
+                        max-width: (240rem/$RESIZE_FACTOR);
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        font-family: monospace;
+                        text-decoration: underline dotted;
+                        cursor: pointer;
                     }
                 }
             }
