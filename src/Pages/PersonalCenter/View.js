@@ -225,19 +225,20 @@ class PersonalCenter extends React.Component
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.MEDICAL_RECORD_INFO_ID]: medicalRecordInfoId,
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.TREATMENT_DATE]: treatmentDate,
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.TREATMENT_HOSPITAL]: treatmentHospital,
-                                    [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.TREATMENT_DOCTOR]: treatmentDoctor,
-                                    [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.PUBLICKEY]: publicKey,
+                                    [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.DOCTOR]: doctor,
+                                    [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.PUBKEY]: pubkey,
                                     [NAMESPACE.PERSONAL_CENTER.MEDICAL_RECORD_INFO.MEDICAL_RECORD_CONTENT]: medicalRecordContent,
                                 } = medicalRecord;
+                                // console.log(pubkey);
                                 return <MedicalRecordInfo   medicalRecordInfoId={medicalRecordInfoId}
                                                             key = {medicalRecordInfoId}
                                                             treatmentDate={treatmentDate}
                                                             treatmentHospital={treatmentHospital}
-                                                            treatmentDoctor={treatmentDoctor}
-                                                            publicKey={publicKey}
+                                                            doctor={doctor}
+                                                            pubkey={pubkey}
                                                             onMedicalRecordButtonClick={this.onMedicalRecordButtonClick(medicalRecordContent)}
                                                             onAuthorizationButtonClick={this.onAuthorizationButtonClick(personalInfo.privateKey)} 
-                                                            onPublicKeyTdClick={this.onPublicKeyTdClick(publicKey)} />
+                                                            onPublicKeyTdClick={this.onPublicKeyTdClick(pubkey)} />
                             })
                         }
                         </tbody>

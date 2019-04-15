@@ -34,16 +34,16 @@ class MedicalRecordInfo extends React.Component
             medicalRecordInfoId,
             treatmentDate,
             treatmentHospital,
-            treatmentDoctor,
-            publicKey,
+            doctor,
+            pubkey,
         } = this.props;
-        const publicKeyCopy = "lfkdgjrpeoilsdkfgjpoerwilkgffsdoierglksdfjo";
+        console.log(pubkey);
         return (
             <tr className={Style.MedicalRecordInfo}>
                 <td>{treatmentDate}</td>
                 <td>{treatmentHospital}</td>
-                <td>{treatmentDoctor}</td>
-                <td className={Style.publicKey} onClick={this.onPublicKeyTdClick}>{publicKeyCopy}</td>
+                <td>{doctor}</td>
+                <td className={Style.publicKey} onClick={this.onPublicKeyTdClick}>{pubkey}</td>
                 <td>
                     <button onClick={this.onMedicalRecordButtonClick}>查看</button>
                 </td>
@@ -59,6 +59,8 @@ MedicalRecordInfo.propTypes = {
     medicalRecordInfoId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     treatmentDate: PropTypes.string.isRequired,
     treatmentHospital: PropTypes.string.isRequired,
+    doctor: PropTypes.string.isRequired,
+    pubkey: PropTypes.string.isRequired,
     onMedicalRecordButtonClick: PropTypes.func.isRequired,
     onAuthorizationButtonClick: PropTypes.func.isRequired,
 };

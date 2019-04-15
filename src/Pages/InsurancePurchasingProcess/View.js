@@ -20,8 +20,7 @@ class InsurancePurchasingProcess extends React.Component
 
     componentDidMount()
     {
-        const insurancePurchasingInfoList = [];
-        const {email} = this.props;
+        /*const insurancePurchasingInfoList = [];
         console.log(email);
         for (let i = 0; i < 30; i++)
         {
@@ -42,9 +41,9 @@ class InsurancePurchasingProcess extends React.Component
 
         this.setState({
             insurancePurchasingInfoList,
-        });
-
-        /*Api.sendGetInsurancePurchasingInfoListRequest(email)
+        });*/
+        const {email} = this.props;
+        Api.sendGetInsurancePurchasingInfoListRequest(email)
             .then(insurancePurchasingInfoListWrapper =>
             {
                 if (insurancePurchasingInfoListWrapper)
@@ -54,13 +53,14 @@ class InsurancePurchasingProcess extends React.Component
                         insurancePurchasingInfoList,
                     });
                 }
-            });*/
+            });
     }
 
 
     render()
     {
         const {insurancePurchasingInfoList} = this.state;
+        console.log(insurancePurchasingInfoList);
         const {companyName, insurancePeriodRange: [minPeriod, maxPeriod]} = this.props; //, stageId
         return (
             <div className={Style.InsurancePurchasingProcess}>
@@ -96,7 +96,7 @@ class InsurancePurchasingProcess extends React.Component
                                     [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.RESPONSIBLE_PERSON_NAME]: responsiblePersonName,
                                 } = insurancePurchasingInfo;
                                 //age >= minAge && age <= maxAge &&
-                                if ( (insurancePeriod >= minPeriod && insurancePeriod <= maxPeriod )&& (insuranceCompany === companyName || companyName === INSURANCE_COMPANY.ALL_INSURANCE_COMPANY ) )
+                                //if ( (insurancePeriod >= minPeriod && insurancePeriod <= maxPeriod )&& (insuranceCompany === companyName || companyName === INSURANCE_COMPANY.ALL_INSURANCE_COMPANY ) )
                                 // && (insurancePurchasingStage === stageId || stageId === INSURANCE_PURCHASING_STAGE_ID.ALL_STAGES)
                                 {
                                     return <InsurancePurchasingInfo insurancePurchasingInfoId={insurancePurchasingInfoId}
@@ -111,10 +111,10 @@ class InsurancePurchasingProcess extends React.Component
                                                                     responsiblePersonName={responsiblePersonName}
                                                                     responsiblePersonId={responsiblePersonId} />;
                                 }
-                                else
-                                {
-                                    return null;
-                                }
+                                // else
+                                // {
+                                //     return null;
+                                // }
                             })
                         }
                         </tbody>
