@@ -9,6 +9,8 @@ import {Function as ModalFunction} from '../../Components/Modal';
 import {View as MedicalRecordInfo} from './Components/MedicalRecordInfo';
 import {View as MedicalRecordModal} from './Components/MedicalRecordModal';
 import {View as AuthorizationModal} from './Components/AuthorizationModal';
+import {connect} from 'react-redux';
+import Api from '../../Api';
 
 class PersonalCenter extends React.Component
 {
@@ -23,6 +25,34 @@ class PersonalCenter extends React.Component
         }
     }
     componentDidMount(){
+        const {email} = this.props;
+        Api.sendGetPersonalInfoRequestAsync(email)
+        .then(personalInfoWrapper =>
+            {
+                if (personalInfoWrapper)
+                {
+                    //console.log(personalInfoWrapper);
+                    console.log(personalInfoWrapper[NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO]);
+                    const personalInfo = personalInfoWrapper[NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO];
+                    console.log("personalInfo",personalInfo);
+                    this.setState({
+                        personalInfo,
+                    })
+                }
+            });
+        
+        Api.sendGetMedicalRecordInfoListRequestAsync(email)
+        .then(medicalRecordInfoListWrapper =>
+            {
+                if (medicalRecordInfoListWrapper)
+                {
+                    const medicalRecordInfoList = medicalRecordInfoListWrapper[NAMESPACE.PERSONAL_CENTER.LIST.MEDICAL_RECORD_INFO];
+                    this.setState({
+                        medicalRecordInfoList:medicalRecordInfoList,
+                    })
+                }
+            });
+        /*
         const medicalRecordInfoList = []
         for( let i = 0; i < 5 ; i++ )
         {
@@ -48,7 +78,7 @@ class PersonalCenter extends React.Component
         this.setState({
             personalInfo,
             medicalRecordInfoList,
-        });
+        });*/
     }
 
     onMedicalRecordButtonClick = (medicalRecordContent) => 
@@ -81,6 +111,7 @@ class PersonalCenter extends React.Component
     {
         const {currentActiveMedicalRecordInModal, currentActiveAuthorizationInModal} = this.state;
         const {personalInfo, medicalRecordInfoList}= this.state;
+        console.log(this.state);
         return (
             <div className={Style.PersonalCenter}>
                 <div className={Style.contentWrapper}>
@@ -172,4 +203,12 @@ class PersonalCenter extends React.Component
     }
 }
 
-export default PersonalCenter;
+const mapStateToProps = state =>
+{
+    const {AuthProcessor: {email}} = state; 
+    return {
+        email,
+    };
+};
+
+export default connect(mapStateToProps)(PersonalCenter);
