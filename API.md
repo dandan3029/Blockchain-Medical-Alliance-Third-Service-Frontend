@@ -277,6 +277,8 @@
             medicalRecordInfoId: String,   // 病历 ID
             treatmentDate: String,         // 接受治疗时间
             treatmentHospital: String,     // 接收治疗所在医院
+            treatmentDoctor: String,       // 治疗的医生
+            publicKey: String,             // 病人公钥
             medicalRecordContent: String,  // 病例内容
         },
     ]
