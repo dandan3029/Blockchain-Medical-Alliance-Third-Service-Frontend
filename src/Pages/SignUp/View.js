@@ -137,7 +137,7 @@ class SignUp extends React.Component
                             <div className={Style.buttonWrapper}>
                                 <button className={Style.toLoginButton} onClick={() =>
                                 {
-                                    browserHistory.push(PAGE_ID_TO_ROUTE[NOT_REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_LOGIN]);
+                                    browserHistory.push(PAGE_ID_TO_ROUTE[NOT_REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_LOGIN]);
                                 }
                                 }>去登录
                                 </button>

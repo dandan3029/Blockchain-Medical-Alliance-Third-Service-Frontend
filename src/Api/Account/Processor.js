@@ -119,7 +119,7 @@ async function sendPostSignUpRequestAsync(username, password, name, age, address
         {
             case STATUS_CODE.SUCCESS:
             {
-                return data;
+                return true;
             }
             case STATUS_CODE.WRONG_PARAMETER:
             {
