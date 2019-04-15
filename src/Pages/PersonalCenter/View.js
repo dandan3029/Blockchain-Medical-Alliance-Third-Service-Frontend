@@ -11,6 +11,7 @@ import {View as MedicalRecordModal} from './Components/MedicalRecordModal';
 import {View as PrivateKeyModal} from './Components/PrivateKeyModal';
 import {View as PublicKeyModal} from './Components/PublicKeyModal';
 import {View as AuthorizationModal} from './Components/AuthorizationModal';
+import {View as PublicKeyInListModal} from './Components/PublicKeyInListModal';
 import {connect} from 'react-redux';
 
 import Api from '../../Api';
@@ -24,9 +25,10 @@ class PersonalCenter extends React.Component
             personalInfo: '',
             medicalRecordInfoList:[],
             currentActivePrivateKeyInModal: '',
-            currentActivePrivateKeyInModal: '',
+            currentActivePublicKeyInModal: '',
             currentActiveMedicalRecordInModal: '',
             currentActiveAuthorizationInModal: '',
+            currentActivePublicKeyInListInModal: '',
         }
     }
     componentDidMount(){
@@ -36,10 +38,6 @@ class PersonalCenter extends React.Component
             {
                 if (personalInfoWrapper)
                 {
-                    // //console.log(personalInfoWrapper);
-                    // console.log(personalInfoWrapper[NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO]);
-                    // const personalInfo = personalInfoWrapper[NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO];
-                    // console.log("personalInfo",personalInfo);
                     this.setState({
                         personalInfo:personalInfoWrapper,
                     })
@@ -53,7 +51,7 @@ class PersonalCenter extends React.Component
                 {
                     const medicalRecordInfoList = medicalRecordInfoListWrapper[NAMESPACE.PERSONAL_CENTER.LIST.MEDICAL_RECORD_INFO];
                     this.setState({
-                        medicalRecordInfoList:medicalRecordInfoList,
+                        medicalRecordInfoList: medicalRecordInfoList,
                     })
                 }
             });
@@ -103,6 +101,18 @@ class PersonalCenter extends React.Component
             ModalFunction.showModal(MODAL_ID.PUBLIC_KEY_MODAL);
         });
     }
+    onPublicKeyTdClick = (publicKey) =>
+    {
+        return () =>
+        {
+            this.setState({
+                currentActivePublicKeyInListInModal: publicKey,
+            }, () =>
+            {
+                ModalFunction.showModal(MODAL_ID.PUBLIC_KEY_IN_LIST_MODAL);
+            })
+        }
+    }
 
     onPrivateKeyDivClick = (e) =>
     {
@@ -145,7 +155,8 @@ class PersonalCenter extends React.Component
     render()
     {
         const {currentActiveMedicalRecordInModal, currentActiveAuthorizationInModal,
-        currentActivePrivateKeyInModal, currentActivePublicKeyInModal} = this.state;
+        currentActivePrivateKeyInModal, currentActivePublicKeyInModal,
+        currentActivePublicKeyInListInModal} = this.state;
         const {personalInfo, medicalRecordInfoList}= this.state;
         return (
             <div className={Style.PersonalCenter}>
@@ -225,12 +236,14 @@ class PersonalCenter extends React.Component
                                                             treatmentDoctor={treatmentDoctor}
                                                             publicKey={publicKey}
                                                             onMedicalRecordButtonClick={this.onMedicalRecordButtonClick(medicalRecordContent)}
-                                                            onAuthorizationButtonClick={this.onAuthorizationButtonClick(personalInfo.privateKey)} />
+                                                            onAuthorizationButtonClick={this.onAuthorizationButtonClick(personalInfo.privateKey)} 
+                                                            onPublicKeyTdClick={this.onPublicKeyTdClick(publicKey)} />
                             })
                         }
                         </tbody>
                     </table>
                 </div>
+                <PublicKeyInListModal publicKey = {currentActivePublicKeyInListInModal}/>
                 <PublicKeyModal publicKey = {currentActivePublicKeyInModal}/>
                 <PrivateKeyModal privateKey = {currentActivePrivateKeyInModal}/>
                 <MedicalRecordModal medicalRecordContent={currentActiveMedicalRecordInModal} />

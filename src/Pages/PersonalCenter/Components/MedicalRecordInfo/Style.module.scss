@@ -9,4 +9,13 @@
         @extend .btn, .btn-primary;
     }
     
+    .publicKey {
+        max-width: (192rem/$RESIZE_FACTOR);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-family: monospace;
+        text-decoration: underline dotted;
+    }
+    
 }

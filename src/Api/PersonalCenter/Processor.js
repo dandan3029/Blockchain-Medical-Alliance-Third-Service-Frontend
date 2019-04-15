@@ -66,10 +66,9 @@ async function sendGetMedicalRecordInfoListRequestAsync(email)
 {
     try
     {
-        const {code, data} = Function.getAsync(GET_MEDICAL_RECORD_INFO_LIST, false, {
+        const {code, data} = await Function.getAsync(GET_MEDICAL_RECORD_INFO_LIST, false, {
             [NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO.EMAIL]: email,
         })
-
         switch(code)
         {
             case STATUS_CODE.SUCCESS:

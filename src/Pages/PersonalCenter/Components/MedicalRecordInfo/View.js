@@ -22,6 +22,12 @@ class MedicalRecordInfo extends React.Component
         this.props.onAuthorizationButtonClick(e);
     }
 
+    onPublicKeyTdClick = (e) =>
+    {
+        this.stopPropagation(e);
+        this.props.onPublicKeyTdClick(e);
+    }
+
     render()
     {   
         const {
@@ -31,12 +37,13 @@ class MedicalRecordInfo extends React.Component
             treatmentDoctor,
             publicKey,
         } = this.props;
+        const publicKeyCopy = "lfkdgjrpeoilsdkfgjpoerwilkgffsdoierglksdfjo";
         return (
             <tr className={Style.MedicalRecordInfo}>
                 <td>{treatmentDate}</td>
                 <td>{treatmentHospital}</td>
                 <td>{treatmentDoctor}</td>
-                <td>{publicKey}</td>
+                <td className={Style.publicKey} onClick={this.onPublicKeyTdClick}>{publicKeyCopy}</td>
                 <td>
                     <button onClick={this.onMedicalRecordButtonClick}>查看</button>
                 </td>

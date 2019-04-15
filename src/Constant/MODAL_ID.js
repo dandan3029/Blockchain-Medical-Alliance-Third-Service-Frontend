@@ -7,4 +7,5 @@ export default {
     AUTHORIZATION_MODAL: 'authorizationModal',
     PUBLIC_KEY_MODAL: 'publicKeyModal',
     PRIVATE_KEY_MODAL: 'privateKeyModal',
+    PUBLIC_KEY_IN_LIST_MODAL: 'publicKeyInListModal',
 };
