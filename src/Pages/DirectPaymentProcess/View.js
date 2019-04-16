@@ -104,7 +104,7 @@ class DirectPaymentProcess extends React.Component
                     <table className={`${Style.processTable}`}>
                         <thead>
                         <tr>
-                            <th scope="col">保险公司</th>
+                            {/* <th scope="col">保险公司</th> */}
                             <th scope="col">直付医院</th>
                             <th scope="col">患者公钥</th>
                             <th scope="col">直付金额</th>

@@ -40,7 +40,12 @@
 
 - 功能说明：获取个人投保信息列表
 - 请求方法：GET
-- 请求体：无
+- 请求体：
+```js
+{
+    email: String,                                // 用户电子邮件
+}
+```
 - 响应体：
 ```js
 {
@@ -81,7 +86,12 @@
 
 - 功能说明：获取直付处理信息列表
 - 请求方法：GET
-- 请求体：无
+- 请求体：
+```js
+{
+    email: String,           // 用户电子邮件
+}
+```
 - 响应体：
 ```js
 {
@@ -156,7 +166,7 @@
 - 请求体：
 ```js
 {
-    directPaymentInfoId: String,   // 直付信息 ID
+    directPaymentInfoId: String,            // 直付信息 ID
 }
 ```
 - 响应体
@@ -173,7 +183,18 @@
     directPaymentStage: ENUM_NUMBER,        // 枚举值，直付阶段
 }
 ```
+- 其他说明： 无
 
+#### `submitStartDirectPayment`
+
+- 功能说明：发起直付
+- 请求方法：POST
+- 请求体：
+```js
+{
+
+}
+```
 
 ### 帐号相关部分（请求前缀为 `/account`）
 
@@ -286,7 +307,7 @@
 ```
 - 其他说明： 无
 
-`/authorizationMedicalRecord`
+#### `/authorizationMedicalRecord`
 - 功能说明： 提交病例授权信息
 - 请求方法： POST
 - 请求体：

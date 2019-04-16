@@ -59,7 +59,7 @@ class DirectPaymentInfo extends React.Component
         return (
             <tr className={`${Style.DirectPaymentInfo}`}
                 onClick={this.onDirectPaymentInfoClick}>
-                <th scope="row">{insuranceCompany}</th>
+                {/* <th scope="row">{insuranceCompany}</th> */}
                 <td>{hospital}</td>
                 <td>
                     <ClickCopy copyText={publicKey} onCopySuccess={
@@ -98,7 +98,7 @@ DirectPaymentInfo.propTypes = {
     // age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     // isMale: PropTypes.oneOf([0, 1]).isRequired,
     // healthState: PropTypes.string.isRequired,
-    insuranceCompany: PropTypes.string.isRequired,
+    // insuranceCompany: PropTypes.string.isRequired,
     hospital: PropTypes.string.isRequired,
     publicKey: PropTypes.string.isRequired,
     directPaymentMoneyAmount: PropTypes.number.isRequired,
