@@ -157,7 +157,7 @@
 
 ---
 
-#### `submitStartDirectPayment`
+#### `/submitStartDirectPayment`
 
 - 功能说明：发起直付
 - 请求方法：POST
