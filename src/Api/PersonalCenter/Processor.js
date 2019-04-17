@@ -121,8 +121,7 @@ async function sendPostAuthorizationMedicalRecordRequestAsync(publicKey)
     {
         const {code} = await Function.postAsync(POST_AUTHORIZATION_MEDICAL_RECORD, {
             [NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO.PUBLICKEY]: publicKey,
-        })
-        console.log(code);
+        });
         switch (code)
         {
             case STATUS_CODE.SUCCESS:
@@ -163,7 +162,7 @@ async function sendPostAuthorizationMedicalRecordRequestAsync(publicKey)
     }
     catch (e)
     {
-        console.error(e);
+        console.error("这里打印错误信息",e);
         console.log("捕获错误");
         WarningAlert.pop("病例授权失败");
         return null;

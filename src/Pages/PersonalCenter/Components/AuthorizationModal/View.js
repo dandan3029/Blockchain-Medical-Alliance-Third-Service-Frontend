@@ -20,12 +20,9 @@ class AuthorizationModal extends React.Component
         const {publicKey} = this.props;
         if (publicKey === publicKeyInput)
         {
-            //const requestIsSuccessful = true;
             const requestIsSuccessful = await Api.sendPostAuthorizationMedicalRecordRequestAsync(publicKey);
-            console.log(requestIsSuccessful);
             if (requestIsSuccessful)
             {
-                console.log(requestIsSuccessful);
                 SuccessAlert.pop("病例授权成功");
             }
         }
