@@ -1,5 +1,6 @@
 @import "../../../../ModuleConfig/Bootstrap/Bootstrap";
 @import "../../../../Constant/RESIZE";
+@import "../../../../Constant/COLOR";
 
 .AuthorizationModal{
 
@@ -9,6 +10,20 @@
             @extend .form-control;
             font-size: (28rem/$RESIZE_FACTOR);
             margin: (40rem/$RESIZE_FACTOR) 0;
+        }
+        button {
+            float:right;
+            @extend .btn;
+            color: $WHITE;
+            width: (127rem/$RESIZE_FACTOR);
+            height: (60rem/$RESIZE_FACTOR);
+            border-radius: (40rem/$RESIZE_FACTOR);
+            font-size: (24rem/$RESIZE_FACTOR);
+            background-color: $BLUE;
+
+            &:hover {
+                color: $WHITE;
+            }
         }
 
     }

@@ -236,7 +236,7 @@ class PersonalCenter extends React.Component
                                                             doctor={doctor}
                                                             pubkey={pubkey}
                                                             onMedicalRecordButtonClick={this.onMedicalRecordButtonClick(medicalRecordContent)}
-                                                            onAuthorizationButtonClick={this.onAuthorizationButtonClick(personalInfo.privateKey)} 
+                                                            onAuthorizationButtonClick={this.onAuthorizationButtonClick(personalInfo.publicKey)} 
                                                             onPublicKeyTdClick={this.onPublicKeyTdClick(pubkey)} />
                             })
                         }
@@ -247,7 +247,7 @@ class PersonalCenter extends React.Component
                 <PublicKeyModal publicKey = {currentActivePublicKeyInModal}/>
                 <PrivateKeyModal privateKey = {currentActivePrivateKeyInModal}/>
                 <MedicalRecordModal medicalRecordContent={currentActiveMedicalRecordInModal} />
-                <AuthorizationModal privateKey={currentActiveAuthorizationInModal} />
+                <AuthorizationModal publicKey={currentActiveAuthorizationInModal} />
             </div>
         );
     }
