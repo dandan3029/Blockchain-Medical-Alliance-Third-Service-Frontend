@@ -26,7 +26,7 @@ class AuthorizationModal extends React.Component
             if (requestIsSuccessful)
             {
                 console.log(requestIsSuccessful);
-                SuccessAlert.pop("病例授权成功++");
+                SuccessAlert.pop("病例授权成功");
             }
         }
     }
