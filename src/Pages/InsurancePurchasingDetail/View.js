@@ -83,7 +83,7 @@ function InsurancePurchasingDetail(props)
                             <div className={Style.itemWrapper}>
                                 <div className={Style.label}>保险公司</div>
                                 <div className={Style.itemContent}>
-                                    {insuranceCompany}
+                                    {insuranceCompany?insuranceCompany:"中国人寿"}
                                 </div>
                             </div>
                             <div className={Style.itemWrapper}>
@@ -131,15 +131,17 @@ function InsurancePurchasingDetail(props)
 InsurancePurchasingDetail.propTypes = {
     hasGotInfo: PropTypes.bool.isRequired,
     insuranceImageSrc: PropTypes.string.isRequired,
-    insuranceName: PropTypes.string.isRequired,
-    isSpecialMedicalCare: PropTypes.number.isRequired,   // 是否是特殊医疗，0 或 1
-    hasSocialSecurity: PropTypes.number.isRequired,      // 有无社保，0 或 1
-    insuranceAmount: PropTypes.number.isRequired,        // 保额，单位是人民币元
-    insurancePeriod: PropTypes.string.isRequired,        // 保险期限
-    insuranceDiseaseType: PropTypes.string.isRequired,   // 保险病种
-    coveringAge: PropTypes.string.isRequired,            // 承保年龄
-    // salesArea: PropTypes.string.isRequired,              // 销售区域
-    insurancePrice: PropTypes.number.isRequired,         // 保费价格，单位是人民币元
+    name: PropTypes.string.isRequired,
+    isMale: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    age: PropTypes.number.isRequired,
+    healthState: PropTypes.string.isRequired,
+    publicKey: PropTypes.string.isRequired,
+    insuranceCompany: PropTypes.string.isRequired,
+    insuranceType: PropTypes.string.isRequired,
+    insurancePurchasingTime: PropTypes.string.isRequired,
+    insurancePeriod: PropTypes.number.isRequired,
+    insurancePrice: PropTypes.number.isRequired,
+    responsiblePersonName: PropTypes.string.isRequired,
 };
 
 export default InsurancePurchasingDetail;

@@ -43,7 +43,6 @@ class InsurancePurchasingInfo extends React.Component
             insurancePeriod,
             insurancePrice,
             publicKey,
-            // insurancePurchasingStage,
             responsiblePersonName,
         } = this.props;
         return (
@@ -51,7 +50,7 @@ class InsurancePurchasingInfo extends React.Component
                 onClick={this.onInsuranceInfoClick}
                 ref={this.rowRef}>
                 <th scope="row">{insuranceType}</th>
-                <td>{insuranceCompany}</td>
+                <td>{insuranceCompany?insuranceCompany:"中国人寿"}</td>
                 <td>{insurancePurchasingTime}</td>
                 <td>{insurancePeriod} 年</td>
                 <td>{insurancePrice} 元</td>
@@ -70,7 +69,6 @@ class InsurancePurchasingInfo extends React.Component
                         </ToolTip>
                     </ClickCopy>
                 </td>
-                {/* <td>{INSURANCE_PURCHASING_STAGE_ID_TO_TEXT[insurancePurchasingStage]}</td> */}
                 <td>{responsiblePersonName}</td>
             </tr>
         );
@@ -82,10 +80,9 @@ InsurancePurchasingInfo.propTypes = {
     insuranceType: PropTypes.string.isRequired,
     insuranceCompany: PropTypes.string.isRequired,
     insurancePurchasingTime: PropTypes.string.isRequired,
-    insurancePeriod: PropTypes.number.isRequired,
-    insurancePrice: PropTypes.number.isRequired,
+    insurancePeriod: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    insurancePrice: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     publicKey: PropTypes.string.isRequired,
-    // insurancePurchasingStage: PropTypes.oneOf(Object.values(INSURANCE_PURCHASING_STAGE_ID)).isRequired,
     responsiblePersonId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     responsiblePersonName: PropTypes.string.isRequired,
 };
