@@ -1,4 +1,7 @@
 @import "../../Constant/RESIZE";
+@import "../../Constant/COLOR";
+@import "../../ModuleConfig/Bootstrap/Bootstrap";
+
 .InsuranceDetail {
     padding: (59rem/24) (110rem/24);
     display: flex;
@@ -80,6 +83,21 @@
 
                 .buttonWrapper {
                     height: (60rem/24);
+
+                    .submitButton {
+                        @extend .btn;
+                        color: $WHITE;
+                        width: (160rem/$RESIZE_FACTOR);
+                        height: (60rem/$RESIZE_FACTOR);
+                        border-radius: (30rem/$RESIZE_FACTOR);
+                        font-size: (24rem/$RESIZE_FACTOR);
+                        background-color: $BLUE;
+                        margin-top: (10rem/$RESIZE_FACTOR);
+
+                        &:hover {
+                            color: $WHITE;
+                        }
+                    }
                 }
             }
         }
