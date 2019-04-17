@@ -157,6 +157,21 @@
 
 ---
 
+#### `submitStartDirectPayment`
+
+- 功能说明：发起直付
+- 请求方法：POST
+- 请求体：
+```js
+{
+    insurancePurchasingInfoId: String,      // 投保 ID
+}
+```
+- 响应体：无
+- 其他说明：无
+
+---
+
 ### 直付详情部分（请求前缀为`/directPaymentDetail`）
 
 #### `/getDirectPaymentInfo`
@@ -185,16 +200,6 @@
 ```
 - 其他说明： 无
 
-#### `submitStartDirectPayment`
-
-- 功能说明：发起直付
-- 请求方法：POST
-- 请求体：
-```js
-{
-
-}
-```
 
 ### 帐号相关部分（请求前缀为 `/account`）
 
