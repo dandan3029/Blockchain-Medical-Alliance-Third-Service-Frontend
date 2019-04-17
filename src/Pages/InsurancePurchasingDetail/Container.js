@@ -76,11 +76,10 @@ class InsurancePurchasingDetailContainer extends React.Component
         }
     }
 
-
     render()
     {
         const {
-            insuranceId,
+            insurancePurchasingInfoId,
             insuranceImageSrc,
             name,
             isMale,
@@ -98,6 +97,7 @@ class InsurancePurchasingDetailContainer extends React.Component
         return (
             <InsurancePurchasingDetail      hasGotInfo={hasGotInfo}
                                             insuranceImageSrc={insuranceImageSrc}
+                                            insurancePurchasingInfoId={insurancePurchasingInfoId}
                                             name={name}
                                             isMale={isMale}
                                             age={age}
@@ -108,7 +108,7 @@ class InsurancePurchasingDetailContainer extends React.Component
                                             insurancePurchasingTime={insurancePurchasingTime}
                                             insurancePeriod={insurancePeriod}
                                             insurancePrice={insurancePrice} 
-                                            responsiblePersonName={responsiblePersonName}/>
+                                            responsiblePersonName={responsiblePersonName} />
         );
     }
 }

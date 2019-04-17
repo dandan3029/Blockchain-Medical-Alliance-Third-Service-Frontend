@@ -1,8 +1,10 @@
 import {insurancePurchasingDetailPrefix} from './Function';
 
-export const GET_INSURANCE_PURCHASING_INFO = insurancePurchasingDetailPrefix('/getInsurancePurchasingInfo');
-
 export const GET_INSURANCE_PURCHASING_DETAIL_INFO = insurancePurchasingDetailPrefix('/getInsurancePurchasingInfo');
+
+export const SUBMIT_START_DIRECT_PAYMENT = insurancePurchasingDetailPrefix('/submitStartDirectPayment');
+
+export const GET_INSURANCE_PURCHASING_INFO = insurancePurchasingDetailPrefix('/getInsurancePurchasingInfo');
 
 export const GET_ELECTRONIC_INSURANCE_POLICY = insurancePurchasingDetailPrefix('/getElectronicInsurancePolicy');
 

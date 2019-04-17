@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import {View as Card} from '../../Components/Card';
 import Icon from 'antd/lib/icon';
 import Skeleton from 'antd/lib/skeleton';
+import Api from '../../Api';
 
 function InsurancePurchasingDetail(props)
 {
     const {
-        insuranceId,
+        insurancePurchasingInfoId,
         insuranceImageSrc,
         name,
         isMale,
@@ -24,6 +25,14 @@ function InsurancePurchasingDetail(props)
         hasGotInfo,
     } = props;
     const gender = isMale === 1 ? '男':'女';
+    
+    const onSubmitStartDirectPayment = async e =>
+    {
+        e.preventDefault();
+        //console.log(insurancePurchasingInfoId);
+        Api.sendPostSubmitStartDirectPaymentRequestAsync(insurancePurchasingInfoId);
+    }
+
     return (
         <div className={Style.InsuranceDetail}>
             <Card className={Style.insuranceDetailContainer}>
@@ -41,12 +50,12 @@ function InsurancePurchasingDetail(props)
                                     {name}
                                 </div>
                             </div>
-                            <div className={Style.itemWrapper}>
+                            {/* <div className={Style.itemWrapper}>
                                 <div className={Style.label}>姓名</div>
                                 <div className={Style.itemContent}>
                                     {name}
                                 </div>
-                            </div>
+                            </div> */}
                             <div className={Style.itemWrapper}>
                                 <div className={Style.label}>性别</div>
                                 <div className={Style.itemContent}>
@@ -107,9 +116,12 @@ function InsurancePurchasingDetail(props)
                                     {responsiblePersonName}
                                 </div>
                             </div>
-                            <div className={Style.buttonWrapper} />
+                            <form className={Style.buttonWrapper} onSubmit={onSubmitStartDirectPayment}>
+                                <button className={Style.submitButton}>发起直付</button>
+                            </form>
                         </div>
                     </Skeleton>
+                    
                 </div>
             </Card>
         </div>

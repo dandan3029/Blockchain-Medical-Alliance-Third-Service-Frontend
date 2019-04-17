@@ -7,6 +7,7 @@ import {
     GET_MEDICAL_RECORD,
     SUBMIT_INSURANCE_COMPANY_VERIFY_RESULT,
     SUBMIT_PAY_CONFIRMATION,
+    SUBMIT_START_DIRECT_PAYMENT,
 } from './ROUTE';
 import {STATUS_CODE} from '../../Constant';
 import {Function as AuthProcessorFunction} from '../../Components/AuthProcessor';
@@ -14,6 +15,8 @@ import {DangerAlert, SuccessAlert, WarningAlert} from '../../Components/Alerts';
 
 export default {
     sendGetInsurancePurchasingDetailInfoRequestAsync,
+    sendPostSubmitStartDirectPaymentRequestAsync,
+
     sendGetInsurancePurchasingInfoRequestAsync,
     sendGetElectronicInsurancePolicyRequestAsync,
     sendGetMedicalRecordRequestAsync,
@@ -74,7 +77,58 @@ async function sendGetInsurancePurchasingDetailInfoRequestAsync(insurancePurchas
     }
 }
 
-
+async function sendPostSubmitStartDirectPaymentRequestAsync(insurancePurchasingInfoId)
+{
+    try
+    {
+        const {code} = await Function.postAsync(SUBMIT_START_DIRECT_PAYMENT, {
+            [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PURCHASING_INFO_ID]: insurancePurchasingInfoId,
+        })
+        switch (code)
+        {
+            case STATUS_CODE.SUCCESS:
+            {
+                SuccessAlert.pop('发起直付成功');
+                return true;
+            }
+            case STATUS_CODE.CONTENT_NOT_FOUND:
+            {
+                WarningAlert.pop('投保信息不存在');
+                return null;
+            }
+            case STATUS_CODE.WRONG_PARAMETER:
+            {
+                WarningAlert.pop('参数错误');
+                return null;
+            }
+            case STATUS_CODE.REJECTION:
+            {
+                return null;
+            }
+            case STATUS_CODE.INVALID_SESSION:
+            {
+                AuthProcessorFunction.setLoggedOut();
+                return null;
+            }
+            case STATUS_CODE.INTERNAL_SERVER_ERROR:
+            {
+                DangerAlert.pop('服务器错误');
+                return null;
+            }
+            default:
+            {
+                WarningAlert.pop('发起直付失败');
+                return null;
+            }
+        }
+    }
+    catch (e)
+    {
+        console.error(e);
+        WarningAlert.pop('发起直付失败');
+        return null;
+    }
+}
 
 async function sendGetInsurancePurchasingInfoRequestAsync(insurancePurchasingInfoId)
 {
