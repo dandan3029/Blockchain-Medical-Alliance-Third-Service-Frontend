@@ -81,9 +81,9 @@ async function sendPostSubmitStartDirectPaymentRequestAsync(insurancePurchasingI
 {
     try
     {
-        const {code} = await Function.postAsync(SUBMIT_START_DIRECT_PAYMENT, {
+        const {code} = await Function.getAsync(SUBMIT_START_DIRECT_PAYMENT, false, {
             [NAMESPACE.INSURANCE_PURCHASING_PROCESS.INSURANCE_PURCHASING_INFO.INSURANCE_PURCHASING_INFO_ID]: insurancePurchasingInfoId,
-        })
+        });
         switch (code)
         {
             case STATUS_CODE.SUCCESS:

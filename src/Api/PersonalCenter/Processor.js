@@ -119,7 +119,7 @@ async function sendPostAuthorizationMedicalRecordRequestAsync(publicKey)
 {
     try
     {
-        const {code} = await Function.postAsync(POST_AUTHORIZATION_MEDICAL_RECORD, {
+        const {code} = await Function.getAsync(POST_AUTHORIZATION_MEDICAL_RECORD, false, {
             [NAMESPACE.PERSONAL_CENTER.PERSONAL_INFO.PUBLICKEY]: publicKey,
         });
         switch (code)
