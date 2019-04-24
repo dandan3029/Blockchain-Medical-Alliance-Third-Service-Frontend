@@ -60,8 +60,8 @@ class Login extends React.Component
                     <div className={Style.title}>登录</div>
                     <form className={Style.loginForm} onSubmit={this.onFormSubmit}>
                         <div className={Style.inputWrapper}>
-                            <input type="text" placeholder={'邮箱'} autoFocus={true} ref={this.emailInputRef} />
-                            <input type="text" placeholder={'密码'} ref={this.passwordInputRef} />
+                            <input type="email" placeholder={'邮箱'} autoFocus={true} ref={this.emailInputRef} />
+                            <input type="password" placeholder={'密码'} ref={this.passwordInputRef} />
                         </div>
                         <div className={Style.linkWrapper}>
                             <Link onlyActiveOnIndex={false} to={'#'}>忘记密码？</Link>

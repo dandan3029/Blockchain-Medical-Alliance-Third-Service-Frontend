@@ -134,7 +134,7 @@ class DirectPaymentProcess extends React.Component
                                     [NAMESPACE.DIRECT_PAYMENT_PROCESS.DIRECT_PAYMENT_INFO.INSURANCE_PURCHASING_INFO_ID]: insurancePurchasingInfoId,
                                 } = directPaymentInfo;
                                 
-                                if ((directPaymentMoneyAmount>= minMoneyAmount && directPaymentMoneyAmount <= maxMoneyAmount ) && (directPaymentStage === stageId || stageId === DIRECT_PAYMENT_STAGE_ID.ALL_STAGES))
+                                if ((directPaymentMoneyAmount>= minMoneyAmount && directPaymentMoneyAmount <= maxMoneyAmount ) && (directPaymentStage === stageId || stageId === DIRECT_PAYMENT_STAGE_ID.DEVELOPMENT.ALL_STAGES))
                                 {
                                     return <DirectPaymentInfo   directPaymentInfoId={directPaymentInfoId}
                                                                 // name={name}

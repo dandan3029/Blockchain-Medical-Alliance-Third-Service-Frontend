@@ -15,7 +15,7 @@ const initValues = {
     },
     DirectPaymentProcess: {
         directPaymentMoneyAmountRange: [Number.MIN_VALUE, Number.MAX_VALUE], // 筛选器直付金额范围
-        stageId: DIRECT_PAYMENT_STAGE_ID.ALL_STAGES,              // 筛选器阶段
+        stageId: DIRECT_PAYMENT_STAGE_ID.DEVELOPMENT.ALL_STAGES,              // 筛选器阶段
     },
     AuthProcessor: {
         hasLoggedIn: false,

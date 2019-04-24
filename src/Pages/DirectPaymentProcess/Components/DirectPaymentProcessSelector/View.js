@@ -61,7 +61,7 @@ class DirectPaymentProcessSelector extends React.Component
                     changeFilterDirectPaymentMoneyAmountRange(10001);
                 }, minMoneyAmount === 10001 && maxMoneyAmount === Number.MAX_VALUE)
             ]),
-            new Series('直付状态', Object.values(DIRECT_PAYMENT_STAGE_ID).map(stageId => new Item(DIRECT_PAYMENT_STAGE_ID_TO_TEXT[stageId],
+            new Series('直付状态', Object.values({...DIRECT_PAYMENT_STAGE_ID.DEVELOPMENT, ...DIRECT_PAYMENT_STAGE_ID.NORMAL}).map(stageId => new Item(DIRECT_PAYMENT_STAGE_ID_TO_TEXT[stageId],
                 () =>
                 {
                     changeFilterDirectPaymentStage(stageId);
