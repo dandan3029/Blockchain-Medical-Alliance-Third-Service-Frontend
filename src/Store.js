@@ -18,8 +18,8 @@ const initValues = {
         stageId: DIRECT_PAYMENT_STAGE_ID.ALL_STAGES,              // 筛选器阶段
     },
     AuthProcessor: {
-        hasLoggedIn: false,
-        email: '123@123',
+        hasLoggedIn: true,
+        email: '123456',
     },
     DirectPaymentDetail:{
         directPaymentInfo:{

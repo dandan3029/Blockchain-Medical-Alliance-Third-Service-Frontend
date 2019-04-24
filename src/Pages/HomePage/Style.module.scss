@@ -29,7 +29,7 @@
                     bottom: -(4rem/$RESIZE_FACTOR);
                     top: auto;
                     left: 40rem/$RESIZE_FACTOR;
-                    height: 3px;
+                    height: 6rem/$RESIZE_FACTOR;
                     width: 40rem/$RESIZE_FACTOR;
                     background-color: $DARK_GRAY;
                 }
@@ -66,11 +66,12 @@
                 transform: scale(0.8);
             }
             .stageTextIndicatorWrapper {
-                width: 80%;
+                width: 76%;
                 margin: 0 auto;
                 display: flex;
                 justify-content: space-around;
                 zoom: 70%;
+                transform: translate(-24rem/$RESIZE_FACTOR,)
             }
         }
         
