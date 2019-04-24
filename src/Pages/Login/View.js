@@ -32,16 +32,16 @@ class Login extends React.Component
         e.preventDefault();
         const email = this.emailInputRef.current.value;
         const password = this.passwordInputRef.current.value;
-        // if (!REGEX.EMAIL.test(email))
-        // {
-        //     WarningAlert.pop('邮箱或密码不正确');
-        // }
-        // else if (!REGEX.PASSWORD.test(password))
-        // {
-        //     WarningAlert.pop('邮箱或密码不正确');
-        // }
-        // else
-        // {
+        if (!REGEX.EMAIL.test(email))
+        {
+            WarningAlert.pop('邮箱或密码不正确');
+        }
+        else if (!REGEX.PASSWORD.test(password))
+        {
+            WarningAlert.pop('邮箱或密码不正确');
+        }
+        else
+        {
             const {setLoggedIn} = this.props;
             const requestIsSuccessful = await Api.sendPostLoginRequestAsync(email, password);
             if (requestIsSuccessful)
@@ -49,7 +49,7 @@ class Login extends React.Component
                 setLoggedIn(email);
                 browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.THIRD_PARTY_HOME_PAGE]);
             }
-        // }
+        }
     };
 
     render()
