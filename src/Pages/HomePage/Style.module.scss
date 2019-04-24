@@ -66,11 +66,12 @@
                 transform: scale(0.8);
             }
             .stageTextIndicatorWrapper {
-                width: 80%;
+                width: 76%;
                 margin: 0 auto;
                 display: flex;
                 justify-content: space-around;
                 zoom: 70%;
+                transform: translate(-24rem/$RESIZE_FACTOR,)
             }
         }
         
