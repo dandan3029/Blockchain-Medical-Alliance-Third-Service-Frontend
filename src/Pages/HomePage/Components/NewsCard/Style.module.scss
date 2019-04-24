@@ -1,0 +1,33 @@
+@import "../../../../Constant/COLOR";
+@import "../../../../Constant/RESIZE";
+@import "../../../../Constant/FONT";
+
+.NewsCard{
+    width: (928rem/$RESIZE_FACTOR);
+    height: auto;
+    font-size: 24rem/$RESIZE_FACTOR;
+
+    .title{
+        text-align: left;
+        display: block;
+        float: left;
+        &::before{
+            height:10rem/$RESIZE_FACTOR;
+            content: url("../../../../Static/HomePage/point.png");
+        }
+    }
+
+    .link{
+        display: block;
+        text-decoration: none;
+        float: right;
+        color: $BLUE;
+        &:hover{
+            color: $DARK_BLUE;
+        }
+    }
+
+    .clearFloat{
+        clear: both;
+    }
+}

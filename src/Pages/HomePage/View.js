@@ -2,10 +2,14 @@ import React from 'react';
 import Style from './Style.module.scss';
 import {View as CarouselContainer} from '../../ComponentContainers/CarouselContainer';
 import {View as IntroductionCard} from './Components/IntroductionCard';
+import {View as CommentCard} from './Components/CommentCard';
+import {View as NewsCard} from './Components/NewsCard';
 import {INTRODUCTION_ICON} from '../../Config';
+import {HEAD_PORTRAIT} from '../../Config';
 import {INSURANCE_PURCHASING_STAGE_ID_TO_TEXT, DIRECT_PAYMENT_STAGE_ID_TO_TEXT} from '../../Constant';
 import {View as HorizontalStageProgressIndicator} from '../../Components/HorizontalStageProgressIndicator';
 import {View as StageTextIndicator} from '../../Components/StageTextIndicator';
+import medicalInsuranceImgSrc from '../../Static/HomePage/medicalInsurance.png';
 
 class HomePage extends React.Component
 {
@@ -14,6 +18,8 @@ class HomePage extends React.Component
         this.state = {
             insuranceList: [],
             introductionCardInfoList: [],
+            newsCardInfoList: [],
+            commentCardInfoList: [],
         };
     }
     componentDidMount(){
@@ -28,6 +34,7 @@ class HomePage extends React.Component
             })
         }
 
+        // 系统特性卡片数据
         const imageSrcList = [...INTRODUCTION_ICON];
         const titleList = ['建立完整的电子健康档案系统', '注重隐私保护与数据安全' ,'注重个性化智慧医疗', '助力商业医保投付直付问题'];
         const contentList = [
@@ -44,7 +51,51 @@ class HomePage extends React.Component
                 content: contentList[i],
             })
         }
-        this.setState({insuranceList, introductionCardInfoList});
+        // 新闻卡片信息数据
+        const newsCardInfoList = [];
+        const newsTitleList = [
+            '民心专列：救命药价格高医保不能报 改革采购方式降低价格',
+            '十九大关于医疗健康的4点重要解读',
+            '韩正副总理透露 下一步医保改革将有六大趋势动向',
+            '【两会特别报道】一图读懂医保改革亮点（上）',
+            '《2019年国家医保药品目录调整工作方案》公布，4点变化需要你注意！​',
+            '国家医保局官方解读 | 目录调整优先考虑哪些药？',
+            '医保管理，如何走好筹资与待遇的平衡木？',
+        ];
+        const newsHrefList = [
+            'http://www.zgnt.net/content/2019-04/18/content_2612931.htm',
+            'https://www.cn-healthcare.com/articlewm/20171019/content-1018105.html',
+            'https://www.cn-healthcare.com/articlewm/20190112/content-1044543.html',
+            'https://www.zgylbx.com/index.php?m=content&c=index&a=show&catid=6&id=32763',
+            'https://www.zgylbx.com/index.php?m=content&c=index&a=show&catid=6&id=35091',
+            'https://www.zgylbx.com/index.php?m=content&c=index&a=show&catid=6&id=35090',
+            'https://www.zgylbx.com/index.php?m=content&c=index&a=show&catid=10&id=34925',
+        ];
+        for (let i = 0 ; i < newsTitleList.length; i++)
+        {
+            newsCardInfoList.push({
+                newsTitle: newsTitleList[i],
+                newsHref: newsHrefList[i],
+            });
+        }
+        // 评论卡片信息数据
+        const headPortraitImageSrcList = [...HEAD_PORTRAIT];
+        const nickNameList = ['善变梦想家', '红蜻蜓', '心已成沙'];
+        const commentContent = [
+            '人民健康是民族昌盛和国家富强的重要标志。要完善国民健康政策，为人民群众提供全方位全周期健康服务。',
+            '从前，由于基层医疗卫生服务体系的不完善，群众看病难、看病贵问题一直是制约“满足群众健康需求”的瓶颈，相信在未来的5年内可以得到逐步改善。',
+            '坚持预防为主，深入开展爱国卫生运动，倡导健康文明生活方式，预防控制重大疾病。实施食品安全战略，让人民吃得放心。',
+        ];
+        const commentCardInfoList = [];
+        for( let i = 0; i < 3 ; i ++)
+        {
+            commentCardInfoList.push({
+                imageSrc: headPortraitImageSrcList[i],
+                title: nickNameList[i],
+                content: commentContent[i],
+            })
+        }
+        this.setState({insuranceList, introductionCardInfoList, newsCardInfoList, commentCardInfoList});
     }
     render(){
         const {insuranceList} = this.state;
@@ -52,7 +103,7 @@ class HomePage extends React.Component
         const directPaymentStageTextArray = [...DIRECT_PAYMENT_STAGE_ID_TO_TEXT];
         const insurancePurchasingStageNumber = insurancePurchasingStageTextArray.length - 1;
         const directPaymentStageNumber = directPaymentStageTextArray.length - 1;
-        const {introductionCardInfoList} = this.state;
+        const {introductionCardInfoList, newsCardInfoList, commentCardInfoList} = this.state;
         return (
             <div className={Style.HomePage}>
                 <CarouselContainer shouldShowInsurancePublicationButton={false} className={Style.carousel} />
@@ -103,6 +154,45 @@ class HomePage extends React.Component
                         </div>
                     </div>
                     
+                    <div className={Style.moduleTitleWrapper}>
+                        <div className={Style.moduleTitle}><strong>相关新闻</strong></div>
+                    </div>
+                    <div className={Style.newsModuleWrapper}>
+                        <div className={Style.newsImageWrapper}>
+                            <img src={medicalInsuranceImgSrc} className={Style.newsImage}/>
+                        </div>
+                        <div className={Style.newsCardListWrapper}>
+                            {
+                                newsCardInfoList.map( (newsCardInfo, i) => {
+                                    const {newsTitle, newsHref} = newsCardInfo;
+                                    return (
+                                        <div className={Style.newsCardWrapper}>
+                                            <NewsCard {...{newsTitle,newsHref}}/>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div class={Style.clearFloat}></div>
+                    </div>
+
+                    <div className={Style.moduleTitleWrapper}>
+                        <div className={Style.moduleTitle}><strong>用户评论</strong></div>
+                    </div>
+                    <div className={Style.commentListWrapper}>
+                        {
+                            commentCardInfoList.map( (commentCardInfo,i) => {
+                                const {imageSrc, title, content} = commentCardInfo;
+                                return (
+                                    <div className={Style.commentCardWrapper} key={i}>
+                                        <CommentCard {...{
+                                            imageSrc,title,content,
+                                        }}/>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         );
