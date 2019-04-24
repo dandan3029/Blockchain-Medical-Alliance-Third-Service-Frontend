@@ -19,7 +19,7 @@ const initValues = {
     },
     AuthProcessor: {
         hasLoggedIn: true,
-        email: '123@123',
+        email: '123456',
     },
     DirectPaymentDetail:{
         directPaymentInfo:{

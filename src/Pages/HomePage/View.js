@@ -3,6 +3,9 @@ import Style from './Style.module.scss';
 import {View as CarouselContainer} from '../../ComponentContainers/CarouselContainer';
 import {View as IntroductionCard} from './Components/IntroductionCard';
 import {INTRODUCTION_ICON} from '../../Config';
+import {INSURANCE_PURCHASING_STAGE_ID_TO_TEXT, DIRECT_PAYMENT_STAGE_ID_TO_TEXT} from '../../Constant';
+import {View as HorizontalStageProgressIndicator} from '../../Components/HorizontalStageProgressIndicator';
+import {View as StageTextIndicator} from '../../Components/StageTextIndicator';
 
 class HomePage extends React.Component
 {
@@ -45,6 +48,10 @@ class HomePage extends React.Component
     }
     render(){
         const {insuranceList} = this.state;
+        const insurancePurchasingStageTextArray = [...INSURANCE_PURCHASING_STAGE_ID_TO_TEXT];
+        const directPaymentStageTextArray = [...DIRECT_PAYMENT_STAGE_ID_TO_TEXT];
+        const insurancePurchasingStageNumber = insurancePurchasingStageTextArray.length - 1;
+        const directPaymentStageNumber = directPaymentStageTextArray.length - 1;
         const {introductionCardInfoList} = this.state;
         return (
             <div className={Style.HomePage}>
@@ -73,10 +80,29 @@ class HomePage extends React.Component
                     <div className={Style.moduleTitleWrapper}>
                         <div className={Style.moduleTitle}><strong>系统流程</strong></div>
                     </div>
-                    <div className={Style.graphWrapper}>
-                        <img />
-                        <img />                        
+                    <div className={Style.indicatorWrapper}>
+                        <div className={Style.title}>投保流程</div>
+                        <div className={Style.stageProgressIndicatorWrapper}>
+                            <HorizontalStageProgressIndicator currentStageNumber={insurancePurchasingStageNumber}
+                                                            maxStageNumber={insurancePurchasingStageNumber} />
+                        </div>
+                        <div className={Style.stageTextIndicatorWrapper}  style={{width:'60%',}}>
+                            <StageTextIndicator currentStageNumber={insurancePurchasingStageNumber}
+                                            stageTextArray={insurancePurchasingStageTextArray} />
+                        </div>
                     </div>
+                    <div className={Style.indicatorWrapper}>
+                        <div className={Style.title}>直付流程</div>
+                        <div className={Style.stageProgressIndicatorWrapper}>
+                            <HorizontalStageProgressIndicator currentStageNumber={directPaymentStageTextArray.length - 1}
+                                                            maxStageNumber={directPaymentStageTextArray.length - 1} />
+                        </div>
+                        <div className={Style.stageTextIndicatorWrapper}>
+                            <StageTextIndicator currentStageNumber={directPaymentStageNumber}
+                                            stageTextArray={directPaymentStageTextArray} />
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         );
