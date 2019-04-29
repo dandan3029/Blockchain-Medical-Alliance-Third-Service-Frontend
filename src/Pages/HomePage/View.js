@@ -128,6 +128,29 @@ class HomePage extends React.Component
                             })
                         }
                     </div>
+                    
+                    <div className={Style.moduleTitleWrapper}>
+                        <div className={Style.moduleTitle}><strong>相关新闻</strong></div>
+                    </div>
+                    <div className={Style.newsModuleWrapper}>
+                        <div className={Style.newsImageWrapper}>
+                            <img src={medicalInsuranceImgSrc} className={Style.newsImage}/>
+                        </div>
+                        <div className={Style.newsCardListWrapper}>
+                            {
+                                newsCardInfoList.map( (newsCardInfo, i) => {
+                                    const {newsTitle, newsHref} = newsCardInfo;
+                                    return (
+                                        <div className={Style.newsCardWrapper}>
+                                            <NewsCard {...{newsTitle,newsHref}}/>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div class={Style.clearFloat}></div>
+                    </div>
+
                     <div className={Style.moduleTitleWrapper}>
                         <div className={Style.moduleTitle}><strong>系统流程</strong></div>
                     </div>
@@ -153,28 +176,7 @@ class HomePage extends React.Component
                                             stageTextArray={directPaymentStageTextArray} />
                         </div>
                     </div>
-                    
-                    <div className={Style.moduleTitleWrapper}>
-                        <div className={Style.moduleTitle}><strong>相关新闻</strong></div>
-                    </div>
-                    <div className={Style.newsModuleWrapper}>
-                        <div className={Style.newsImageWrapper}>
-                            <img src={medicalInsuranceImgSrc} className={Style.newsImage}/>
-                        </div>
-                        <div className={Style.newsCardListWrapper}>
-                            {
-                                newsCardInfoList.map( (newsCardInfo, i) => {
-                                    const {newsTitle, newsHref} = newsCardInfo;
-                                    return (
-                                        <div className={Style.newsCardWrapper}>
-                                            <NewsCard {...{newsTitle,newsHref}}/>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                        <div class={Style.clearFloat}></div>
-                    </div>
+
 
                     <div className={Style.moduleTitleWrapper}>
                         <div className={Style.moduleTitle}><strong>用户评论</strong></div>
